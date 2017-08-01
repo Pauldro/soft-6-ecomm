@@ -22,7 +22,7 @@
  *
  */
 
-if(!defined("PROCESSWIRE")) die();
+	if(!defined("PROCESSWIRE")) die();
 
 /*** SITE CONFIG *************************************************************************/
 
@@ -38,7 +38,7 @@ if(!defined("PROCESSWIRE")) die();
  * @var bool
  *
  */
-$config->debug = true;
+	$config->debug = true;
 
 /**
  * Prepend template file
@@ -58,11 +58,11 @@ $config->prependTemplateFile = '_init.php';
  * Installer: Database Configuration
  * 
  */
-$config->dbHost = 'localhost';
-$config->dbName = 'store';
-$config->dbUser = 'cptecomm';
-$config->dbPass = 'rghopeless';
-$config->dbPort = '3306';
+	$config->dbHost = 'localhost';
+	$config->dbName = 'store';
+	$config->dbUser = 'cptecomm';
+	$config->dbPass = 'rghopeless';
+	$config->dbPort = '3306';
 
 /**
  * Installer: User Authentication Salt 
@@ -70,21 +70,21 @@ $config->dbPort = '3306';
  * Must be retained if you migrate your site from one server to another
  * 
  */
-$config->userAuthSalt = '4cbe0ed0f55cfb5bcb3387667390caeb'; 
+	$config->userAuthSalt = '4cbe0ed0f55cfb5bcb3387667390caeb'; 
 
 /**
  * Installer: File Permission Configuration
  * 
  */
-$config->chmodDir = '0755'; // permission for directories created by ProcessWire
-$config->chmodFile = '0644'; // permission for files created by ProcessWire 
+	$config->chmodDir = '0755'; // permission for directories created by ProcessWire
+	$config->chmodFile = '0644'; // permission for files created by ProcessWire 
 
 /**
  * Installer: Time zone setting
  * 
  */
-$config->timezone = 'America/Chicago';
-setlocale(LC_ALL,'en_US.UTF-8');
+	$config->timezone = 'America/Chicago';
+	setlocale(LC_ALL,'en_US.UTF-8');
 
 /**
  * Installer: Unix timestamp of date/time installed
@@ -93,12 +93,17 @@ setlocale(LC_ALL,'en_US.UTF-8');
  * Please leave this value as-is.
  * 
  */
-$config->installed = 1496352426;
+		$config->installed = 1496352426;
 
 
 /**
  * Installer: HTTP Hosts Whitelist
  * 
  */
-$config->httpHosts = array('192.168.1.28');
+	$config->httpHosts = array('192.168.1.28');
+
+	$config->siteimages = $config->urls->root . 'assets/files/images/';
+
+	$config->pages = new Paths($rootURL);
+	$config->pages->index = $config->urls->root;
 
