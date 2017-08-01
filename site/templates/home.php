@@ -11,4 +11,5 @@
 		<?php echo $page->body; ?>
 		<?php include $config->paths->content."common/newsletter.php"; ?>
 	</div>
+	
 <?php include('./_foot.php'); // include footer markup ?>
