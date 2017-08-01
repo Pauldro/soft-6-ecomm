@@ -1,0 +1,2 @@
+2017-06-01 16:35:31	rcapsys	http://192.168.2.100/store/manage/login/	Successful login for 'rcapsys'
+2017-06-02 09:00:21	rcapsys	http://192.168.2.100/store/manage/login/	Successful login for 'rcapsys'

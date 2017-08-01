@@ -1,0 +1,3 @@
+2017-06-01 16:28:14	guest	http://192.168.2.100/store/	Compiled file: /site/templates/_init.php
+2017-06-01 16:28:14	guest	http://192.168.2.100/store/	Compiled file: /site/templates/home.php
+2017-06-01 16:28:14	guest	http://192.168.2.100/store/	Compiled file: /site/templates/_func.php
