@@ -13,6 +13,7 @@
 	@media screen and (max-width:600px) {
 		.page-banner{height: 300px;}
 	}
+	footer {background-color: #000033; color: #fff; padding-top: 15px;}
 	
 /*==============================================================
    NAVIGATION STYLES
