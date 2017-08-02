@@ -7,18 +7,86 @@
 	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:200px;}
 
 	.tsp-background {background: rgba(0,0,0,0.4);}
-	.white-text {color: #fff !important;}
 
 	.page-banner{height: 500px;}
 	@media screen and (max-width:600px) {
 		.page-banner{height: 300px;}
 	}
-	
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	p {
+		font-family: 'Roboto', sans-serif;
+		font-size: 1.125em;
+	}
+
+	a {
+		font-family: 'Roboto', sans-serif;
+		font-weight: normal;
+		color: #6600cc;
+		text-decoration: none;
+	}
+	a:hover {
+		font-style: italic;
+		text-decoration: none;
+		color: #6600cc;
+	}
+
 /*==============================================================
    NAVIGATION STYLES
  =============================================================*/
 	#navbar-logo {height: 40px; margin-top: -10px;}
 	.navbar a.navbar-brand:hover { background-color: transparent;}
+	.logo {margin: 15px 0 10px 0;}
+
+/*==============================================================
+		 FEATURED PRODUCTS STYLES
+=============================================================*/
+.featured-products {margin-top: 50px;}
+
+.featured-products p {font-size: .9em;}
+
+.featured-products button {
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	background-color: #3366ff;
+	border: none;
+	width: 110px;
+	margin-bottom: 50px;
+}
+
+.featured-products .price {
+	color: #669933;
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	font-size: 1.25em;
+}
+
+/*==============================================================
+	   NEWSLETTER SIGNUP STYLES
+=============================================================*/
+.newsletter-container {margin-top: 30px;}
+
+.newsletter h2 {
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+}
+
+.newsletter p {
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+
+.newsletter button {
+	border: none;
+	font-family: 'Roboto', sans-serif;
+	width: 153px;
+	height: 40px;
+	font-size: 1.2em;
+}
 
 /*==============================================================
    PRINT STYLES
@@ -50,3 +118,113 @@
 =============================================================*/
 	.email-width {width: 300px;}
 
+/*==============================================================
+	 PRODUCT CONTAINER STYLES
+=============================================================*/
+.product-container h1 {margin-bottom: 23px;}
+
+.product-container a {
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
+	color: #6600cc;
+}
+.product-container a:hover {
+	font-style: italic;
+}
+
+.product-container .product-category {
+	color: #3366ff;
+}
+
+.product-container h2 {margin-top: 0;}
+
+.product-container .fa-star, .product-container .fa-star-o {
+	color: #ff9933;
+}
+
+.product-container .price {
+	color: #669933;
+	margin-top: 30px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+.product-container label {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+	font-size: 1.125em;
+	margin-top: 20px;
+}
+
+.product-container .quantity {margin-left: 50px;}
+
+.product-container .add_to_cart {
+	background-color: #3366ff;
+	border: none;
+	margin-top: 40px;
+	font-family: 'Roboto', sans-serif;
+	width: 153px;
+	height: 45px;
+	font-size: 1.3em;
+}
+
+/*==============================================================
+	 RELATED PRODUCTS STYLES
+=============================================================*/
+.related-products {margin-top: 50px;}
+
+.related-products h3 {margin-bottom: 15px;}
+
+.related-products p {font-size: .9em;}
+
+.related-products button {
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	background-color: #3366ff;
+	border: none;
+	width: 110px;
+	margin-bottom: 50px;
+}
+
+.related-products .price {
+	color: #669933;
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+/*==============================================================
+	 CATEGORY PAGE STYLES
+=============================================================*/
+.category-page h3 {margin-bottom: 15px;}
+
+.category-page p {font-size: .9em;}
+
+.category-page button {
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	background-color: #3366ff;
+	border: none;
+	width: 110px;
+	margin-bottom: 50px;
+}
+
+.category-page .price {
+	color: #669933;
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+/*==============================================================
+	 FOOTER STYLES
+=============================================================*/
+footer {
+	background-color: #000;
+	color: #fff;
+}
+
+footer p {
+	margin-top: 20px;
+	font-size: .9em;
+}

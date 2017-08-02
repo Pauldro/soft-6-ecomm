@@ -15,7 +15,7 @@
 	}
 ?>
 <div class="container">
-	<img src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo">
+	<img class="logo img-responsive" src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo">
 </div>
 <nav class="navbar <?= $navbar; ?> navbar-static-top">
 	<div class="container">
@@ -33,7 +33,7 @@
 				<li><a href="#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown 
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
