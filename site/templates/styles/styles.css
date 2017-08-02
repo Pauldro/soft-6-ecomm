@@ -12,6 +12,7 @@
 	@media screen and (max-width:600px) {
 		.page-banner{height: 300px;}
 	}
+<<<<<<< HEAD
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Montserrat', sans-serif;
@@ -34,6 +35,10 @@
 		color: #6600cc;
 	}
 
+=======
+	footer {background-color: #000033; color: #fff; padding-top: 15px;}
+	
+>>>>>>> c8369d5389ad6974d0a69f098a3b7ab30826b7da
 /*==============================================================
    NAVIGATION STYLES
  =============================================================*/
