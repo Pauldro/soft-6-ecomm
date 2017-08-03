@@ -24,27 +24,25 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<img class="img-responsive" src="<?php echo $pages->get("/product-1/")->product_image->url; ?>" alt="">
-					<h3><?php echo $pages->get("/product-1/")->product_title; ?></h3>
-					<p><?php echo $pages->get("/product-1/")->product_features; ?></p>
-					<p class="price">$<?php echo $pages->get("/product-1/")->price; ?></p>
-					<button class="btn btn-info" type="button" name="button">Add to Cart</button>
-				</div>
-				<div class="col-md-4">
-					<img class="img-responsive" src="<?php echo $pages->get("/product-1/")->product_image->url; ?>" alt="">
-					<h3><?php echo $pages->get("/product-1/")->product_title; ?></h3>
-					<p><?php echo $pages->get("/product-1/")->product_features; ?></p>
-					<p class="price">$<?php echo $pages->get("/product-1/")->price; ?></p>
-					<button class="btn btn-info" type="button" name="button">Add to Cart</button>
-				</div>
-				<div class="col-md-4">
-					<img class="img-responsive" src="<?php echo $pages->get("/product-1/")->product_image->url; ?>" alt="">
-					<h3><?php echo $pages->get("/product-1/")->product_title; ?></h3>
-					<p><?php echo $pages->get("/product-1/")->product_features; ?></p>
-					<p class="price">$<?php echo $pages->get("/product-1/")->price; ?></p>
-					<button class="btn btn-info" type="button" name="button">Add to Cart</button>
-				</div>
+				<?php
+				$randoms = $pages->find("template=product-page, sort=random");
+				$i = 0;
+				foreach ($randoms as $random) {
+				?>
+					<div class="col-md-4">
+						<img class="img-responsive" src="<?php echo $random->product_image->url; ?>" alt="">
+						<h3><?php echo $random->product_title; ?></h3>
+						<p><?php echo $random->product_features; ?></p>
+						<p class="price">$<?php echo $random->price; ?></p>
+						<form action="<?php echo $random->url; ?>"
+							<button class="btn btn-info" type="submit" name="button">Add to Cart</button>
+						</form>
+					</div>
+				<?php
+				$i++;
+				if ($i==3) break;
+				}
+				?>
 			</div>
 		</div>
 		<!-- END FEATURED PRODUCTS -->

@@ -12,7 +12,6 @@
 	@media screen and (max-width:600px) {
 		.page-banner{height: 300px;}
 	}
-<<<<<<< HEAD
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Montserrat', sans-serif;
@@ -37,7 +36,7 @@
 
 =======
 	footer {background-color: #000033; color: #fff; padding-top: 15px;}
-	
+
 >>>>>>> c8369d5389ad6974d0a69f098a3b7ab30826b7da
 /*==============================================================
    NAVIGATION STYLES
@@ -49,7 +48,7 @@
 /*==============================================================
 		 FEATURED PRODUCTS STYLES
 =============================================================*/
-.featured-products {margin-top: 50px;}
+.featured-products {margin-top: 15px;}
 
 .featured-products p {font-size: .9em;}
 
@@ -73,7 +72,7 @@
 /*==============================================================
 	   NEWSLETTER SIGNUP STYLES
 =============================================================*/
-.newsletter-container {margin-top: 30px;}
+.newsletter-container {margin-top: 70px;}
 
 .newsletter h2 {
 	font-family: 'Montserrat', sans-serif;
@@ -126,7 +125,10 @@
 /*==============================================================
 	 PRODUCT CONTAINER STYLES
 =============================================================*/
-.product-container h1 {margin-bottom: 23px;}
+.product-container h1 {
+	margin-bottom: 23px;
+	font-family: 'Montserrat', sans-serif;
+}
 
 .product-container a {
 	font-family: 'Montserrat', sans-serif;
@@ -135,6 +137,10 @@
 }
 .product-container a:hover {
 	font-style: italic;
+}
+
+.product-container .blue {
+	color: #3366ff;
 }
 
 .product-container .product-category {
@@ -201,7 +207,20 @@
 /*==============================================================
 	 CATEGORY PAGE STYLES
 =============================================================*/
+.category-page h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .category-page h3 {margin-bottom: 15px;}
+
+.category-page a {
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
+	color: #6600cc;
+}
+.category-page a:hover {
+	font-style: italic;
+}
 
 .category-page p {font-size: .9em;}
 

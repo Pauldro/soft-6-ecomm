@@ -1,11 +1,11 @@
 <?php include('./_head.php'); ?>
 
 	<div class="container page">
-<<<<<<< HEAD
 		<div class="product-container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1><a href="#">Paint</a> > <a href="#" class="product-category">Colors</a> > <?php echo $page->product_title; ?></h1>
+					<h1><a href="<?php echo $page->parent->parent->url; ?>">Products</a> > <a class="blue
+						" href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a> > <?php echo $page->product_title; ?></h1>
 				</div>
 			</div>
 			<div class="row">
@@ -28,34 +28,6 @@
 					</form>
 	      </div>
 			</div>
-=======
-		<h1><?= $page->product_title; ?></h1>
-		<div class="row">
-			<div class="col-sm-4">
-				<img class="img-responsive" src="<?= $page->product_image->height(400)->url; ?>" alt="">
-			</div>
-			<div class="col-sm-4">
-				<h3>Specs</h3>
-				<div>
-					<?php echo $page->product_specifications; ?>
-				</div>
-				<button class="btn btn-primary">Add to Cart</button>
-			</div>
-		</div>
-		<div class="row">
-      <div class="col-md-1"></div>
-		  <div class="col-md-5">
-        
-        <p><?php echo $page->product_description; ?></p>
-		  </div>
-      <div class="col-md-5">
-        <h2>Features</h2>
-        <p></p>
-        <h2>Specifications</h2>
-        <p><?php echo $page->product_specifications; ?></p>
-      </div>
-      <div class="col-md-1"></div>
->>>>>>> c8369d5389ad6974d0a69f098a3b7ab30826b7da
 		</div>
 		<!-- END PRODUCT CONTAINER -->
 		<div class="related-products">
@@ -65,34 +37,28 @@
 				</div>
 			</div>
 			<div class="row">
+				<?php
+				$related = $page->parent->children;
+				$i = 0;
+				$exclude = $page->id;
+				foreach ($related as $relate) {
+					if($relate->id != $exclude) {
+				?>
 					<div class="col-md-3">
-						<img class="img-responsive" src="<?php echo $page->product_image->height(300)->url ?>" alt="">
-						<h4>Product 1</h4>
-						<p><?php echo $page->product_features; ?></p>
-						<h4 class="price">$<?php echo $page->price; ?></h4>
-						<button class="btn btn-info" type="button" name="button">See more...</button>
+						<img class="img-responsive" src="<?php echo $relate->product_image->height(300)->url ?>" alt="">
+						<h4><?php echo $relate->title; ?></h4>
+						<p><?php echo $relate->product_features; ?></p>
+						<h4 class="price">$<?php echo $relate->price; ?></h4>
+						<form action="<?php echo $relate->url; ?>">
+							<button class="btn btn-info" type="submit" name="button">See more...</button>
+						</form>
 					</div>
-					<div class="col-md-3">
-						<img class="img-responsive" src="<?php echo $page->product_image->height(300)->url ?>" alt="">
-						<h4>Product 1</h4>
-						<p><?php echo $page->product_features; ?></p>
-						<h4 class="price">$<?php echo $page->price; ?></h4>
-						<button class="btn btn-info" type="button" name="button">See more...</button>
-					</div>
-					<div class="col-md-3">
-						<img class="img-responsive" src="<?php echo $page->product_image->height(300)->url ?>" alt="">
-						<h4>Product 1</h4>
-						<p><?php echo $page->product_features; ?></p>
-						<h4 class="price">$<?php echo $page->price; ?></h4>
-						<button class="btn btn-info" type="button" name="button">See more...</button>
-					</div>
-					<div class="col-md-3">
-						<img class="img-responsive" src="<?php echo $page->product_image->height(300)->url ?>" alt="">
-						<h4>Product 1</h4>
-						<p><?php echo $page->product_features; ?></p>
-						<h4 class="price">$<?php echo $page->price; ?></h4>
-						<button class="btn btn-info" type="button" name="button">See more...</button>
-					</div>
+				<?php
+				}
+				$i++;
+				if($i==4) break;
+				}
+				?>
 			</div>
 		</div>
 		<!-- END RELATED PRODUCTS -->

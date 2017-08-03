@@ -15,7 +15,9 @@
 	}
 ?>
 <div class="container">
-	<img class="logo img-responsive" src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo">
+	<a href="<?php echo $pages->get(1)->httpUrl; ?>">
+		<img class="logo img-responsive" src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo">
+	</a>
 </div>
 <nav class="navbar <?= $navbar; ?> navbar-static-top">
 	<div class="container">
