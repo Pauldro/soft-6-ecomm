@@ -34,15 +34,16 @@
 		color: #6600cc;
 	}
 
-=======
 	footer {background-color: #000033; color: #fff; padding-top: 15px;}
 
->>>>>>> c8369d5389ad6974d0a69f098a3b7ab30826b7da
 /*==============================================================
    NAVIGATION STYLES
- =============================================================*/
+ =================================
+ ============================*/
 	#navbar-logo {height: 40px; margin-top: -10px;}
+
 	.navbar a.navbar-brand:hover { background-color: transparent;}
+
 	.logo {margin: 15px 0 10px 0;}
 
 /*==============================================================
@@ -50,7 +51,16 @@
 =============================================================*/
 .featured-products {margin-top: 15px;}
 
-.featured-products p {font-size: .9em;}
+.featured-products h1, h2, h3, h4, h5 {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.featured-products a {font-family: 'Montserrat', sans-serif;}
+
+.featured-products p {
+	color: #000;
+	font-size: .9em;
+}
 
 .featured-products button {
 	margin-top: 20px;
@@ -72,7 +82,7 @@
 /*==============================================================
 	   NEWSLETTER SIGNUP STYLES
 =============================================================*/
-.newsletter-container {margin-top: 70px;}
+.newsletter-container {margin-top: 30px;}
 
 .newsletter h2 {
 	font-family: 'Montserrat', sans-serif;
@@ -121,6 +131,17 @@
    EMAIL STYLES
 =============================================================*/
 	.email-width {width: 300px;}
+
+/*==============================================================
+	 NAVIGATION STYLES
+=============================================================*/
+.products {
+	list-style-type: none;
+}
+
+.products a {
+	font-family: 'Montserrat', sans-serif;
+}
 
 /*==============================================================
 	 PRODUCT CONTAINER STYLES

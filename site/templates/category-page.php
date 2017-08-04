@@ -8,13 +8,17 @@ include('./_head.php');
 				<h1><a href="<?php echo $page->parent->url; ?>">Products</a> > <?php echo $page->title; ?></h1>
 			</div>
 		</div>
-		<div class="row category-page">
+		<!-- <div class="row category-page"> -->
 			<?php
 			$products = $page->children;
-			foreach ($products as $product){
+			$i = 0;
+			foreach ($products as $product) {
+				if ($i % 4 == 0) {
+					echo "<div class='row category-page'>";
+				}
 			?>
-			<div class="col-md-3">
-				<img class="img-responsive" src="<?php echo $product->product_image->height(300)->url ?>" alt="">
+			<div class="col-sm-3">
+				<img class="img-responsive" src="<?php echo $product->product_image->height(300)->url; ?>" alt="<?php echo $product->title; ?>">
 				<h4><?php echo $product->title; ?></h4>
 				<p><?php echo $product->product_features; ?></p>
 				<p><?php echo $product->product_specifications; ?></p>
@@ -23,7 +27,13 @@ include('./_head.php');
 					<button class="btn btn-info" type="submit" name="button">See more...</button>
 				</form>
 			</div>
-			<?php } ?>
+			<?php
+			$i++;
+				if ($i % 4 == 0) {
+					echo "</div>";
+				}
+			}
+			?>
 		</div>
 	</div>
 

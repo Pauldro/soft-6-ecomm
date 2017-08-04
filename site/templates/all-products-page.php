@@ -6,6 +6,9 @@
         include('./tags.php');
       ?>
 		</div>
+		<?php
+		include('featured-products.php');
+		?>
 	</div>
 
 <?php include('./_foot.php'); // include footer markup ?>

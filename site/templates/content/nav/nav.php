@@ -31,7 +31,7 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="<?php echo $pages->get(1)->httpUrl; ?>">Home</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
 				<li class="dropdown">
@@ -50,9 +50,8 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../navbar/">Default</a></li>
-				<li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
-				<li><a href="../navbar-fixed-top/">Fixed top</a></li>
+				<li class="active"><a href="./">Login<span class="sr-only">(current)</span></a></li>
+				<li><a href="../navbar-fixed-top/">Search</a></li>
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>
