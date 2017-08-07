@@ -34,6 +34,10 @@
 		color: #6600cc;
 	}
 
+	label {font-family: 'Montserrat', sans-serif;}
+
+	button {font-family: 'Roboto', sans-serif;}
+
 	footer {background-color: #000033; color: #fff; padding-top: 15px;}
 
 /*==============================================================
@@ -259,6 +263,15 @@
 	margin-top: 20px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
+}
+
+/*==============================================================
+	 ABOUT STYLES
+=============================================================*/
+.about img {
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 /*==============================================================
