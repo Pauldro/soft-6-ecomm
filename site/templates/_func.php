@@ -49,6 +49,45 @@ function renderNav(PageArray $items) {
 	echo "</ul>";
 }
 
+function navigationmenu(PageArray $items) {
+	if(!$items->count()) return;
+	echo "<ul class='nav navbar-nav' role='navigation'>";
+	foreach ($items as $item) {
+		if ($item->showinnavigation) {
+			if ($item->hasChildren() && $item->id != wire('pages')->get('/')->id) {
+				if($item->id == wire('page')->rootParent->id) {
+					// if current item is the same as the page being viewed, add a "current" class to it
+					echo "<li class='active dropdown' aria-current='true'>";
+				} else {
+					// otherwise just a regular list item
+					echo "<li class='dropdown'>";
+				}
+				echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>" .
+					 $item->title."<span class='caret'></span></a>";
+				echo "<ul class='dropdown-menu'>";
+				foreach ($item->children() as $itemchild) {
+					echo "<li><a href='".$itemchild->url."'>".$itemchild->title."</a></li>";
+				}
+				echo "</ul>";
+			} else {
+				if($item->id == wire('page')->id) {
+					// if current item is the same as the page being viewed, add a "current" class to it
+					echo "<li class='active' aria-current='true'>";
+				} else {
+					// otherwise just a regular list item
+					echo "<li>";
+				}
+				echo "<a href='$item->url'>$item->title</a> ";
+			}
+
+
+			echo "</li>";
+		}
+		
+	}
+	echo "</ul>";
+	
+}
 
 /**
  * Given a group of pages render a tree of navigation
@@ -97,3 +136,20 @@ function renderNavTree($items, $maxDepth = 3) {
 	// end our <ul> markup
 	echo "</ul>";
 }
+
+/* =============================================================
+	STRING FUNCTIONS
+============================================================ */
+	function shortentext($str, $length) {
+		return substr($str, 0, strrpos(substr($str, 0, $length), '. '));
+	}
+
+	function addreadmore($str, $length, $link) {
+		if (strlen($str) > $length) {
+			return shortentext($str, $length);
+			return shortentext($str, $length) . " <a href='".$link.">Read More</a>";
+		} else {
+			return str_pad($str, $length, ' ');
+		}
+	}
+
