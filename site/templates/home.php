@@ -19,7 +19,7 @@
 		</div>
 		<?php include $config->paths->content."common/featured-products.php"; ?>
 		<!-- END FEATURED PRODUCTS -->
-		<?php include $config->paths->content."common/newsletter.php"; ?>
+		
 	</div>
-
+<?php include $config->paths->content."common/newsletter.php"; ?>
 <?php include('./_foot.php'); // include footer markup ?>
