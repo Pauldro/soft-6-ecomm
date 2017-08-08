@@ -4,7 +4,7 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
-dwsync.xml
+
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -47,6 +47,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-configs/
+# DW Dreamweaver added files
 _notes/
 dwsync.xml
