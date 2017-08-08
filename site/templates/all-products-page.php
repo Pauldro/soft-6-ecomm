@@ -7,7 +7,7 @@
       ?>
 		</div>
 		<?php
-		include('featured-products.php');
+		include('./featured-products.php');
 		?>
 	</div>
 

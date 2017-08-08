@@ -17,9 +17,7 @@
 				<p><?php echo $page->body; ?></p>
 			</div>
 		</div>
-		<?php
-		include('featured-products.php');
-		?>
+		<?php include $config->paths->content."common/featured-products.php"; ?>
 		<!-- END FEATURED PRODUCTS -->
 		<?php include $config->paths->content."common/newsletter.php"; ?>
 	</div>

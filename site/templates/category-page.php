@@ -3,7 +3,7 @@ include('./_head.php');
 ?>
 
 	<div class="container page">
-		<div class="row category-page">
+		<div class="row category-page-title">
 			<div class="col-md-12">
 				<h1><a href="<?php echo $page->parent->url; ?>">Products</a> > <?php echo $page->title; ?></h1>
 			</div>

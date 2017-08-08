@@ -36,7 +36,21 @@
 
 	label {font-family: 'Montserrat', sans-serif;}
 
-	button {font-family: 'Roboto', sans-serif;}
+	button {
+		margin-top: 20px;
+		font-family: 'Roboto', sans-serif;
+		background-color: #3366ff;
+		border: none;
+		width: 110px;
+		margin-bottom: 50px;
+	}
+
+	.price {
+		color: #669933 !important;
+		margin-top: 20px;
+		font-family: 'Roboto', sans-serif;
+		font-weight: bold;
+	}
 
 	footer {background-color: #000033; color: #fff; padding-top: 15px;}
 
@@ -55,10 +69,6 @@
 =============================================================*/
 .featured-products {margin-top: 15px;}
 
-.featured-products h1, h2, h3, h4, h5 {
-	font-family: 'Montserrat', sans-serif;
-}
-
 .featured-products a {font-family: 'Montserrat', sans-serif;}
 
 .featured-products p {
@@ -66,20 +76,8 @@
 	font-size: .9em;
 }
 
-.featured-products button {
-	margin-top: 20px;
-	font-family: 'Roboto', sans-serif;
-	background-color: #3366ff;
-	border: none;
-	width: 110px;
-	margin-bottom: 50px;
-}
-
 .featured-products .price {
 	color: #669933;
-	margin-top: 20px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
 	font-size: 1.25em;
 }
 
@@ -99,8 +97,6 @@
 }
 
 .newsletter button {
-	border: none;
-	font-family: 'Roboto', sans-serif;
 	width: 153px;
 	height: 40px;
 	font-size: 1.2em;
@@ -160,15 +156,8 @@
 	text-decoration: none;
 	color: #6600cc;
 }
-.product-container a:hover {
-	font-style: italic;
-}
 
 .product-container .blue {
-	color: #3366ff;
-}
-
-.product-container .product-category {
 	color: #3366ff;
 }
 
@@ -179,10 +168,7 @@
 }
 
 .product-container .price {
-	color: #669933;
 	margin-top: 30px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
 }
 
 .product-container label {
@@ -195,10 +181,7 @@
 .product-container .quantity {margin-left: 50px;}
 
 .product-container .add_to_cart {
-	background-color: #3366ff;
-	border: none;
 	margin-top: 40px;
-	font-family: 'Roboto', sans-serif;
 	width: 153px;
 	height: 45px;
 	font-size: 1.3em;
@@ -209,61 +192,26 @@
 =============================================================*/
 .related-products {margin-top: 50px;}
 
-.related-products h3 {margin-bottom: 15px;}
+.related-products h4 {color: #6600cc;}
 
 .related-products p {font-size: .9em;}
-
-.related-products button {
-	margin-top: 20px;
-	font-family: 'Roboto', sans-serif;
-	background-color: #3366ff;
-	border: none;
-	width: 110px;
-	margin-bottom: 50px;
-}
-
-.related-products .price {
-	color: #669933;
-	margin-top: 20px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
-}
 
 /*==============================================================
 	 CATEGORY PAGE STYLES
 =============================================================*/
-.category-page h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
-}
+.category-page-title {margin-bottom: 15px;}
 
-.category-page h3 {margin-bottom: 15px;}
-
-.category-page a {
+.category-page-title a {
 	font-family: 'Montserrat', sans-serif;
 	text-decoration: none;
 	color: #6600cc;
 }
-.category-page a:hover {
-	font-style: italic;
-}
+
+.category-page {margin-bottom: 50px;}
+
+.category-page h3 {margin-bottom: 15px;}
 
 .category-page p {font-size: .9em;}
-
-.category-page button {
-	margin-top: 20px;
-	font-family: 'Roboto', sans-serif;
-	background-color: #3366ff;
-	border: none;
-	width: 110px;
-	margin-bottom: 50px;
-}
-
-.category-page .price {
-	color: #669933;
-	margin-top: 20px;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
-}
 
 /*==============================================================
 	 ABOUT STYLES
@@ -271,8 +219,12 @@
 .about img {
 	width: 100%;
 	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 60px;
 }
+
+.about h1 {margin-bottom: 30px;}
+
+.about p {margin-bottom: 60px;}
 
 /*==============================================================
 	 FOOTER STYLES

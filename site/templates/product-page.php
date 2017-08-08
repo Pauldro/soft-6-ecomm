@@ -46,7 +46,7 @@
 				?>
 					<div class="col-md-3">
 						<img class="img-responsive" src="<?php echo $relate->product_image->height(300)->url ?>" alt="">
-						<h4><?php echo $relate->title; ?></h4>
+						<a href="<?php echo $relate->url; ?>"><h4><?php echo $relate->title; ?></h4></a>
 						<p><?php echo $relate->product_features; ?></p>
 						<h4 class="price">$<?php echo $relate->price; ?></h4>
 						<form action="<?php echo $relate->url; ?>">
@@ -56,7 +56,7 @@
 				<?php
 				}
 				$i++;
-				if($i==4) break;
+				if($i==5) break;
 				}
 				?>
 			</div>
