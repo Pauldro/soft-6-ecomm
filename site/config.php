@@ -105,5 +105,8 @@ $config->prependTemplateFile = '_init.php';
 	$config->siteimages = $config->urls->root . 'assets/files/images/';
 
 	$config->pages = new Paths($rootURL);
-	$config->pages->index = $config->urls->root;
+	$config->pages->index = $config->urls->root; 
+	$config->pages->about = $config->urls->root . 'about/';
+	$config->pages->products = $config->urls->root . 'products/'; 
+
 
