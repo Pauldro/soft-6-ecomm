@@ -32,8 +32,15 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<?php navigationmenu($children) ; ?>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="./">Login<span class="sr-only">(current)</span></a></li>
-				<li><a href="../navbar-fixed-top/">Search</a></li>
+				<li class="active">
+					<a href="./">Cart (0<!-- TODO INSERT ITEM NUMBERS -->) <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+				</li>
+				<li class="search-group">
+					<input id="search-box" type="text" name="search" value="">
+					<button id="search-button" type="button" name="button">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</button>
+				</li>
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>

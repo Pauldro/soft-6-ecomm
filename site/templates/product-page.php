@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h1><a href="<?php echo $page->parent->parent->url; ?>">Products</a> > <a class="blue
-						" href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a> > <?php echo $page->product_title; ?></h1>
+						" href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a> > <?php echo $page->title; ?></h1>
 				</div>
 			</div>
 			<div class="row">

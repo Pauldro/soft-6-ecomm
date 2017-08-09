@@ -20,7 +20,6 @@ include('./_head.php');
 			<div class="col-sm-3">
 				<img class="img-responsive" src="<?php echo $product->product_image->height(300)->url; ?>" alt="<?php echo $product->title; ?>">
 				<h4><?php echo $product->title; ?></h4>
-				<p><?php echo $product->product_features; ?></p>
 				<p><?php echo $product->product_specifications; ?></p>
 				<h4 class="price">$<?php echo $product->price; ?></h4>
 				<form action="<?php echo $product->url; ?>">
