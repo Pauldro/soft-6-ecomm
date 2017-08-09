@@ -31,15 +31,18 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<?php navigationmenu($children) ; ?>
+			
+			<form class="navbar-form navbar-right">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search" name="q">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+					</div>
+        		</div>
+			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
 					<a href="./">Cart (0<!-- TODO INSERT ITEM NUMBERS -->) <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-				</li>
-				<li class="search-group">
-					<input id="search-box" type="text" name="search" value="">
-					<button id="search-button" type="button" name="button">
-						<i class="fa fa-search" aria-hidden="true"></i>
-					</button>
 				</li>
 			</ul>
 		</div><!--/.nav-collapse -->

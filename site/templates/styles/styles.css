@@ -4,7 +4,7 @@
 	html { position: relative; height: 100%; }
 	body { height: 100%;}
 
-	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:200px;}
+	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:200px; margin-top: 20px;}
 
 	.tsp-background {background: rgba(0,0,0,0.4);}
 
@@ -13,42 +13,23 @@
 		.page-banner{height: 300px;}
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Montserrat', sans-serif;
-	}
 
-	p {
-		font-family: 'Roboto', sans-serif;
-		font-size: 1.125em;
-	}
+	p {font-size: 1.125em;}
 
 	a {
-		font-family: 'Roboto', sans-serif;
 		font-weight: normal;
 		color: #6600cc;
 		text-decoration: none;
 	}
-	a:hover {
-		font-style: italic;
-		text-decoration: none;
-		color: #6600cc;
-	}
-
-	label {font-family: 'Montserrat', sans-serif;}
-
-	button {
-		margin-top: 20px;
-		font-family: 'Roboto', sans-serif;
-		background-color: #3366ff;
-		border: none;
-		width: 110px;
-		margin-bottom: 50px;
-	}
+		a:hover {
+			font-style: italic;
+			text-decoration: none;
+			color: #6600cc;
+		}
 
 	.price {
 		color: #669933 !important;
 		margin-top: 20px;
-		font-family: 'Roboto', sans-serif;
 		font-weight: bold;
 	}
 
@@ -81,12 +62,16 @@
 		height: 50px;
 	}
 
+	.navbar .container {
+		padding-left: 0px;
+	}
+
 /*==============================================================
 		 FEATURED PRODUCTS STYLES
 =============================================================*/
 .featured-products {margin-top: 15px;}
-
-.featured-products a {font-family: 'Montserrat', sans-serif;}
+.featured-products .title {font-family: 'Montserrat', sans-serif;}
+.featured-products a {font-family: 'Roboto', sans-serif;}
 
 .featured-products p {
 	color: #000;
@@ -94,6 +79,7 @@
 }
 
 .featured-products .price {
+	font-family: 'Montserrat', sans-serif;
 	color: #669933;
 	font-size: 1.25em;
 }
@@ -110,7 +96,6 @@
 
 .newsletter p {
 	color: #fff;
-	font-family: 'Roboto', sans-serif;
 }
 
 .newsletter button {
@@ -189,7 +174,6 @@
 }
 
 .product-container label {
-	font-family: 'Roboto', sans-serif;
 	font-weight: normal;
 	font-size: 1.125em;
 	margin-top: 20px;
