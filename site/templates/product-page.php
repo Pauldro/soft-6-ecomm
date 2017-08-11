@@ -8,18 +8,23 @@
 			  <li><?php echo $page->title; ?></li>
 			 </ol>
 			<h1><?php echo $page->title; ?></h1>
-				
+
 			<div class="row">
 			  <div class="col-md-6">
-				<img class="img-responsive" src="<?php echo $page->product_image->url; ?>" alt="">
+				<img class="img-responsive" src="<?php echo $page->product_image->height(500)->url; ?>" alt="">
 				<p><?php echo $page->product_description; ?></p>
 			  </div>
 			  <div class="col-md-6">
-					<h2>Rating</h2>
-					<p><i class="fa fa-star fa-2x" aria-hidden="true"></i>&nbsp;<i class="fa fa-star fa-2x" aria-hidden="true"></i>&nbsp;<i class="fa fa-star fa-2x" aria-hidden="true"></i>&nbsp;<i class="fa fa-star fa-2x" aria-hidden="true"></i>&nbsp;<i class="fa fa-star-o fa-2x" aria-hidden="true"></i></p>
-					<h2>Features</h2>
+					<h3>Rating</h3>
+					<p class="star">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<h3>Features</h3>
 					<p><?php echo $page->product_features; ?></p>
-					<h2>Specifications</h2>
+					<h3>Specifications</h3>
 					<p><?php echo $page->product_specifications; ?></p>
 					<h3 class="price">$<?php echo $page->price; ?></h3>
 					<form class="" action="index.html" method="post">
@@ -40,9 +45,9 @@
 			<div class="row">
 				<?php foreach ($page->siblings('limit=4', false) as $relate) : ?>
 					<div class="col-md-3 form-group">
-						<img class="img-responsive" src="<?php echo $relate->product_image->height(300)->url ?>" alt="">
+						<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
 						<a href="<?php echo $relate->url; ?>"><h4><?php echo $relate->title; ?></h4></a>
-						<p><?php echo $relate->product_features; ?></p>
+						<p><?php echo $relate->product_specifications; ?></p>
 						<h4 class="price">$<?php echo $relate->price; ?></h4>
 						<a href="<? $relate->url; ?>" class="btn btn-info">See More..</a>
 					</div>
