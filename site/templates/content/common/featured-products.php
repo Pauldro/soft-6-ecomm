@@ -1,5 +1,9 @@
 <div class="featured-products">
-	<h2>Featured Products</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Featured Products</h2>
+		</div>
+	</div>
 	<div class="row">
 	<?php $randoms = $pages->find("template=product-page, sort=random, limit=4"); ?>
 	<?php  foreach ($randoms as $random) : ?>
