@@ -83,8 +83,9 @@
 	font-family: 'Montserrat', sans-serif;
 	color: #669933;
 	font-size: 1.25em;
-
 }
+
+.featured-products .btn {width: 100%;}
 
 /*==============================================================
 	   NEWSLETTER SIGNUP STYLES
@@ -170,41 +171,62 @@
 	margin-bottom: 20px;
 }
 
+.product-container .star {
+	margin-top: 20px;
+}
+
 .product-container .fa-star, .product-container .fa-star-o {
 	color: #ff9933;
 	margin-bottom: 10px;
-	font-size: 1.5em;
+	font-size: 1.75em;
 }
 
 .product-container .price {
-	margin-top: 30px;
+	margin-top: 20px;
+	text-align: right;
+}
+
+.product-container .quantity-group {
+	float: left;
 }
 
 .product-container label {
 	font-weight: normal;
 	font-size: 1.125em;
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
-.product-container .quantity {margin-left: 50px;}
+.product-container .quantity {margin-left: 25px;}
 
 .product-container .add_to_cart {
-	margin-top: 40px;
-	width: 153px;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	width: 100%;
 	height: 45px;
 	font-size: 1.3em;
 }
 
 .breadcrumb {padding-left: 0;}
 
+.product-img {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.bedroom {width: 100%;}
+
+.product-name {font-weight: bold;}
+
 /*==============================================================
 	 RELATED PRODUCTS STYLES
 =============================================================*/
 .related-products {margin-top: 50px;}
 
-.related-products h4 {color: #6600cc;}
+.related-products h5 {color: #6600cc;}
 
 .related-products p {font-size: .9em;}
+
+.related-products .btn {width: 100%;}
 
 /*==============================================================
 	 CATEGORY PAGE STYLES
@@ -222,6 +244,8 @@
 .category-page h3 {margin-bottom: 15px;}
 
 .category-page p {font-size: .9em;}
+
+.category .btn {width: 100%;}
 
 .category {margin-bottom: 30px;}
 
