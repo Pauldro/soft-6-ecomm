@@ -27,6 +27,11 @@
 			color: #6600cc;
 		}
 
+	.breadcrumb {
+		padding-left: 0;
+		margin-bottom: 0px;
+	}
+
 	.price {
 		color: #669933 !important;
 		margin-top: 20px;
@@ -149,6 +154,21 @@
 }
 
 /*==============================================================
+	 PAINT CATEGORY STYLES
+=============================================================*/
+.color-block {
+	width: 100%;
+	height: 150px;
+	margin-bottom: 20px;
+}
+.color-block:hover{background-color: #fff;}
+
+.paint-category-title {
+	text-align: center;
+	padding-top: 60px;
+}
+
+/*==============================================================
 	 PRODUCT CONTAINER STYLES
 =============================================================*/
 .product-container h1 {
@@ -205,8 +225,6 @@
 	height: 45px;
 	font-size: 1.3em;
 }
-
-.breadcrumb {padding-left: 0;}
 
 .product-img {
 	width: 100%;

@@ -6,9 +6,9 @@
 				<li><a href="<?php echo $page->parent->parent->parent->url; ?>"><?php echo $page->parent->parent->parent->title; ?></a></li>
 			  <li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
 			  <li><a href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a></li>
-			  <li><?php echo $page->title; ?></li>
+			  <li>Spectrum - <?php echo $page->title ?> - <?php echo $page->product_features; ?></li>
 			 </ol>
-			<h1><?php echo $page->title; ?></h1>
+			<h1>Spectrum - <?php echo $page->title ?> - <?php echo $page->product_features; ?></h1>
 
 			<div class="row">
 			  <div class="col-md-5 col-sm-5">
