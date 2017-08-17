@@ -14,6 +14,8 @@
   <li class="active">Data</li>
 </ol>
 </div>
+
+<?php insertintocart(session_id(), '8391', '2', false);  ?>
 	
 	
 

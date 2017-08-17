@@ -12,7 +12,7 @@
  */
 
 	include_once("./_func.php"); // include our shared functions
-
+	include_once("./_dbfunc.php"); // include our shared functions
 	$session->sessionName = session_name();
 
 	//$page->querystring = $querystring = "?".return_querystring($config->filename);

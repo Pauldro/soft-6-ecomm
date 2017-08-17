@@ -1,0 +1,51 @@
+<?php
+
+ /* =============================================================
+   CART FUNCTIONS
+ ============================================================ */
+ 
+ 	function get_cart_count($sessionid, $debug) {
+		$sql = wire('database')->prepare("SELECT COUNT(*) FROM cart WHERE sessionid = :sessionid");
+		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
+		$sql->execute($switching);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			return $sql->fetchColumn();
+		}
+	}
+	
+	function get_cart($sessionid, $debug) {
+		$sql = wire('database')->prepare("SELECT * FROM cart WHERE sessionid = :sessionid AND itemid != ''");
+		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
+		$sql->execute($switching);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			return $sql->fetchAll(PDO::FETCH_ASSOC);
+		}
+	}
+
+
+	function getcartmaxrecord($sessionid, $debug) {
+		$sql = wire('database')->prepare("SELECT MAX(recordno) FROM cart WHERE sessionid = :sessionid");
+		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
+		$sql->execute($switching);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			return $sql->fetchColumn();
+		}
+	}
+
+	function insertintocart($sessionid, $itemID, $qty, $debug) {
+		$recnbr = getcartmaxrecord($sessionid, false) + 1;
+		$sql = wire('database')->prepare("INSERT INTO cart (sessionid, recordno, itemid, qty) VALUES (:sessionid, :recnbr, :itemid, :qty)");
+		$switching = array(':sessionid' => $sessionid, ':itemid' => $itemID, ':qty' => $qty, ':recnbr' => $recnbr); $withquotes = array(true, true, true, true);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			$sql->execute($switching);
+			return array('sql' => returnsqlquery($sql->queryString, $switching, $withquotes), 'insertedid' => wire('database')->lastInsertId());
+		}
+	}

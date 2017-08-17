@@ -155,4 +155,28 @@ function renderNavTree($items, $maxDepth = 3) {
 			return str_pad($str, $length, ' ');
 		}
 	}
+/* =============================================================
+   DB FUNCTIONS
+ ============================================================ */
 
+ 	function returnsqlquery($sql, $oldtonew, $havequotes) {
+		$i = 0;
+		foreach ($oldtonew as $old => $new) {
+			if ($havequotes[$i]) {
+				$sql = str_replace($old, "'".$new."'", $sql);
+			} else {
+				$sql = str_replace($old, $new, $sql);
+			}
+			$i++;
+		}
+		return $sql;
+	}
+
+	function returnlimitstatement($limit, $page) {
+		if ($limit) {
+			if ($page > 1 ) {$start_point = ($page * $limit) - $limit; } else { $start_point = 0; }
+			return "LIMIT ".$start_point.",".$limit;
+		} else {
+			return "";
+		}
+	}
