@@ -95,7 +95,9 @@
 /*==============================================================
 	   NEWSLETTER SIGNUP STYLES
 =============================================================*/
-.newsletter-container {margin-top: 30px;}
+.newsletter-container {
+	margin-top: 30px;
+}
 
 .newsletter h2 {
 	font-family: 'Montserrat', sans-serif;

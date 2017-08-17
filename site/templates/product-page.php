@@ -22,13 +22,16 @@
 					<i class="fa fa-star" aria-hidden="true"></i>
 					<i class="fa fa-star-o" aria-hidden="true"></i>
 				</p>
-				<form class="" action="index.html" method="post">
+				<form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
+					<input type="hidden" name="action" value="add-to-cart">
+					<input type="hidden" name="itemID" value="<?php echo $page->product_model; ?>">
+					<input type="hidden" name="page" value="<?php echo $page->url; ?>">
 					<div class="quantity-group">
 						<label for="quantity">Quantity:</label>
-						<input class="quantity" type="text" name="quantity" size="3">
+						<input class="quantity" type="text" name="qty" size="3">
 					</div>
 					<h3 class="price">$<?php echo $page->price; ?></h3>
-					<button class="btn btn-info add_to_cart" type="button" name="add_to_cart">Add to Cart</button>
+					<button class="btn btn-info add_to_cart" type="submit" name="add_to_cart">Add to Cart</button>
 				</form>
 
 				</div>
@@ -53,7 +56,7 @@
 						<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
 						<a href="<?php echo $relate->url; ?>"><h5><?php echo $relate->title; ?></h5></a>
 						<p><?php echo $relate->product_specifications; ?></p>
-						<a href="<? $relate->url; ?>" class="btn btn-info">See More</a>
+						<a href="<?php echo $relate->url; ?>" class="btn btn-info">See More</a>
 					</div>
 				<?php endforeach; ?>
 			</div>

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	/*==============================================================
 	   PAGE SCROLLING FUNCTIONS
 	=============================================================*/
@@ -13,5 +13,10 @@ $(document).ready(function() {
 		   $('body,html').animate({ scrollTop: 0 }, 800);
 		   return false;
 	   });
-	
+		$('body').on('change', '.qty', function() {
+			var input = $(this);
+			var qty = $(this).val();
+			var tablerow = input.closest('tr');
+			tablerow.find('input[type=hidden][name=qty]').val(qty);
+		});
 });

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	if ($input->post->action) {
 		$action = $input->post->text('action');
 		$itemID = $input->post->text('itemID');
@@ -30,11 +30,24 @@
 
 	switch ($action) {
         case 'add-to-cart':
-			insertintocart(session_id(), $itemID, $qty, false);
+			$product = $pages->get("product_model=$itemID");
+			insertintocart(session_id(), $itemID, $qty, $product->price, false);
             $session->addtocart = 'You added ' . $qty . ' of ' . $itemID . ' to your cart';
 			$session->loc = $input->post->page;
             break;
-			
+
+		case 'remove-line':
+			$linenbr = $input->post->text('linenbr');
+			remove_cartline(session_id(), $linenbr, false);
+			$session->loc = $input->post->page;
+			break;
+
+		case 'update-line':
+			$product = $pages->get("product_model=$itemID");
+			$linenbr = $input->post->text('linenbr');
+			update_cartline(session_id(), $linenbr, $qty, $product->price, false);
+			$session->loc = $input->post->page;
+			break;
 	}
 
 	header('Location: '. $session->loc);

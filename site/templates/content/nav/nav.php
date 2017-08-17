@@ -31,7 +31,7 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<?php navigationmenu($children) ; ?>
-			
+
 			<form class="navbar-form navbar-right">
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Search" name="q">
@@ -42,7 +42,7 @@
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="./">Cart (0<!-- TODO INSERT ITEM NUMBERS -->) <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+					<a href="<?php echo $pages->get("template=cart")->url; ?>">Cart (0<!-- TODO INSERT ITEM NUMBERS -->) <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 				</li>
 			</ul>
 		</div><!--/.nav-collapse -->
