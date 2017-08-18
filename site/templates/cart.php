@@ -2,7 +2,7 @@
 
 <div class="container page">
     <div class="cart-container">
-        <div class="table-responsive">
+        <!-- <div class="table-responsive">
             <h1>Your Cart</h1>
             <table class="table table-hover">
                 <thead>
@@ -45,7 +45,7 @@
                                 <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
                                 <input type="hidden" name="qty" value="<?php echo $cartdetail['qty']; ?>">
                                 <input type="hidden" name="page" value="<?php echo $page->url; ?>">
-                                <button type="submit" class="btn remove">Update</button>
+                                <button type="submit" class="btn update">Update</button>
                               </form>
 
                               <form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
@@ -95,7 +95,9 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        </div> -->
+
+        
     </div>
 </div>
 

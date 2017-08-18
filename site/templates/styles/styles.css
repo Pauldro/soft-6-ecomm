@@ -279,9 +279,18 @@
 
 .cart-container img {margin-right: 20px;}
 
+.cart-container .btn {
+	color: #fff;
+	width: 90px;
+}
+
 .cart-container .remove {
 	background-color: #cc0000;
-	color: #fff;
+}
+
+.cart-container .update {
+	background-color: #ff9933;
+	margin-bottom: 10px;
 }
 
 .cart-container .checkout {
