@@ -235,6 +235,8 @@
 
 .bedroom {width: 100%;}
 
+.bedroom-color {height: 434px;}
+
 .product-name {font-weight: bold;}
 
 /*==============================================================
@@ -272,12 +274,7 @@
 /*==============================================================
 	 CART STYLES
 =============================================================*/
-.cart-container {
-	margin-top: 25px;
-	margin-bottom: 25px;
-}
-
-.cart-container h1 {margin-bottom: 40px;}
+.cart h1 {margin-bottom: 40px;}
 
 .title-divider {display: none;}
 
@@ -287,7 +284,7 @@ hr {
 	margin-top: 10px;
 }
 
-.cart-container .btn {
+.cart .btn {
 	color: #fff;
 	width: 100px;
 }
@@ -297,23 +294,23 @@ hr {
 	text-align: right;
 }
 
-form {float: right;}
+.btn-form form {float: right;}
 
 .form-control.auto-width {
 	width: auto;
 	display: inline-block;
 }
 
-.cart-container .remove {
+.cart .remove {
 	background-color: #cc0000;
 	margin-top: 10px;
 }
 
-.cart-container .update {
+.cart .update {
 	background-color: #ff9933;
 }
 
-.cart-container .checkout {
+.cart .checkout {
 	background-color: #669933;
 	margin-top: 20px;
 	width: 100%;
@@ -321,9 +318,9 @@ form {float: right;}
 
 .totals {margin-top: 25px;}
 
-.cart-container .green {color: #669933;}
+.cart .green {color: #669933;}
 
-.cart-container form {display: inline-block;}
+.cart form {display: inline-block;}
 
 @media only screen and (max-width: 991px) {
 	.title-divider {display: block;}
@@ -332,15 +329,15 @@ form {float: right;}
 
 	.label-divider {display: none;}
 
-	.cart-container .remove {
+	.cart .remove {
 		margin-right: 10px;
 		margin-top: 0;
+		margin-left: 0px;
 	}
 
 	.product-price {float: left;}
 
 	.product-quantity {float: left;}
-	.product-quantity:before {content: 'x';}
 
 	.product-total {text-align: right;}
 
@@ -359,6 +356,30 @@ form {float: right;}
 .about h1 {margin-bottom: 30px;}
 
 .about p {margin-bottom: 60px;}
+
+/*==============================================================
+	 PAYMENT BAR STYLES
+=============================================================*/
+.step {
+	height: 100px;
+	display: inline-block;
+	background-color: #6600cc;
+	color: #fff;
+}
+
+.steps {
+	margin-top: 30px;
+	margin-bottom: 180px;
+}
+
+.active {background-color: #3366ff;}
+
+.icons {margin-top: 20px;}
+
+.step p {
+	text-align: center;
+	color: #fff;
+}
 
 /*==============================================================
 	 FOOTER STYLES

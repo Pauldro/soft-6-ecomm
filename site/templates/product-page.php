@@ -36,7 +36,7 @@
 
 				</div>
 				<div class="col-md-7 col-sm-7">
-					<div style="background-color: <?php echo $page->product_model; ?>;">
+					<div class="bedroom-color img-responsive" style="background-color: <?php echo $page->product_model; ?>;">
 						<img class="bedroom img-responsive" src="<?php echo $config->urls->assets.'files/images/bedroom.png'; ?>">
 					</div>
 				</div>

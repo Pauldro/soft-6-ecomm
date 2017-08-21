@@ -1,8 +1,34 @@
 <?php include('./_head.php'); ?>
 
-<div class="container page">
-    <div class="cart-container">
-
+<div class="container cart page">
+        <div class="steps">
+            <div class="step active col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <div class="icons">
+                    <p><i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
+                    <p>Cart</p>
+                </div>
+            </div>
+            <a href="<?php echo $pages->get("template=billing")->url; ?>">
+                <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="icons">
+                        <p><i class="fa fa-credit-card-alt" aria-hidden="true"></i></p>
+                        <p>Shipping/Payment</p>
+                    </div>
+                </div>
+            </a>
+            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <div class="icons">
+                    <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
+                    <p>Review</p>
+                </div>
+            </div>
+            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <div class="icons">
+                    <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
+                    <p>Confirmation</p>
+                </div>
+            </div>
+        </div>
         <h1>Your Cart</h1>
         <hr class="title-divider">
         <div class="column-labels row">
@@ -23,29 +49,29 @@
         <div class="product row">
 
             <a href="<?php echo $pages->get("product_model=".$cartdetail['itemid'])->url; ?>">
-                <img class="col-md-2 img-responsive" src="<?php echo $pages->get("product_model=".$cartdetail['itemid'])->product_image->height(100)->url; ?>" alt="">
+                <img class="col-sm-2 col-md-2 img-responsive" src="<?php echo $pages->get("product_model=".$cartdetail['itemid'])->product_image->height(300)->url; ?>" alt="">
             </a>
 
-            <div class="col-md-5">
-                <h4 class="">
+            <div class="col-sm-4 col-md-5 product-info">
+                <h4 class="cart-product-title">
                     <a href="<?php echo $pages->get("product_model=".$cartdetail['itemid'])->url; ?>"><?php echo $pages->get("product_model=".$cartdetail['itemid'])->title; ?></a>
                 </h4>
-                <p class="">Model: <?php echo $cartdetail['itemid']; ?></p>
+                <p class="cart-product-model">Model: <?php echo $cartdetail['itemid']; ?></p>
             </div>
 
-            <p class="col-md-1 product-price">
+            <p class="col-sm-2 col-md-1 product-price">
                 $<?php echo $cartdetail['price']; ?>
             </p>
 
-            <div class="col-md-1 product-quantity">
+            <div class="col-sm-2 col-md-1 product-quantity">
                 <input type="text" class="form-control input-sm auto-width" size="4" name="qty" value="<?php echo $cartdetail['qty']; ?>">
             </div>
 
-            <h4 class="col-md-1 product-total green">
+            <h4 class="col-sm-2 col-md-1 product-total green">
                 $<?php echo $cartdetail['amount']; ?>
             </h4>
 
-            <div class="col-md-2 btn-form">
+            <div class="col-sm-12 col-md-2 btn-form">
                 <form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
                   <input type="hidden" name="action" value="update-line">
                   <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
@@ -84,8 +110,6 @@
                 <button class="btn checkout">Checkout</button>
             </div>
         </div>
-
-    </div>
 </div>
 
 <?php include('./_foot.php'); // include footer markup ?>
