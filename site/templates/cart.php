@@ -24,12 +24,14 @@
                     </div>
                 </div>
             </a>
-            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                <div class="icons">
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
-                    <p>Confirmation</p>
+            <a href="<?php echo $pages->get("template=confirmation")->url; ?>">
+                <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="icons">
+                        <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
+                        <p>Confirmation</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <h1>Your Cart</h1>
         <hr class="title-divider">

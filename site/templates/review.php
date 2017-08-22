@@ -24,12 +24,14 @@
                     <p>Review</p>
                 </div>
             </div>
-            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                <div class="icons">
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
-                    <p>Confirmation</p>
+            <a href="<?php echo $pages->get("template=confirmation")->url; ?>">
+                <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="icons">
+                        <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
+                        <p>Confirmation</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <h1>Review Your Purchase</h1>
 
@@ -210,7 +212,9 @@
         </div>
 
         <div class="row">
-            <button class="btn checkout">Process Order</button>
+            <div class="col-md-3 right">
+                <button class="btn checkout">Process Order</button>
+            </div>
         </div>
 </div>
 
