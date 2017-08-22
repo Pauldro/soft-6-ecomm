@@ -16,12 +16,14 @@
                     </div>
                 </div>
             </a>
-            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                <div class="icons">
-                    <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
-                    <p>Review</p>
+            <a href="<?php echo $pages->get("template=review")->url; ?>">
+                <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="icons">
+                        <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
+                        <p>Review</p>
+                    </div>
                 </div>
-            </div>
+            </a>
             <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
                 <div class="icons">
                     <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
@@ -32,7 +34,7 @@
         <h1>Your Cart</h1>
         <hr class="title-divider">
         <div class="column-labels row">
-            <label class="col-md-2">Image</label>
+            <label class="col-md-2"><p></p></label>
             <label class="col-md-5">Product</label>
             <label class="col-md-1">Price</label>
             <label class="col-md-1">Quantity</label>

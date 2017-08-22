@@ -41,12 +41,14 @@ function fillShipping(f) {
                 <p>Shipping/Payment</p>
             </div>
         </div>
-        <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
-            <div class="icons">
-                <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
-                <p>Review</p>
+        <a href="<?php echo $pages->get("template=review")->url; ?>">
+            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <div class="icons">
+                    <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
+                    <p>Review</p>
+                </div>
             </div>
-        </div>
+        </a>
         <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
             <div class="icons">
                 <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>

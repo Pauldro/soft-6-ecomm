@@ -382,6 +382,29 @@ hr {
 }
 
 /*==============================================================
+	 REVIEWPAGE STYLES
+=============================================================*/
+.divider {
+	height: 40px;
+	background-color: #3366ff;
+	margin-bottom: 30px;
+}
+
+.divider h4 {
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.review .form-group {margin-bottom: 0;}
+
+.review-btn {
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+
+/*==============================================================
 	 FOOTER STYLES
 =============================================================*/
 footer {
