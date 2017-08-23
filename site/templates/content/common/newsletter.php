@@ -1,4 +1,4 @@
-<div class="jumbotron newsletter-container" style="background: url('<?= $site->signupimage->height(500)->url; ?>')no-repeat;">
+<div class="jumbotron newsletter-container" style="background: url('<?= $site->signupimage->height(500)->url; ?>')center no-repeat;">
 	<div class="container">
 		<div class="newsletter">
 			<div class="row">

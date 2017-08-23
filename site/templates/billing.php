@@ -28,21 +28,21 @@ function fillShipping(f) {
 <div class="container billing page">
     <div class="steps">
         <a href="<?php echo $pages->get("template=cart")->url; ?>">
-            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="step col-xs-12 col-sm-3">
                 <div class="icons">
                     <p><i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
                     <p>Cart</p>
                 </div>
             </div>
         </a>
-        <div class="active step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <div class="active step col-xs-12 col-sm-3">
             <div class="icons">
                 <p><i class="fa fa-credit-card-alt" aria-hidden="true"></i></p>
                 <p>Shipping/Payment</p>
             </div>
         </div>
         <a href="<?php echo $pages->get("template=review")->url; ?>">
-            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="step col-xs-12 col-sm-3">
                 <div class="icons">
                     <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
                     <p>Review</p>
@@ -50,7 +50,7 @@ function fillShipping(f) {
             </div>
         </a>
         <a href="<?php echo $pages->get("template=confirmation")->url; ?>">
-            <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="step col-xs-12 col-sm-3">
                 <div class="icons">
                     <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
                     <p>Confirmation</p>
@@ -61,7 +61,7 @@ function fillShipping(f) {
     <h1>Bill To</h1>
     <hr>
     <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="col-sm-6">
             <h3>Bill To</h3>
             <form class="" action="index.html" method="post">
                 <div class="form-group">
@@ -85,7 +85,7 @@ function fillShipping(f) {
                         <label for="">City</label>
                         <input type="text"  class="form-control" name="billCity">
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 form-group">
+                    <div class="col-xs-6 col-lg-3 form-group">
                         <label for="">State</label>
                         <select name="billState" class="form-control required">
             	            <option> -- </option>
@@ -97,7 +97,7 @@ function fillShipping(f) {
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 form-group">
+                    <div class="col-xs-6 col-lg-3 form-group">
                         <label for="">Zip</label>
                         <input type="text"  class="form-control" name="billZip">
                     </div>
@@ -132,7 +132,7 @@ function fillShipping(f) {
                         <label for="">City</label>
                         <input type="text"  class="form-control" name="shipCity">
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 form-group">
+                    <div class="col-xs-6 col-lg-3 form-group">
                         <label for="">State</label>
                         <select name="shipState" class="form-control required">
             	            <option> -- </option>
@@ -144,7 +144,7 @@ function fillShipping(f) {
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 form-group">
+                    <div class="col-xs-6 col-lg-3 form-group">
                         <label for="">Zip</label>
                         <input type="text"  class="form-control" name="shipZip">
                     </div>
@@ -156,7 +156,7 @@ function fillShipping(f) {
                 </div>
             </form>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="col-sm-6">
             <h3>Order</h3>
             <form class="" action="index.html" method="post">
                 <div class="form-group">

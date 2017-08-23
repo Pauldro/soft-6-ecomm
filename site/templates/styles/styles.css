@@ -39,6 +39,8 @@
 		font-weight: bold;
 	}
 
+	iframe {margin-top: 50px;}
+
 	footer {background-color: #000033; color: #fff; padding-top: 15px;}
 
 /*==============================================================
@@ -235,9 +237,15 @@
 
 .bedroom {width: 100%;}
 
-.bedroom-color {height: 434px;}
+.bedroom-color {height: 240px;}
 
 .product-name {font-weight: bold;}
+
+@media only screen and (max-width: 767px) {
+	.bedroom-container {
+		display: none;
+	}
+}
 
 /*==============================================================
 	 RELATED PRODUCTS STYLES
