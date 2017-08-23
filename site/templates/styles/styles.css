@@ -45,30 +45,20 @@
 
 /*==============================================================
    NAVIGATION STYLES
- =================================
- ============================*/
+ =============================================================*/
 	#navbar-logo {height: 40px; margin-top: -10px;}
 
 	.navbar a.navbar-brand:hover { background-color: transparent;}
 
 	.logo {margin: 15px 0 10px 0;}
 
-	#search-box {
-		margin-top: 5px;
-		border: none;
-	}
-
-	#search-button {
+	/*#search-button {
 		background-color: #fff;
 		width: 28px;
 		height: 28px;
-		margin-top: 11px;
+		margin-top: 0px;
 		font-size: .9em;
-	}
-
-	.search-group {
-		height: 50px;
-	}
+	}*/
 
 	.navbar .container {
 		padding-left: 0px;
@@ -164,12 +154,34 @@
 	width: 100%;
 	height: 150px;
 	margin-bottom: 20px;
+	position: relative;
 }
-.color-block:hover{background-color: #fff;}
+.color-block:hover {
+	-webkit-transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -ms-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+     opacity: 0;
+}
+
 
 .paint-category-title {
+	position: absolute;
+	padding-top: 55px;
+	width: 85%;
 	text-align: center;
-	padding-top: 60px;
+}
+
+@media only screen and (max-width: 991px) {
+	.color-block {
+		height: 40px;
+		opacity: 0;
+	}
+
+	.paint-category-title {
+		text-align: left;
+		padding-top: 0px;
+	}
 }
 
 /*==============================================================
@@ -420,10 +432,23 @@ footer {
 	color: #fff;
 	bottom: 0;
 	width: 100%;
-	height: 200px;
+	flex: 1;
 }
 
 footer p {
 	margin-top: 20px;
 	font-size: .9em;
 }
+
+footer h5 {
+	color: #fff;
+}
+
+footer ul {
+	padding-left: 0;
+	list-style-type: none;
+}
+
+footer a {color: #6600cc;}
+
+footer .bottom {margin-bottom: 15px;}

@@ -6,14 +6,14 @@
 				<li><a href="<?php echo $page->parent->parent->parent->url; ?>"><?php echo $page->parent->parent->parent->title; ?></a></li>
 			  <li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
 			  <li><a href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a></li>
-			  <li>Spectrum - <?php echo $page->title ?> - <?php echo $page->product_features; ?></li>
+			  <li><?php echo $page->product_brand; ?> - <?php echo $page->title ?> - <?php echo $page->product_features; ?></li>
 			 </ol>
-			<h1>Spectrum - <?php echo $page->title ?> - <?php echo $page->product_features; ?></h1>
+			<h1><?php echo $page->product_brand; ?> - <?php echo $page->title ?> - <?php echo $page->product_features; ?></h1>
 
 			<div class="row">
 			  <div class="col-md-5 col-sm-5">
 				<img class="product-img img-responsive" src="<?php echo $page->product_image->height(434)->url; ?>" alt="">
-				<h4 class="product-name">Spectrum - <?php echo $page->title ?> - <?php echo $page->product_features; ?></h4>
+				<h4 class="product-name"><?php echo $page->product_brand; ?> - <?php echo $page->title ?> - <?php echo $page->product_features; ?></h4>
 				<p>Model: <?php echo $page->product_model; ?></p>
 				<!-- <p class="star">
 					<i class="fa fa-star" aria-hidden="true"></i>

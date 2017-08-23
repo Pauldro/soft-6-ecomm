@@ -16,8 +16,8 @@
 			?>
 				<div class="col-md-2">
 					<a class="paint-category-link" href="<?php echo $child->url; ?>">
+						<h4 class="paint-category-title"><?php echo $child->title; ?></h4>
 						<div class="color-block" style="background-color: <?php echo $child->title; ?>;">
-							<h4 class="paint-category-title"><?php echo $child->title; ?></h4>
 						</div>
 					</a>
 				</div>
