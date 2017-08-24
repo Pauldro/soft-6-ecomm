@@ -150,37 +150,31 @@
 /*==============================================================
 	 PAINT CATEGORY STYLES
 =============================================================*/
-.color-block {
-	width: 100%;
-	height: 150px;
-	margin-bottom: 20px;
-	position: relative;
-}
-.color-block:hover {
-	-webkit-transition: opacity .5s ease-out;
-    -moz-transition: opacity .5s ease-out;
-    -ms-transition: opacity .5s ease-out;
-    -o-transition: opacity .5s ease-out;
-     opacity: 0;
-}
-
-
 .paint-category-title {
-	position: absolute;
-	padding-top: 55px;
-	width: 85%;
+	padding-top: 40px;
+	height: 150px;
+	width: 150px;
 	text-align: center;
+	-webkit-transition: border .25s ease-in;
+    -moz-transition: border .25s ease-in;
+    -ms-transition: border .25s ease-in;
+    -o-transition: border .25s ease-in;
+	border: 20px solid;
 }
+.paint-category-title:hover {
+	-webkit-transition: border .25s ease-out;
+    -moz-transition: border .25s ease-out;
+    -ms-transition: border .25s ease-out;
+    -o-transition: border .25s ease-out;
+     border: 35px solid;
+	 padding-top: 30px;
+	 font-style: normal;
+}
+
 
 @media only screen and (max-width: 991px) {
-	.color-block {
-		height: 40px;
-		opacity: 0;
-	}
-
 	.paint-category-title {
-		text-align: left;
-		padding-top: 0px;
+		width: 100%;
 	}
 }
 
@@ -191,6 +185,8 @@
 	margin-bottom: 23px;
 	font-family: 'Montserrat', sans-serif;
 }
+
+.description {display: block;}
 
 .product-container a {
 	font-family: 'Montserrat', sans-serif;
@@ -249,7 +245,7 @@
 
 .bedroom {width: 100%;}
 
-.bedroom-color {height: 240px;}
+.bedroom-color {flex: 1;}
 
 .product-name {font-weight: bold;}
 
@@ -442,6 +438,7 @@ footer p {
 
 footer h5 {
 	color: #fff;
+	font-family: 'Roboto', sans-serif;
 }
 
 footer ul {

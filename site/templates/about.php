@@ -13,7 +13,6 @@ include('./_head.php');
 				<p><?php echo $page->about_para2; ?></p>
 			</div>
 		</div>
-		<?php include $config->paths->content."common/featured-products.php"; ?>
 	</div>
 
 <?php

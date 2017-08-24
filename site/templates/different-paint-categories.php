@@ -14,11 +14,9 @@
 				$children = $page->children;
 				foreach ($children as $child) :
 			?>
-				<div class="col-md-2">
+				<div class="col-xs-12 col-sm-3 col-md-2">
 					<a class="paint-category-link" href="<?php echo $child->url; ?>">
-						<h4 class="paint-category-title"><?php echo $child->title; ?></h4>
-						<div class="color-block" style="background-color: <?php echo $child->title; ?>;">
-						</div>
+						<h4 class="paint-category-title" style="border-color: <?php echo $child->title; ?>;"><?php echo $child->title; ?></h4>
 					</a>
 				</div>
 			<?php endforeach; ?>
