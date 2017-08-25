@@ -1,5 +1,5 @@
 <?php include('./_head.php'); ?>
-	<div class="jumbotron page-banner" style="background: url('<?= $page->pagebanner->height(900)->url; ?>');">
+	<div class="jumbotron page-banner" style="background: url('<?= $page->pagebanner->height(900)->url; ?>'); background-size: cover;">
 		<!-- <div class="container tsp-background">
 			<h1 class="white-text"><?php echo $page->get('pagetitle|headline|title') ; ?></h1>
 		</div> -->
