@@ -13,7 +13,7 @@
 				<img class="img-responsive" src="<?php echo $page->main_image->url; ?>" alt="">
 			</div>
 			<div class="col-md-4">
-				<h1><?php echo $page->body_headline; ?></h1>
+				<h1><?php echo $page->headline; ?></h1>
 				<p><?php echo $page->body; ?></p>
 			</div>
 			<div class="col-md-12">

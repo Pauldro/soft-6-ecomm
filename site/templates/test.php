@@ -6,17 +6,13 @@
 			<h1><a href="<?php echo $page->parent->url; ?>">Products</a> > <?= $page->title; ?></h1>
 		</div>
 	</div>
-
+	<?php 
+		$item = get_itemim('002157', false);
+		Product::updateproductfromim($item);
+	?>
 	
-	<ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Library</a></li>
-  <li class="active">Data</li>
-</ol>
+	
 </div>
 
-<?php insertintocart(session_id(), '8391', '2', false);  ?>
-	
-	
 
 <?php include('./_foot.php'); // include footer markup ?>

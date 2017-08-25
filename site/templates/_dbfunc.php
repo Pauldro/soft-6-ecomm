@@ -28,29 +28,6 @@
 		}
 	}
 
-	function remove_cartline($sessionid, $linenbr, $debug) {
-		$sql = wire('database')->prepare("DELETE FROM cart WHERE sessionid = :sessionid AND recordno = :linenbr");
-		$switching = array(':sessionid' => $sessionid, ':linenbr' => $linenbr); $withquotes = array(true, true);
-		if ($debug) {
-			return returnsqlquery($sql->queryString, $switching, $withquotes);
-		} else {
-			$sql->execute($switching);
-			return returnsqlquery($sql->queryString, $switching, $withquotes);
-		}
-	}
-
-	function update_cartline($sessionid, $linenbr, $qty, $debug) {
-		$sql = wire('database')->prepare("UPDATE cart SET qty = :qty WHERE sessionid = :sessionid AND recordno = :linenbr");
-		$switching = array(':qty' => $qty, ':sessionid' => $sessionid, ':linenbr' => $linenbr); $withquotes = array(true, true, true);
-		if ($debug) {
-			return returnsqlquery($sql->queryString, $switching, $withquotes);
-		} else {
-			$sql->execute($switching);
-			return returnsqlquery($sql->queryString, $switching, $withquotes);
-		}
-	}
-
-
 	function getcartmaxrecord($sessionid, $debug) {
 		$sql = wire('database')->prepare("SELECT MAX(recordno) FROM cart WHERE sessionid = :sessionid");
 		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
@@ -62,14 +39,92 @@
 		}
 	}
 
-	function insertintocart($sessionid, $itemID, $qty, $price, $debug) {
-		$recnbr = getcartmaxrecord($sessionid, false) + 1;
-		$sql = wire('database')->prepare("INSERT INTO cart (sessionid, recordno, itemid, qty, price, amount) VALUES (:sessionid, :recnbr, :itemid, :qty, :price, :amount)");
-		$switching = array(':sessionid' => $sessionid, ':itemid' => $itemID, ':qty' => $qty, ':recnbr' => $recnbr, ':price' => $price, ':amount' => ($price * $qty)); $withquotes = array(true, true, true, true, true, true);
+	function family_exists($familyID, $debug) {
+		$sql = wire('database')->prepare("SELECT COUNT(*) FROM family WHERE famID = :famID");
+		$switching = array(':famID' => $familyID); $withquotes = array(true);
 		if ($debug) {
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
 			$sql->execute($switching);
-			return array('sql' => returnsqlquery($sql->queryString, $switching, $withquotes), 'insertedid' => wire('database')->lastInsertId());
+			return $sql->fetchColumn();
 		}
+	}
+
+	function item_exists($itemID, $debug) {
+		$sql = wire('database')->prepare("SELECT COUNT(*) FROM im WHERE itemid = :itemID");
+		$switching = array(':itemID' => $itemID); $withquotes = array(true);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			$sql->execute($switching);
+			return $sql->fetchColumn();
+		}
+	}
+
+	function get_familymaxrecnbr($debug) {
+		$sql = wire('database')->prepare("SELECT MAX(recno) FROM family");
+		if ($debug) {
+			return $sql->queryString;
+		} else {
+			$sql->execute();
+			return $sql->fetchColumn();
+		}
+	}
+
+	function get_itemim($itemID, $debug) {
+		$sql = wire('database')->prepare("SELECT * FROM im WHERE itemid = :itemID");
+		$switching = array(':itemID' => $itemID); $withquotes = array(true);
+
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			$sql->execute($switching);
+			return $sql->fetch(PDO::FETCH_ASSOC);
+		}
+	}
+
+	function get_immaxrecnbr($debug) {
+		$sql = wire('database')->prepare("SELECT MAX(recordno) FROM im");
+		if ($debug) {
+			return $sql->queryString;
+		} else {
+			$sql->execute();
+			return $sql->fetchColumn();
+		}
+	}
+	
+	function insert_family($family, $debug) {
+		$q = new atk4\dsql\Query();
+		$q->mode('insert')->table('family');
+		$q = makedsqlqueryinsert($q, $family);
+		$sql = wire('database')->prepare($q->render());
+		if ($debug) {
+			return $q->getDebugQuery();
+		} else {
+			$sql->execute($q->params);
+			return array('sql' => $q->getDebugQuery(), 'insertedid' => wire('database')->lastInsertId());
+		}
+	}
+
+	function insert_product($product, $debug) {
+		$q = new atk4\dsql\Query();
+		$q->mode('insert')->table('im');
+		$q = makedsqlqueryinsert($q, $product);
+		$sql = wire('database')->prepare($q->render());
+		if ($debug) {
+			return $q->getDebugQuery();
+		} else {
+			$sql->execute($q->params);
+			return array('sql' => $q->getDebugQuery(), 'insertedid' => wire('database')->lastInsertId());
+		}
+	}
+
+	function makedsqlqueryinsert(atk4\dsql\Query $q, $insertvalues) {
+		foreach ($insertvalues as $key => $value) {
+			if (trim($value) != '') {
+				$q->set($key, $value);
+			}
+			
+		}
+		return $q;
 	}

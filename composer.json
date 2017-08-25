@@ -15,7 +15,9 @@
   ],
   "require": {
     "php": ">=5.3.8",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "atk4/dsql": "^1.1",
+    "jdorn/sql-formatter": "^1.2"
   },
   "autoload": {
     "files": [ "wire/core/ProcessWire.php" ]

@@ -22,7 +22,7 @@
 		<div class="col-md-6">
 			<form action="" method="">
 				<div class="form-group">
-					<p><?php echo $page->contact_paragraph; ?></p>
+					<p><?php echo $page->headline; ?></p>
 					<label for="name">Name</label>
 					<input type="text" class="form-control" id="name" placeholder="">
 				</div>
