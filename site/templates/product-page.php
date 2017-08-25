@@ -14,7 +14,7 @@
 			  <div class="col-md-5 col-sm-5">
 				<img class="product-img img-responsive" src="<?php echo $page->product_image->height(434)->url; ?>" alt="">
 				<h4 class="product-name">Spectrum - <?php echo $page->title ?> - <?php echo $page->product_features; ?></h4>
-				<p>Model: <?php echo $page->product_model; ?></p>
+				<p>Model: <?php echo $page->itemid; ?></p>
 				<!-- <p class="star">
 					<i class="fa fa-star" aria-hidden="true"></i>
 					<i class="fa fa-star" aria-hidden="true"></i>
@@ -24,7 +24,7 @@
 				</p> -->
 				<form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
 					<input type="hidden" name="action" value="add-to-cart">
-					<input type="hidden" name="itemID" value="<?php echo $page->product_model; ?>">
+					<input type="hidden" name="itemID" value="<?php echo $page->itemid; ?>">
 					<input type="hidden" name="page" value="<?php echo $page->url; ?>">
 					<div class="quantity-group">
 						<label for="quantity">Quantity:</label>
@@ -36,7 +36,7 @@
 
 				</div>
 				<div class="bedroom-container col-sm-7">
-					<div class="bedroom-color img-responsive" style="background-color: <?php echo $page->product_model; ?>;">
+					<div class="bedroom-color img-responsive" style="background-color: <?= '#'.$page->itemid; ?>;">
 						<img class="bedroom img-responsive" src="<?php echo $config->urls->assets.'files/images/bedroom.png'; ?>">
 					</div>
 					<div class="description">

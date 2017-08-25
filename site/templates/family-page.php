@@ -19,7 +19,7 @@
 				<div class="col-xs-6 col-md-3 form-group">
 					<img class="img-responsive" src="<?php echo $product->product_image->height(300)->url; ?>" alt="<?php echo $product->title; ?>">
 					<h4><a href="<?php echo $product->url; ?>"><?php echo $product->title; ?></a></h4>
-					<p>Model: <?php echo $product->product_model; ?></p>
+					<p>Model: <?php echo $product->itemid; ?></p>
 					<a href="<?php echo $product->url; ?>" class="btn btn-info">See more</a>
 				</div>
 				<?php endforeach; ?>
