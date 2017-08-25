@@ -431,10 +431,10 @@ footer {
 
 footer p {
 	margin-top: 20px;
-	font-size: .9em;
+	font-size: 1em;
 }
 
-footer h5 {
+footer h4 {
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 }
@@ -444,6 +444,6 @@ footer ul {
 	list-style-type: none;
 }
 
-footer a {color: #9e60e8;}
+footer a {color: #ba8bef;}
 
 footer .bottom {margin-bottom: 15px;}
