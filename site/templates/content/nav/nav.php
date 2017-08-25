@@ -36,7 +36,7 @@
 				<div class="input-group">
 					<input type="text" class="form-control input-sm" placeholder="Search" name="q">
 					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+						<button class="btn btn-default btn-sm" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 					</div>
         		</div>
 			</form>

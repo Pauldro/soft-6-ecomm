@@ -180,3 +180,12 @@ function renderNavTree($items, $maxDepth = 3) {
 			return "";
 		}
 	}
+
+	function fillwithvalues($array) {
+		foreach ($array as $key => $value) {
+			if ($value == '') {
+				$array[$key] = ' ';
+			}
+		}
+		return $array;
+	}
