@@ -14,23 +14,24 @@
 						123 Main St<br>
 						Minneapolis, MN 55414
 					</p>
-					<p>
-						<a href="tel:+15555555555">555-555-5555</a><br>
-						<a href="mailto:info@spectrumpaint.com">info@spectrumpaint.com</a>
-					</p><br>
+					<ul>
+						<li><a href="tel:+15555555555">555-555-5555</a></li>
+						<li><a href="mailto:info@spectrumpaint.com">info@spectrumpaint.com</a></li>
+					</ul><br>
 
                 </div>
 				<div class="col-sm-4">
                 	<h4>Hours</h4>
-					<p>
-						Monday - Friday&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;9:00AM - 8:00PM<br>
-						Saturday and Sunday&emsp;&nbsp;10:00AM - 6:00PM
-					</p><br>
+							<p>Monday - Friday<br>
+							   9:00AM - 8:00PM</p>
+
+							<p id="hours">Saturday and Sunday<br>
+							   10:00AM - 6:00PM</p><br>
                 </div>
 				<div class="col-sm-4 bottom">
 					<h4>Site Map</h4>
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-xs-6">
 							<ul>
 								<li><a href="#">Home</a></li>
 								<li><a href="#">About</a></li>
@@ -39,7 +40,7 @@
 								<li><a href="#">Login</a></li>
 							</ul>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-xs-6">
 							<ul>
 								<li><a href="#">Products</a></li>
 								<li><a href="#">Paints</a></li>

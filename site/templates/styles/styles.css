@@ -431,7 +431,6 @@ footer {
 
 footer p {
 	margin-top: 20px;
-	font-size: 1em;
 }
 
 footer h4 {
@@ -439,11 +438,18 @@ footer h4 {
 	font-family: 'Roboto', sans-serif;
 }
 
+#hours {
+	margin-top: 0;
+}
+
 footer ul {
 	padding-left: 0;
 	list-style-type: none;
 }
 
-footer a {color: #ba8bef;}
+footer a {
+	color: #ba8bef;
+	font-size: 1.125em;
+}
 
 footer .bottom {margin-bottom: 15px;}
