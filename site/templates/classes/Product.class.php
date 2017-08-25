@@ -55,8 +55,68 @@
 		public $dummy;
 		
 		public static function makeproductfromim($productarray) {
+			if (wire('pages')->get('template=product-page,itemid='.$productarray['itemid'])) {
+				return false;
+			}
 			$p = new Page();
 			$p->template = 'product-page';
+			$p->parent = wire('pages')->get('name='.$productarray['familyid']);
+			$p->name = wire('sanitizer')->name($productarray['name1']);
+			$p->title = $productarray['name1'];
+			$p->familyid = $productarray['familyid'];
+			$p->schemafam = $productarray['schemafam'];
+			$p->itemid = $productarray['itemid'];
+			$p->name1 = $productarray['name1'];
+			$p->name2 = $productarray['name2'];
+			$p->name3 = $productarray['name3'];
+			$p->name4 = $productarray['name4'];
+			$p->unit = $productarray['unit'];
+			$p->uofmdesc = $productarray['uomdesc'];
+			$p->price = $productarray['price'];
+			$p->listprice = $productarray['listprice'];
+			$p->keywords = $productarray['keywords'];
+			$p->vpn = $productarray['vpn'];
+			$p->youtubelink = $productarray['vidinflk'];
+			$p->shortdesc = $productarray['shortdesc'];
+			$p->longdesc = $productarray['longdesc'];
+			
+			$p->speca = $productarray['speca']; 
+			$p->specb = $productarray['specb']; 
+			$p->specc = $productarray['specc'];  
+			$p->specd = $productarray['specd'];  
+			$p->spece = $productarray['spece'];  
+			$p->specf = $productarray['specf']; 
+			$p->specg = $productarray['specg']; 
+			$p->spech = $productarray['spech']; 
+			
+			$p->additemflag = $productarray['additemflag'];
+			$p->prop65 = $productarray['prop65'];
+			$p->leadfree = $productarray['leadfree'];
+			
+			$p->priceqty1 = $productarray['priceqty1'];
+			$p->priceqty2 = $productarray['priceqty2'];
+			$p->priceqty3 = $productarray['priceqty3'];
+			$p->priceqty4 = $productarray['priceqty4']; 
+			$p->priceqty5 = $productarray['priceqty5'];
+			$p->priceqty6 = $productarray['priceqty6'];
+			$p->priceprice1 = $productarray['priceprice1']; 
+			$p->priceprice2 = $productarray['priceprice2'];  
+			$p->priceprice3 = $productarray['priceprice3'];  
+			$p->priceprice4 = $productarray['priceprice4']; 
+			$p->priceprice5 = $productarray['priceprice5']; 
+			$p->priceprice6 = $productarray['priceprice6'];  
+			
+			$p->save();
+			$p->product_image = '/var/www/html/img/'.$productarray['image']; 
+			$p->save();
+		}
+		
+		public static function updateproductfromim($productarray) {
+			$p = wire('pages')->get('template=product-page,itemid='.$productarray['itemid']);
+			if (!$p) {
+				return false;
+			}
+			$p->of(false);
 			$p->parent = wire('pages')->get('name='.$productarray['familyid']);
 			$p->name = wire('sanitizer')->name($productarray['name1']);
 			$p->title = $productarray['name1'];

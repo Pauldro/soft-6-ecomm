@@ -8,7 +8,7 @@
 	</div>
 	<?php 
 		$item = get_itemim('002157', false);
-		Product::makeproductfromim($item);
+		Product::updateproductfromim($item);
 	?>
 	
 	
