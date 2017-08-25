@@ -52,16 +52,26 @@
 
 	.logo {margin: 15px 0 10px 0;}
 
-	/*#search-button {
-		background-color: #fff;
-		width: 28px;
-		height: 28px;
-		margin-top: 0px;
-		font-size: .9em;
-	}*/
-
 	.navbar .container {
 		padding-left: 0px;
+	}
+
+	li.dropdown {
+
+	}
+
+	li.active.dropdown.open {background-color: #6600cc;}
+
+	ul.dropdown-menu {background-color: #6600cc;}
+
+	ul.dropdown-menu li a {
+		color: #fff;
+		font-size: 1.125em;
+	}
+
+	ul.dropdown-menu li a:hover {
+		background-color: #6600cc !important;
+		color: #fff !important;
 	}
 
 /*==============================================================
