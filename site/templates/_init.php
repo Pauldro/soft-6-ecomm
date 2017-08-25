@@ -13,6 +13,9 @@
 
 	include_once("./_func.php"); // include our shared functions
 	include_once("./_dbfunc.php"); // include our shared functions
+	include_once("./_dplus.php");
+	include_once($config->paths->templates.'classes/Family.class.php');
+	include_once($config->paths->templates.'classes/Product.class.php');
 	$session->sessionName = session_name();
 
 	//$page->querystring = $querystring = "?".return_querystring($config->filename);
