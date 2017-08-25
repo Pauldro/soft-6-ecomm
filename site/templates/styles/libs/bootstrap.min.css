@@ -4305,7 +4305,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav {
-  margin: 7.25px -15px;
+  margin: 7.25px 15px;
 }
 .navbar-nav > li > a {
   padding-top: 10px;
@@ -4348,7 +4348,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-form {
-  margin-left: -15px;
+  margin-left: 15px;
   margin-right: -15px;
   padding: 10px 15px;
   border-top: 1px solid transparent;
