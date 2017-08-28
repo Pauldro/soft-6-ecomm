@@ -17,7 +17,7 @@
 				<p><?php echo $page->body; ?></p>
 			</div>
 			<div class="col-md-12">
-				<h3>Quality products with quality guarantees.</h3>
+				<h2>Quality products with quality guarantees.</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec mauris ut quam mollis facilisis vitae ac est.
 				Ut nec accumsan nibh. Sed sit amet ipsum nec ex venenatis convallis eget maximus lorem. Aliquam pharetra dictum rutrum.
 				Sed at elit nec urna tincidunt gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
