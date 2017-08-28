@@ -4,28 +4,13 @@
 		<div class="col-sm-4">
 			<h2><a href="<?= $child->url; ?>"><?= $child->title; ?></a></h2>
 			<?php
-				if ($child->title == "Paints") {
+			if ($child->title == 'Paints') {
 			?>
-					<a href="<?= $child->url; ?>"><img class="img-responsive" src="<?php echo $page->paint_cat_img->url; ?>" ></a>
+				<a href="<?= $child->url; ?>"><img class="img-responsive" src="<?= $child->product_image->url; ?>" alt=""></a>
 			<?php
-				} elseif ($child->title == "Stains") {
+			}
 			?>
-					<a href="<?= $child->url; ?>"><img class="img-responsive" src="<?php echo $page->stain_cat_img->url; ?>" ></a>
-			<?php
-				} elseif ($child->title == "Rollers") {
-			?>
-					<a href="<?= $child->url; ?>"><img class="img-responsive" src="<?php echo $page->rollers_cat_img->url; ?>" ></a>
-			<?php
-				} elseif ($child->title == "Brushes") {
-			?>
-					<a href="<?= $child->url; ?>"><img class="img-responsive" src="<?php echo $page->brushes_cat_img->url; ?>" ></a>
-			<?php
-				} elseif ($child->title == "Accessories") {
-			?>
-					<a href="<?= $child->url; ?>"><img class="img-responsive" src="<?php echo $page->acc_cat_img->url; ?>" ></a>
-			<?php
-				};
-			?>
+				<a href="<?= $child->url; ?>"><img class="img-responsive" src="<?= $child->schematicimage->url; ?>" alt=""></a>
 		</div>
 	<?php endforeach; ?>
 </div>
