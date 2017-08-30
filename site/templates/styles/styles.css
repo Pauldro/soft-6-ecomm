@@ -300,6 +300,24 @@
 /*==============================================================
 	 CART STYLES
 =============================================================*/
+.blog-post h1 {margin-bottom: 15px;}
+
+.blog-post img {margin-bottom: 20px;}
+
+.blog-post h4 {margin-bottom: 12px;}
+
+.next {margin-top: 50px;}
+
+.prev-post {width: 130px}
+
+.next-post {
+	float: right;
+	width: 130px;
+}
+
+/*==============================================================
+	 CART STYLES
+=============================================================*/
 .cart h1 {margin-bottom: 40px;}
 
 .title-divider {display: none;}
