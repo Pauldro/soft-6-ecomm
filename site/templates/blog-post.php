@@ -5,7 +5,7 @@
 		        <h1><?php echo $page->title; ?></h1>
                 <img class='img-responsive' src='<?= $page->blog_image->height(400)->url; ?>' alt=''>
 				<h4><?php echo $page->blog_date; ?></h4>
-                <p><?= $page->blog_body; ?></p>
+                <p><?= $page->body; ?></p>
 	</div>
 	<?php
 		$prevLink = $page->prev->url;
