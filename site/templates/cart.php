@@ -21,13 +21,13 @@
 
         <div class="product row">
 
-            <a href="<?php echo $pages->get("product_model=".$cartdetail['itemid'])->url; ?>">
-                <img class="col-sm-2 col-md-2 img-responsive" src="<?php echo $pages->get("product_model=".$cartdetail['itemid'])->product_image->height(300)->url; ?>" alt="">
+            <a href="<?php echo $pages->get("itemid=".$cartdetail['itemid'])->url; ?>">
+                <img class="col-sm-2 col-md-2 img-responsive" src="<?php echo $pages->get("itemid=".$cartdetail['itemid'])->product_image->height(300)->url; ?>" alt="">
             </a>
 
             <div class="col-sm-4 col-md-5 product-info">
                 <h4 class="cart-product-title">
-                    <a href="<?php echo $pages->get("product_model=".$cartdetail['itemid'])->url; ?>"><?php echo $pages->get("product_model=".$cartdetail['itemid'])->title; ?></a>
+                    <a href="<?php echo $pages->get("itemid=".$cartdetail['itemid'])->url; ?>"><?php echo $pages->get("itemid=".$cartdetail['itemid'])->title; ?></a>
                 </h4>
                 <p class="cart-product-model">Model: <?php echo $cartdetail['itemid']; ?></p>
             </div>
