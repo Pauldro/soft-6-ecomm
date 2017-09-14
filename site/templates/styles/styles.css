@@ -298,13 +298,13 @@
 .category {margin-bottom: 30px;}
 
 /*==============================================================
-	 CART STYLES
+	 BLOG POST STYLES
 =============================================================*/
-.blog-post h1 {margin-bottom: 15px;}
+.blog-post.h1 {margin-bottom: 15px;}
 
-.blog-post img {margin-bottom: 20px;}
+.blog-post.img {margin-bottom: 20px;}
 
-.blog-post h4 {margin-bottom: 12px;}
+.blog-post.h4 {margin-bottom: 12px;}
 
 .next {margin-top: 50px;}
 
