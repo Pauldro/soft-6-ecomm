@@ -1,6 +1,6 @@
 <?php include('./_head.php'); ?>
 
-<div class="container cart review page">
+<div class="container page">
         <?php include ($config->paths->content.'billing/process-steps.php'); ?>
         <h1>Review Your Purchase</h1>
 
@@ -140,7 +140,7 @@
                 <input type="text" class="form-control input-sm auto-width" size="4" name="qty" value="<?php echo $cartdetail['qty']; ?>">
             </div>
 
-            <h4 class="col-sm-2 col-md-1 product-total green">
+            <h4 class="col-sm-2 col-md-1">
                 $<?php echo $cartdetail['amount']; ?>
             </h4>
 
@@ -150,13 +150,13 @@
                   <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
                   <input type="hidden" name="qty" value="<?php echo $cartdetail['qty']; ?>">
                   <input type="hidden" name="page" value="<?php echo $page->url; ?>">
-                  <button type="submit" class="btn update">Update</button>
+                  <button type="submit" class="btn btn-md btn-warning">Update</button>
                 </form>
                 <form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
                   <input type="hidden" name="action" value="remove-line">
                   <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
                   <input type="hidden" name="page" value="<?php echo $page->url; ?>">
-                  <button type="submit" class="btn remove">Remove</button>
+                  <button type="submit" class="btn btn-md btn-danger">Remove</button>
                 </form>
             </div>
         </div>
@@ -165,11 +165,11 @@
           endforeach;
         ?>
 
-        <div class="totals row">
+        <div class="row">
             <div class="col-md-2 right">
-                <p class="totals-value" id="cart-subtotal">$10.00</p>
-                <p class="totals-value" id="cart-shipping">$5.00</p>
-                <h3 class="totals-value green cart-total" id="cart-subtotal">$15.00</h3>
+                <p id="cart-subtotal">$10.00</p>
+                <p id="cart-shipping">$5.00</p>
+                <h3 id="cart-subtotal">$15.00</h3>
             </div>
             <div class="col-md-2 right">
                 <p>Subtotal</p>
@@ -180,7 +180,7 @@
 
         <div class="row">
             <div class="col-md-3 right">
-                <button class="btn checkout">Process Order</button>
+                <button class="btn btn-md btn-success">Process Order</button>
             </div>
         </div>
 </div>

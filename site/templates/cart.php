@@ -1,6 +1,6 @@
 <?php include('./_head.php'); ?>
 
-<div class="container cart page">
+<div class="container page">
         <?php include ($config->paths->content.'billing/process-steps.php'); ?>
         <h1>Your Cart</h1>
         <hr class="title-divider">
@@ -50,13 +50,13 @@
                   <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
                   <input type="hidden" name="qty" value="<?php echo $cartdetail['qty']; ?>">
                   <input type="hidden" name="page" value="<?php echo $page->url; ?>">
-                  <button type="submit" class="btn update">Update</button>
+                  <button type="submit" class="btn btn-md btn-warning">Update</button>
                 </form>
                 <form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
                   <input type="hidden" name="action" value="remove-line">
                   <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
                   <input type="hidden" name="page" value="<?php echo $page->url; ?>">
-                  <button type="submit" class="btn remove">Remove</button>
+                  <button type="submit" class="btn btn-md btn-danger">Remove</button>
                 </form>
             </div>
         </div>
@@ -65,22 +65,22 @@
           endforeach;
         ?>
 
-        <div class="totals row">
+        <div class="row">
             <div class="col-md-2 right">
-                <p class="totals-value" id="cart-subtotal">$10.00</p>
-                <p class="totals-value" id="cart-shipping">$5.00</p>
-                <h3 class="totals-value green cart-total" id="cart-subtotal">$15.00</h3>
+                <p id="cart-subtotal">$10.00</p>
+                <p id="cart-shipping">$5.00</p>
+                <h3 id="cart-subtotal">$15.00</h3>
             </div>
             <div class="col-md-2 right">
                 <p>Subtotal</p>
                 <p>Shipping</p>
-                <h3 class="cart-total">Total</h3>
+                <h3>Total</h3>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-3 right">
-                <button class="btn checkout">Checkout</button>
+                <button class="btn btn-md btn-success">Checkout</button>
             </div>
         </div>
 </div>

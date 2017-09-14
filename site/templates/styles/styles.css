@@ -318,7 +318,7 @@
 /*==============================================================
 	 CART STYLES
 =============================================================*/
-.cart h1 {margin-bottom: 40px;}
+h1 {margin-bottom: 40px;}
 
 .title-divider {display: none;}
 
@@ -326,11 +326,6 @@ hr {
 	margin: 0;
 	margin-bottom: 10px;
 	margin-top: 10px;
-}
-
-.cart .btn {
-	color: #fff;
-	width: 100px;
 }
 
 .right {
@@ -345,39 +340,12 @@ hr {
 	display: inline-block;
 }
 
-.cart .remove {
-	background-color: #cc0000;
-	margin-top: 10px;
-}
-
-.cart .update {
-	background-color: #ff9933;
-}
-
-.cart .checkout {
-	background-color: #669933;
-	margin-top: 20px;
-	width: 100%;
-}
-
-.totals {margin-top: 25px;}
-
-.cart .green {color: #669933;}
-
-.cart form {display: inline-block;}
-
 @media only screen and (max-width: 991px) {
 	.title-divider {display: block;}
 
 	.column-labels {display: none;}
 
 	.label-divider {display: none;}
-
-	.cart .remove {
-		margin-right: 10px;
-		margin-top: 0;
-		margin-left: 0px;
-	}
 
 	.product-price {float: left;}
 
