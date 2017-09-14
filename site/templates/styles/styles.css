@@ -293,19 +293,12 @@
 /*==============================================================
 	 CART STYLES
 =============================================================*/
-h1 {margin-bottom: 40px;}
-
 .title-divider {display: none;}
 
 hr {
 	margin: 0;
 	margin-bottom: 10px;
 	margin-top: 10px;
-}
-
-.right {
-	float: right;
-	text-align: right;
 }
 
 .btn-form form {float: right;}
