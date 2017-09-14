@@ -1,10 +1,8 @@
-<?php
-include('./_head.php');
-?>
+<?php include('./_head.php'); ?>
 <div class="jumbotron page-banner" style="background: url('<?php echo $page->pagebanner->url; ?>'); background-size: cover;">
 </div>
 
-	<div class="container about">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<h1><?php echo $page->headline; ?></h1>
@@ -13,6 +11,4 @@ include('./_head.php');
 		</div>
 	</div>
 
-<?php
-include('./_foot.php');
-?>
+<?php include('./_foot.php'); ?>
