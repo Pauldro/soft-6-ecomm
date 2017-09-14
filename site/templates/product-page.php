@@ -21,7 +21,7 @@
 						<input type="hidden" name="page" value="<?= $page->url; ?>">
 						<div class="quantity-group">
 							<label for="quantity">Quantity:</label>
-							<input class="form-control input-sm qty" type="text" name="qty" size="3">
+							<input class="form-control input-sm" type="text" name="qty" size="3">
 						</div>
 						<h3 class="price">$<?php echo $page->price; ?></h3>
 						<button class="btn btn-info add_to_cart" type="submit" name="add_to_cart">Add to Cart</button>
@@ -29,9 +29,14 @@
 
 				</div>
 				<div class="col-sm-7">
-					<div class="bedroom-color img-responsive" style="background-color: <?= '#'.$page->itemid; ?>;">
-						<img class="bedroom img-responsive" src="<?php echo $config->urls->assets.'files/images/bedroom.png'; ?>">
-					</div>
+
+					<!-- displays room with paint sample if category is paints -->
+					<?php if ($page->parent->parent->name == 'paints') : ?>
+						<div class="bedroom-color img-responsive" style="background-color: <?= '#'.$page->itemid; ?>;">
+							<img class="bedroom img-responsive" src="<?php echo $config->urls->assets.'files/images/bedroom.png'; ?>">
+						</div>
+					<?php endif; ?>
+
 					<div class="description">
 						<h4>Product Features</h4>
 						<p>
