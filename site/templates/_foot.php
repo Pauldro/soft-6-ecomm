@@ -10,23 +10,16 @@
             <div class="container">
 				<div class="col-sm-4">
                 	<h4>Contact</h4>
-					<p>
-						123 Main St<br>
-						Minneapolis, MN 55414
-					</p>
+					<p><?php echo $site->address; ?></p>
 					<ul>
-						<li><a href="tel:+15555555555">555-555-5555</a></li>
-						<li><a href="mailto:info@spectrumpaint.com">info@spectrumpaint.com</a></li>
+						<li><a href="tel:<?php echo $site->phone800; ?>"><?php echo $site->phone800; ?></a></li>
+						<li><a href="mailto:<?php echo $site->company_email; ?>"><?php echo $site->company_email; ?></a></li>
 					</ul><br>
 
                 </div>
 				<div class="col-sm-4">
                 	<h4>Hours</h4>
-							<p>Monday - Friday<br>
-							   9:00AM - 8:00PM</p>
-
-							<p id="hours">Saturday and Sunday<br>
-							   10:00AM - 6:00PM</p><br>
+					<p><?php echo $site->hours; ?></p>
                 </div>
 				<div class="col-sm-4 bottom">
 					<h4>Site Map</h4>
