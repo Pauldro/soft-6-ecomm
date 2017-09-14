@@ -25,7 +25,7 @@ function fillShipping(f) {
 }
 </script>
 
-<div class="container billing page">
+<div class="container page">
     <?php include ($config->paths->content.'billing/process-steps.php'); ?>
     <h1>Bill To</h1>
     <hr>
@@ -58,10 +58,8 @@ function fillShipping(f) {
                         <label for="">State</label>
                         <select name="billState" class="form-control required">
             	            <option> -- </option>
-                            <?php
-                            $states = getstates();
-                            foreach ($states as $state) :
-                            ?>
+                            <?php $states = getstates(); ?>
+                            <?php foreach ($states as $state) : ?>
                             <option value="<?= $state['code']; ?>"><?= $state['code']; ?> - <?= $state['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -105,10 +103,8 @@ function fillShipping(f) {
                         <label for="">State</label>
                         <select name="shipState" class="form-control required">
             	            <option> -- </option>
-                            <?php
-                            $states = getstates();
-                            foreach ($states as $state) :
-                            ?>
+                            <?php $states = getstates(); ?>
+                            <?php foreach ($states as $state) : ?>
                             <option value="<?= $state['code']; ?>"><?= $state['code']; ?> - <?= $state['name']; ?></option>
                             <?php endforeach; ?>
                         </select>

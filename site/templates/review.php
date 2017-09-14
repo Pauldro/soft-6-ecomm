@@ -116,10 +116,8 @@
         </div>
         <hr class="label-divider">
 
-        <?php
-          $cartdetails = get_cart(session_id(), false);
-          foreach ($cartdetails as $cartdetail) :
-        ?>
+        <?php $cartdetails = get_cart(session_id(), false); ?>
+        <?php foreach ($cartdetails as $cartdetail) : ?>
 
         <div class="product row">
 
