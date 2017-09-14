@@ -7,7 +7,7 @@
 				<li><a href="<?= $page->parent->url; ?>"><?= $page->parent->title; ?></a></li>
 				<li>Spectrum - <?= $page->title ?> - <?= $page->product_features; ?></li>
 			</ol>
-			
+
 			<h1>Spectrum - <?= $page->title ?> - <?= $page->product_features; ?></h1>
 
 			<div class="row">

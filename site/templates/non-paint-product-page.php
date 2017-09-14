@@ -3,7 +3,7 @@
 	<div class="container page">
 		<div class="product-container">
 			<ol class="breadcrumb">
-				<li><a href="<?php echo $page->parent->parent->parent->url; ?>"><?php echo $page->parent->parent->parent->title; ?></a></li>
+		      <li><a href="<?php echo $page->parent->parent->parent->url; ?>"><?php echo $page->parent->parent->parent->title; ?></a></li>
 			  <li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
 			  <li><a href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a></li>
 			  <li><?php echo $page->product_brand; ?> - <?php echo $page->title ?></li>

@@ -1,9 +1,9 @@
 <?php include('./_head.php'); ?>
 	<div class="container page">
-		<div class="row category-page-title">
+		<div class="row">
 			<div class="col-md-12">
 				<ol class="breadcrumb">
-					<li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
+				  <li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
 				  <li><a href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a></li>
 				  <li><?php echo $page->title; ?></li>
 				</ol>
