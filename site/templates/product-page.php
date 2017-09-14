@@ -5,15 +5,15 @@
 				<li><a href="<?= $page->parent->parent->parent->url; ?>"><?= $page->parent->parent->parent->title; ?></a></li>
 				<li><a href="<?= $page->parent->parent->url; ?>"><?= $page->parent->parent->title; ?></a></li>
 				<li><a href="<?= $page->parent->url; ?>"><?= $page->parent->title; ?></a></li>
-				<li>Spectrum - <?= $page->title ?> - <?= $page->product_features; ?></li>
+				<li>Spectrum - <?= $page->title ?></li>
 			</ol>
 
-			<h1>Spectrum - <?= $page->title ?> - <?= $page->product_features; ?></h1>
+			<h1>Spectrum - <?= $page->title ?></h1>
 
 			<div class="row">
 				<div class="col-sm-5">
 					<img class="product-img img-responsive" src="<?= $page->product_image->height(434)->url; ?>" alt="">
-					<h4 class="product-name">Spectrum - <?=  $page->title ?> - <?= $page->product_features; ?></h4>
+					<h4 class="product-name">Spectrum - <?=  $page->title ?></h4>
 					<p>Model: <?php echo $page->itemid; ?></p>
 					<form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
 						<input type="hidden" name="action" value="add-to-cart">
@@ -21,7 +21,7 @@
 						<input type="hidden" name="page" value="<?= $page->url; ?>">
 						<div class="quantity-group">
 							<label for="quantity">Quantity:</label>
-							<input class="form-control input-sm" type="text" name="qty" size="3">
+							<input class="form-control input-sm qty" type="text" name="qty" size="3">
 						</div>
 						<h3 class="price">$<?php echo $page->price; ?></h3>
 						<button class="btn btn-info add_to_cart" type="submit" name="add_to_cart">Add to Cart</button>
