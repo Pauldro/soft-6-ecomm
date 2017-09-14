@@ -1,5 +1,4 @@
 <?php include('./_head.php'); ?>
-<?php $i = 0; ?>
 	<div class="container page">
 		<div class="row category-page-title">
 			<div class="col-md-12">
@@ -10,12 +9,12 @@
 				</ol>
 			</div>
 		</div>
-		
-		<?php 
+
+		<?php
 			if ($page->name == 'paints') {
-				include $config->paths->content.'category/category-paint-outline.php'; 
+				include $config->paths->content.'category/category-paint-outline.php';
 			} else {
-				include $config->paths->content.'category/category-outline.php'; 
+				include $config->paths->content.'category/category-outline.php';
 			}
 		?>
 	</div>
