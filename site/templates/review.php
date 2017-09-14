@@ -1,38 +1,7 @@
 <?php include('./_head.php'); ?>
 
 <div class="container cart review page">
-        <div class="steps">
-            <a href="<?php echo $pages->get("template=cart")->url; ?>">
-                <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                    <div class="icons">
-                        <p><i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
-                        <p>Cart</p>
-                    </div>
-                </div>
-            </a>
-            <a href="<?php echo $pages->get("template=billing")->url; ?>">
-                <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                    <div class="icons">
-                        <p><i class="fa fa-credit-card-alt" aria-hidden="true"></i></p>
-                        <p>Shipping/Payment</p>
-                    </div>
-                </div>
-            </a>
-            <div class="step active col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                <div class="icons">
-                    <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
-                    <p>Review</p>
-                </div>
-            </div>
-            <a href="<?php echo $pages->get("template=confirmation")->url; ?>">
-                <div class="step col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                    <div class="icons">
-                        <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
-                        <p>Confirmation</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+        <?php include ($config->paths->content.'billing/process-steps.php'); ?>
         <h1>Review Your Purchase</h1>
 
         <div class="row">

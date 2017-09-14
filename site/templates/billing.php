@@ -26,38 +26,7 @@ function fillShipping(f) {
 </script>
 
 <div class="container billing page">
-    <div class="steps">
-        <a href="<?php echo $pages->get("template=cart")->url; ?>">
-            <div class="step col-xs-12 col-sm-3">
-                <div class="icons">
-                    <p><i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
-                    <p>Cart</p>
-                </div>
-            </div>
-        </a>
-        <div class="active step col-xs-12 col-sm-3">
-            <div class="icons">
-                <p><i class="fa fa-credit-card-alt" aria-hidden="true"></i></p>
-                <p>Shipping/Payment</p>
-            </div>
-        </div>
-        <a href="<?php echo $pages->get("template=review")->url; ?>">
-            <div class="step col-xs-12 col-sm-3">
-                <div class="icons">
-                    <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
-                    <p>Review</p>
-                </div>
-            </div>
-        </a>
-        <a href="<?php echo $pages->get("template=confirmation")->url; ?>">
-            <div class="step col-xs-12 col-sm-3">
-                <div class="icons">
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
-                    <p>Confirmation</p>
-                </div>
-            </div>
-        </a>
-    </div>
+    <?php include ($config->paths->content.'billing/process-steps.php'); ?>
     <h1>Bill To</h1>
     <hr>
     <div class="row">
