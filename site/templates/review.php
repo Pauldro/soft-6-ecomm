@@ -166,12 +166,12 @@
         ?>
 
         <div class="row">
-            <div class="col-md-2 right">
+            <div class="col-md-2 text-right pull-right">
                 <p id="cart-subtotal">$10.00</p>
                 <p id="cart-shipping">$5.00</p>
                 <h3 id="cart-subtotal">$15.00</h3>
             </div>
-            <div class="col-md-2 right">
+            <div class="col-md-2 text-right pull-right">
                 <p>Subtotal</p>
                 <p>Shipping</p>
                 <h3 class="cart-total">Total</h3>
@@ -179,7 +179,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3 right">
+            <div class="col-md-3 text-right pull-right">
                 <button class="btn btn-md btn-success">Process Order</button>
             </div>
         </div>
