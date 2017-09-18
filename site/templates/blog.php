@@ -20,8 +20,8 @@
                 </div>
                 <div class="col-md-6">
                     <h4><?php echo $panel->blog_date; ?></h4>
-                    <?php echo $panel->blog_description; ?>
-                    <p class="readmore"><a href="<?php echo $panel->url; ?>">Read More</a></p>
+                    <p><?php echo $panel->blog_description; ?></p>
+                    <a href="<?php echo $panel->url; ?>" class="btn btn-info">Read More</a>
                 </div>
            </div>
            <hr>
