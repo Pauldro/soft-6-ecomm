@@ -42,7 +42,7 @@
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="<?php echo $pages->get("template=cart")->url; ?>">Cart (0<!-- TODO INSERT ITEM NUMBERS -->) <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+					<a href="<?php echo $pages->get("template=cart")->url; ?>" class="sliding-white">Cart (0<!-- TODO INSERT ITEM NUMBERS -->) <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 				</li>
 			</ul>
 		</div><!--/.nav-collapse -->

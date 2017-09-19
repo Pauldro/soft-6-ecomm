@@ -21,11 +21,12 @@
 		color: #6600cc;
 		text-decoration: none;
 	}
-	a:hover {
-		text-decoration: none;
-		color: #6600cc;
-	}
+		a:hover {
+			text-decoration: none;
+			color: #6600cc;
+		}
 
+/* purple underline */
 .sliding-middle-out {
 	display: inline-block;
 	position: relative;
@@ -43,6 +44,25 @@
 .sliding-middle-out:hover:after {
 	width: 100%;
 	background: #6600cc;
+}
+
+.sliding-white {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+}
+.sliding-white:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 2px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.sliding-white:hover:after {
+	width: 100%;
+	background: #fff;
 }
 
 	.breadcrumb {
