@@ -11,10 +11,16 @@
 		<div class="next col-sm-9">
 			<div class="row">
 				<div class="col-xs-6">
+					<?php if ($page->prev->title) { ?>
+					<h4>"<?php echo $page->prev->title; ?>"</h4>
 					<a href="<?php echo $page->prev->url; ?>" class="btn btn-info prev-post">Previous Post</a>
+					<?php } ?>
 				</div>
 				<div class="col-xs-6">
+					<?php if ($page->next->title) { ?>
+					<h4 class="text-right">"<?php echo $page->next->title; ?>"</h4>
 					<a href="<?php echo $page->next->url; ?>" class="btn btn-info next-post">Next Post</a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
