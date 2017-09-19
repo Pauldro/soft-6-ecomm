@@ -30,7 +30,7 @@
 
 	switch ($action) {
         case 'add-to-cart':
-			$product = $pages->get("product_model=$itemID");
+			$product = $pages->get("itemid=$itemID");
 			insertintocart(session_id(), $itemID, $qty, $product->price, false);
             $session->addtocart = 'You added ' . $qty . ' of ' . $itemID . ' to your cart';
 			$session->loc = $input->post->page;
@@ -43,7 +43,7 @@
 			break;
 
 		case 'update-line':
-			$product = $pages->get("product_model=$itemID");
+			$product = $pages->get("itemid=$itemID");
 			$linenbr = $input->post->text('linenbr');
 			update_cartline(session_id(), $linenbr, $qty, $product->price, false);
 			$session->loc = $input->post->page;
@@ -51,4 +51,4 @@
 	}
 
 	header('Location: '. $session->loc);
-	break;
+	exit;

@@ -25,39 +25,8 @@ function fillShipping(f) {
 }
 </script>
 
-<div class="container billing page">
-    <div class="steps">
-        <a href="<?php echo $pages->get("template=cart")->url; ?>">
-            <div class="step col-xs-12 col-sm-3">
-                <div class="icons">
-                    <p><i class="fa fa-shopping-cart" aria-hidden="true"></i></p>
-                    <p>Cart</p>
-                </div>
-            </div>
-        </a>
-        <div class="active step col-xs-12 col-sm-3">
-            <div class="icons">
-                <p><i class="fa fa-credit-card-alt" aria-hidden="true"></i></p>
-                <p>Shipping/Payment</p>
-            </div>
-        </div>
-        <a href="<?php echo $pages->get("template=review")->url; ?>">
-            <div class="step col-xs-12 col-sm-3">
-                <div class="icons">
-                    <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
-                    <p>Review</p>
-                </div>
-            </div>
-        </a>
-        <a href="<?php echo $pages->get("template=confirmation")->url; ?>">
-            <div class="step col-xs-12 col-sm-3">
-                <div class="icons">
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i></p>
-                    <p>Confirmation</p>
-                </div>
-            </div>
-        </a>
-    </div>
+<div class="container page">
+    <?php include ($config->paths->content.'billing/process-steps.php'); ?>
     <h1>Bill To</h1>
     <hr>
     <div class="row">
@@ -89,10 +58,8 @@ function fillShipping(f) {
                         <label for="">State</label>
                         <select name="billState" class="form-control required">
             	            <option> -- </option>
-                            <?php
-                            $states = getstates();
-                            foreach ($states as $state) :
-                            ?>
+                            <?php $states = getstates(); ?>
+                            <?php foreach ($states as $state) : ?>
                             <option value="<?= $state['code']; ?>"><?= $state['code']; ?> - <?= $state['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -136,10 +103,8 @@ function fillShipping(f) {
                         <label for="">State</label>
                         <select name="shipState" class="form-control required">
             	            <option> -- </option>
-                            <?php
-                            $states = getstates();
-                            foreach ($states as $state) :
-                            ?>
+                            <?php $states = getstates(); ?>
+                            <?php foreach ($states as $state) : ?>
                             <option value="<?= $state['code']; ?>"><?= $state['code']; ?> - <?= $state['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -232,7 +197,7 @@ function fillShipping(f) {
             </form>
         </div>
         <div class="cart col-md-12">
-            <button class="btn checkout" type="button" name="button">Continue</button>
+            <button class="btn btn-success" type="button" name="button">Continue</button>
         </div>
     </div>
 </div>

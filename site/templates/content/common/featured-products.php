@@ -14,7 +14,7 @@
 			</h4>
 			<p><?= $random->speca; ?></p>
 			<p class="price">$<?php echo $random->price; ?></p>
-			<a href="<?php echo $random->url; ?>" class="btn btn-info">See More...</a>
+			<a href="<?php echo $random->url; ?>" class="btn btn-info">See More</a>
 		</div>
 	<?php endforeach; ?>
 	</div>

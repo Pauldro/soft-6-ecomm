@@ -22,10 +22,48 @@
 		text-decoration: none;
 	}
 		a:hover {
-			font-style: italic;
 			text-decoration: none;
 			color: #6600cc;
 		}
+
+/* purple underline */
+.sliding-middle-out {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+}
+.sliding-middle-out:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+	width: 100%;
+	background: #6600cc;
+}
+
+.sliding-white {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+}
+.sliding-white:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 2px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.sliding-white:hover:after {
+	width: 100%;
+	background: #fff;
+}
 
 	.breadcrumb {
 		padding-left: 0;
@@ -181,12 +219,12 @@
 	 font-style: normal;
 }
 
-
 @media only screen and (max-width: 991px) {
 	.paint-category-title {
 		width: 100%;
 	}
 }
+
 
 /*==============================================================
 	 PRODUCT CONTAINER STYLES
@@ -270,41 +308,16 @@
 =============================================================*/
 .related-products {margin-top: 50px;}
 
-.related-products h5 {color: #6600cc;}
-
-.related-products p {font-size: .9em;}
-
 .related-products .btn {width: 100%;}
 
 /*==============================================================
-	 CATEGORY PAGE STYLES
+	 BLOG POST STYLES
 =============================================================*/
-.category-page-title {margin-bottom: 15px;}
+.blog-post.h1 {margin-bottom: 15px;}
 
-.category-page-title a {
-	font-family: 'Montserrat', sans-serif;
-	text-decoration: none;
-	color: #6600cc;
-}
+.blog-post.img {margin-bottom: 20px;}
 
-.category-page {margin-bottom: 50px;}
-
-.category-page h3 {margin-bottom: 15px;}
-
-.category-page p {font-size: .9em;}
-
-.category .btn {width: 100%;}
-
-.category {margin-bottom: 30px;}
-
-/*==============================================================
-	 CART STYLES
-=============================================================*/
-.blog-post h1 {margin-bottom: 15px;}
-
-.blog-post img {margin-bottom: 20px;}
-
-.blog-post h4 {margin-bottom: 12px;}
+.blog-post.h4 {margin-bottom: 12px;}
 
 .next {margin-top: 50px;}
 
@@ -315,27 +328,20 @@
 	width: 130px;
 }
 
+.panels img {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 /*==============================================================
 	 CART STYLES
 =============================================================*/
-.cart h1 {margin-bottom: 40px;}
-
 .title-divider {display: none;}
 
 hr {
 	margin: 0;
 	margin-bottom: 10px;
 	margin-top: 10px;
-}
-
-.cart .btn {
-	color: #fff;
-	width: 100px;
-}
-
-.right {
-	float: right;
-	text-align: right;
 }
 
 .btn-form form {float: right;}
@@ -345,39 +351,12 @@ hr {
 	display: inline-block;
 }
 
-.cart .remove {
-	background-color: #cc0000;
-	margin-top: 10px;
-}
-
-.cart .update {
-	background-color: #ff9933;
-}
-
-.cart .checkout {
-	background-color: #669933;
-	margin-top: 20px;
-	width: 100%;
-}
-
-.totals {margin-top: 25px;}
-
-.cart .green {color: #669933;}
-
-.cart form {display: inline-block;}
-
 @media only screen and (max-width: 991px) {
 	.title-divider {display: block;}
 
 	.column-labels {display: none;}
 
 	.label-divider {display: none;}
-
-	.cart .remove {
-		margin-right: 10px;
-		margin-top: 0;
-		margin-left: 0px;
-	}
 
 	.product-price {float: left;}
 

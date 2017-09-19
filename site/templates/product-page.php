@@ -5,15 +5,15 @@
 				<li><a href="<?= $page->parent->parent->parent->url; ?>"><?= $page->parent->parent->parent->title; ?></a></li>
 				<li><a href="<?= $page->parent->parent->url; ?>"><?= $page->parent->parent->title; ?></a></li>
 				<li><a href="<?= $page->parent->url; ?>"><?= $page->parent->title; ?></a></li>
-				<li>Spectrum - <?= $page->title ?> - <?= $page->product_features; ?></li>
+				<li>Spectrum - <?= $page->title ?></li>
 			</ol>
-			
-			<h1>Spectrum - <?= $page->title ?> - <?= $page->product_features; ?></h1>
+
+			<h1>Spectrum - <?= $page->title ?></h1>
 
 			<div class="row">
 				<div class="col-sm-5">
 					<img class="product-img img-responsive" src="<?= $page->product_image->height(434)->url; ?>" alt="">
-					<h4 class="product-name">Spectrum - <?=  $page->title ?> - <?= $page->product_features; ?></h4>
+					<h4 class="product-name">Spectrum - <?=  $page->title ?></h4>
 					<p>Model: <?php echo $page->itemid; ?></p>
 					<form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
 						<input type="hidden" name="action" value="add-to-cart">
@@ -29,9 +29,14 @@
 
 				</div>
 				<div class="col-sm-7">
-					<div class="bedroom-color img-responsive" style="background-color: <?= '#'.$page->itemid; ?>;">
-						<img class="bedroom img-responsive" src="<?php echo $config->urls->assets.'files/images/bedroom.png'; ?>">
-					</div>
+
+					<!-- displays room with paint sample if category is paints -->
+					<?php if ($page->parent->parent->name == 'paints') : ?>
+						<div class="bedroom-color img-responsive" style="background-color: <?= '#'.$page->itemid; ?>;">
+							<img class="bedroom img-responsive" src="<?php echo $config->urls->assets.'files/images/bedroom.png'; ?>">
+						</div>
+					<?php endif; ?>
+
 					<div class="description">
 						<h4>Product Features</h4>
 						<p>

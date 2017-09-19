@@ -66,11 +66,11 @@ function navigationmenu(PageArray $items) {
 				echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>" .
 					 $item->title."<span class='caret'></span></a>";
 				echo "<ul class='dropdown-menu'>";
-				echo "<li><a href='".$item->url."'>".$item->title."</a></li>";
+				echo "<li><a href='".$item->url."' class='sliding-white'>".$item->title."</a></li>";
 				echo '<li role="separator" class="divider"></li>';
 				// echo '<li class="dropdown-header">Product Categories</li>';
 				foreach ($item->children() as $itemchild) {
-					echo "<li><a href='".$itemchild->url."'>".$itemchild->title."</a></li>";
+					echo "<li><a href='".$itemchild->url."' class='sliding-white'>".$itemchild->title."</a></li>";
 				}
 				echo "</ul>";
 			} else {
@@ -81,7 +81,7 @@ function navigationmenu(PageArray $items) {
 					// otherwise just a regular list item
 					echo "<li>";
 				}
-				echo "<a href='$item->url'>$item->title</a> ";
+				echo "<a href='$item->url' class='sliding-white'>$item->title</a> ";
 			}
 
 
