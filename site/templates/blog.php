@@ -16,7 +16,7 @@
                      ?>
                 </div>
                 <div class="col-md-6">
-                    <h2><a href="<?php echo $panel->url; ?>"><?php echo $panel->title; ?></a></h2>
+                    <h2><a href="<?php echo $panel->url; ?>" class="sliding-middle-out"><?php echo $panel->title; ?></a></h2>
                     <h5><?php echo $panel->blog_date; ?></h5>
                     <p><?php echo $panel->blog_description; ?></p>
                     <a href="<?php echo $panel->url; ?>" class="btn btn-info">Read More</a>
