@@ -54,6 +54,8 @@
 			</div>
 		</div>
 	<!-- END PRODUCT CONTAINER -->
+	</br>
+	<hr>
 	<div class="related-products">
 		<h3>Related Products</h3>
 		<div class="row">

@@ -28,8 +28,6 @@
 		}
 	}
 
-
-
 	function getcartmaxrecord($sessionid, $debug) {
 		$sql = wire('database')->prepare("SELECT MAX(recordno) FROM cart WHERE sessionid = :sessionid");
 		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
@@ -41,8 +39,6 @@
 		}
 	}
 
-
-	
 	function getstates() {
 		$sql = wire('database')->prepare("SELECT * FROM states");
 		$sql->execute();

@@ -6,7 +6,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1><?php echo $page->headline; ?></h1>
-				<?php echo $page->body; ?>
+				<p><?php echo $page->body; ?></p>
+				<img src="<?php echo $page->main_image->url; ?>" alt="" class="img-responsive">
+				<p><?php echo $page->body_2; ?></p>
 			</div>
 		</div>
 	</div>
