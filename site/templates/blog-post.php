@@ -1,6 +1,10 @@
 <?php include('./_head.php'); ?>
 
 <div class="container page">
+	<ol class="breadcrumb">
+		<li><a href="<?= $page->parent->url; ?>"><?= $page->parent->title; ?></a></li>
+		<li><?php echo $page->title; ?></li>
+	</ol>
 	<div class="row">
 		<div class="col-sm-9">
 	        <h1 class="blog-post"><?php echo $page->title; ?></h1>
