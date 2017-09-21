@@ -19,4 +19,11 @@ $(document).ready(function() {
 			var tablerow = input.closest('tr');
 			tablerow.find('input[type=hidden][name=qty]').val(qty);
 		});
+		
+		var screenSize = $( window ).width();
+		if (screenSize < 767) {
+		  $('.sliding-white').removeClass('sliding-white');
+		  $('.sliding-middle-out').removeClass('sliding-middle-out');
+	  	};
+  
 });
