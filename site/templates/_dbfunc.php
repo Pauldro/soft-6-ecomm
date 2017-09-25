@@ -1,9 +1,7 @@
 <?php
-
  /* =============================================================
    CART FUNCTIONS
  ============================================================ */
-
  	function get_cart_count($sessionid, $debug) {
 		$sql = wire('database')->prepare("SELECT COUNT(*) FROM cart WHERE sessionid = :sessionid");
 		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
