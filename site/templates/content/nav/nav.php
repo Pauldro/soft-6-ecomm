@@ -13,11 +13,38 @@
 		$navbar = 'navbar-inverse';
 		$navbar = 'navbar-default';
 	}
+	
+	if ($user->isLoggedin()) {
+		// user is already logged in, so they don't need to be here
+		$session->remove('loginerror');
+	   // $session->redirect("/store/"); 
+	}
 ?>
 <div class="container">
-	<a href="<?php echo $pages->get(1)->httpUrl; ?>">
-		<img class="logo img-responsive" src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo">
-	</a>
+	<div class="row">
+		<div class="col-sm-6">
+			<a href="<?php echo $pages->get(1)->httpUrl; ?>">
+				<img class="logo img-responsive" src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo">
+			</a>
+		</div>
+		<div class="col-sm-6">
+			<form class="form-inline pull-right header-login">
+			  <input type="hidden" name="action" value="login">
+			  <div class="form-group">
+			    <label class="sr-only" for="username">Email address</label>
+			    <input type="text" class="form-control input-sm" id="username" placeholder="Email">
+				<span class="help-block"></span>
+			  </div>
+			  <div class="form-group">
+			    <label class="sr-only" for="password">Password</label>
+			    <input type="password" class="form-control input-sm" id="password" placeholder="Password">
+				<span class="help-block"></span>
+			  </div>
+			  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+			  <button type="submit" class="btn btn-info btn-sm">Sign in</button>
+			</form>
+		</div>
+	</div>
 </div>
 <nav class="navbar <?= $navbar; ?> navbar-static-top">
 	<div class="container">

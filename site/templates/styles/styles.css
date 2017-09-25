@@ -142,6 +142,9 @@
 	    display: none;
 	  }
 	}
+	
+	.header-login {margin-top: 30px;}
+	.header-login button {margin-top: -10px;}
 
 /*==============================================================
 		 FEATURED PRODUCTS STYLES

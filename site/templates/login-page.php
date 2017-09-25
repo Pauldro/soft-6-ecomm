@@ -39,7 +39,7 @@
 							<input type="password" class="form-control" id="password" name="password" title="Please enter your password">
 							<span class="help-block"></span>
 						</div>
-						<div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+						<div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
 						<button type="submit" class="btn btn-success btn-block">Login</button>
 					</form>
 				</div>
