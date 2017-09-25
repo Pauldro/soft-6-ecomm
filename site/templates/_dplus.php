@@ -105,7 +105,7 @@
 		);
 		if (array_key_exists($email, $logins)) {
 			if ($logins[$email]['password'] == $password) {
-				if (!is_loggedin($sessionID)) {
+				if (!is_loggedin($sessionID, false)) {
 					writeloginrecord($sessionID, $date, $time, $logins[$email]['custid'], $logins[$email]['shiptoid'], $logins[$email]['name'], $logins[$email]['contact'], 'Y', $logins[$email]['cconly'], '', false);
 				}
 			}
