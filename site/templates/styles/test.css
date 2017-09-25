@@ -1,0 +1,16 @@
+.order-panel.panel {
+    margin-bottom: 0px;
+}
+
+.panel-group-item.list-group-item {
+    padding: 0px;
+}
+
+.heading-row {
+    font-weight: bold;
+}
+
+.title-label {
+    display: none;
+    font-weight: bold;
+}
