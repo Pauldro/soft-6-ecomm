@@ -4,12 +4,6 @@
 		$session->remove('loginerror');
 	   // $session->redirect("/store/"); 
 	}
-	// check for login before outputting markup
-	if ($input->post->email && $input->post->password) {
-		$email = $input->post->text('email');
-		$pass = $input->post->text('password');
-		userlogin(session_id(), $email, $pass);
-	}
 ?>
 
 
@@ -23,7 +17,8 @@
 						<img src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo" class="img-responsive">
 					</div>
 					
-					<form action="<?= $pages->get('/user/login/')->url; ?>" method="post" novalidate>
+					<form action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
+						<input type="hidden" name="action" value="login">
 						<?php if ($session->loginerror) : ?>
 							<br>
 							<div class="alert alert-danger alert-dismissible" role="alert">
