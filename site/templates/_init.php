@@ -41,3 +41,4 @@
 	$config->scripts->append($config->urls->templates.'scripts/fuelux.js');*/
 
 	$site = $pages->get('/config/');
+	$user->loggedin = is_validlogin(session_id());
