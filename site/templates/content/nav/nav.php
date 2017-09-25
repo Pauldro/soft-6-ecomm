@@ -24,10 +24,14 @@
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+				<i class="fa fa-bars" aria-hidden="true"></i>
 			</button>
+			<?php if ($user->loggedin) : ?> 
+				<a class="navbar-item" href="<?= $pages->get('/user/redir/')->url . '?action=logout'; // TODO fix url ?>">Logout</a>	
+			<?php else : ?>
+				<a class="navbar-item" href="<?= $pages->get('/user/login/')->url; ?>">Login</a>	
+			<?php endif; ?>
+
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<?php navigationmenu($children) ; ?>

@@ -114,6 +114,34 @@
 		background-color: #6600cc !important;
 		color: #fff !important;
 	}
+	
+	.navbar-toggle {
+	  float: left;
+	  margin-left: 15px;
+	  color: #fff;
+	}
+	
+	.navbar-item {
+	  position: relative;
+	  float: right;
+	  margin-right: 15px;
+	  padding: 9px 10px;
+	  margin-top: 8px;
+	  margin-bottom: 8px;
+	  background-color: transparent;
+	  background-image: none;
+	  border: 1px solid transparent;
+	  border-radius: 0px;
+	}
+	.navbar-item:focus {
+	  outline: 0;
+	}
+
+	@media (min-width: 768px) {
+	  .navbar-item {
+	    display: none;
+	  }
+	}
 
 /*==============================================================
 		 FEATURED PRODUCTS STYLES

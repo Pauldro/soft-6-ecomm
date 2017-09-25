@@ -16,6 +16,12 @@
                 $session->loc = $pages->get('/user/login/')->url;
             }
             break;
+		case 'logout':
+			if (is_loggedin(session_id(), false)) {
+				userlogout(session_id());
+				$session->loc = $pages->get('user/logout/')->url;
+			}
+			break;
         }
 
 	header('Location: '. $session->loc);
