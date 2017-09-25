@@ -24,7 +24,7 @@
 							<input class="form-control input-sm qty" type="text" name="qty" size="3">
 						</div>
 						<h3 class="price">$<?php echo $page->price; ?></h3>
-						<button class="btn btn-info add_to_cart" type="submit" name="add_to_cart">Add to Cart</button>
+						<button class="btn btn-info btn-block add_to_cart" type="submit" name="add_to_cart">Add to Cart</button>
 					</form>
 
 				</div>
@@ -62,9 +62,9 @@
 			<?php foreach ($page->siblings('limit=4', false) as $relate) : ?>
 				<div class="col-xs-6 col-sm-4 col-md-3 form-group">
 					<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
-					<a href="<?php echo $relate->url; ?>"><h5><?php echo $relate->title; ?></h5></a>
+					<h4><a href="<?php echo $relate->url; ?>"><?php echo $relate->title; ?></a></h4>
 					<p><?php echo $relate->product_specifications; ?></p>
-					<a href="<?php echo $relate->url; ?>" class="btn btn-info">See More</a>
+					<a href="<?php echo $relate->url; ?>" class="btn btn-info btn-block">See More</a>
 				</div>
 			<?php endforeach; ?>
 		</div>

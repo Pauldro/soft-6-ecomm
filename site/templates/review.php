@@ -180,7 +180,7 @@
 
         <div class="row">
             <div class="col-md-3 text-right pull-right">
-                <button class="btn btn-md btn-success">Process Order</button>
+                <button class="btn btn-success">Process Order</button>
             </div>
         </div>
 </div>

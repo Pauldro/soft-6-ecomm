@@ -20,7 +20,7 @@
 				<img class="img-responsive" src="<?php echo $product->product_image->height(300)->url; ?>" alt="<?php echo $product->title; ?>">
 				<h4><a href="<?php echo $product->url; ?>"><?php echo $product->title; ?></a></h4>
 				<p>Model: <?php echo $product->itemid; ?></p>
-				<a href="<?php echo $product->url; ?>" class="btn btn-info" style="width: 100%">See more</a>
+				<a href="<?php echo $product->url; ?>" class="btn btn-info btn-block">See more</a>
 			</div>
 			<?php endforeach; ?>
 		</div>

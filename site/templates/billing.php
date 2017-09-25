@@ -197,7 +197,7 @@ function fillShipping(f) {
             </form>
         </div>
         <div class="cart col-md-12">
-            <button class="btn btn-success" type="button" name="button">Continue</button>
+            <button class="btn btn-success btn-block" type="button" name="button">Continue</button>
         </div>
     </div>
 </div>

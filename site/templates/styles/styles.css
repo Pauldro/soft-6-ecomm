@@ -164,8 +164,6 @@
 	font-size: 1.25em;
 }
 
-.featured-products .btn {width: 100%;}
-
 /*==============================================================
 	   NEWSLETTER SIGNUP STYLES
 =============================================================*/
@@ -313,9 +311,8 @@
 .product-container .quantity {margin-left: 25px;}
 
 .product-container .add_to_cart {
-	margin-top: 15px;
+	margin-top: 30px;
 	margin-bottom: 30px;
-	width: 100%;
 	height: 45px;
 	font-size: 1.3em;
 }
@@ -341,8 +338,6 @@
 	 RELATED PRODUCTS STYLES
 =============================================================*/
 .related-products {margin-top: 50px;}
-
-.related-products .btn {width: 100%;}
 
 /*==============================================================
 	 BLOG POST STYLES
