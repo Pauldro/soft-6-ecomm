@@ -28,21 +28,24 @@
 			</a>
 		</div>
 		<div class="col-sm-6">
-			<form class="form-inline pull-right header-login">
-			  <input type="hidden" name="action" value="login">
-			  <div class="form-group">
-			    <label class="sr-only" for="username">Email address</label>
-			    <input type="text" class="form-control input-sm" id="username" placeholder="Email">
-				<span class="help-block"></span>
-			  </div>
-			  <div class="form-group">
-			    <label class="sr-only" for="password">Password</label>
-			    <input type="password" class="form-control input-sm" id="password" placeholder="Password">
-				<span class="help-block"></span>
-			  </div>
-			  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
-			  <button type="submit" class="btn btn-info btn-sm">Sign in</button>
-			</form>
+			<?php if ($user->loggedin) : ?> 
+			<?php else : ?>
+				<form class="form-inline pull-right header-login" action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
+				  <input type="hidden" name="action" value="login">
+				  <div class="form-group">
+				    <label class="sr-only" for="username">Email address</label>
+				    <input type="text" class="form-control input-sm" id="username" name="email" placeholder="Email">
+					<span class="help-block"></span>
+				  </div>
+				  <div class="form-group">
+				    <label class="sr-only" for="password">Password</label>
+				    <input type="password" class="form-control input-sm" id="password" name="password" placeholder="Password">
+					<span class="help-block"></span>
+				  </div>
+				  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+				  <button type="submit" class="btn btn-info btn-sm">Sign in</button>
+				</form>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>
