@@ -12,11 +12,11 @@
                       </div>
                       <div class="panel-body">
                           <form class="form-horizontal">
-                            <label class="col-sm-4">&nbsp;<i class="fa fa-user" aria-hidden="true"></i>&emsp;Name</label>
+                            <label class="col-sm-4">&nbsp;<i class="fa fa-user" aria-hidden="true"></i>&ensp;Name</label>
                             <p class="col-sm-8">John Snow</p>
-                              <label class="col-sm-4"><i class="fa fa-envelope" aria-hidden="true"></i>&emsp;Email</label>
+                              <label class="col-sm-4"><i class="fa fa-envelope" aria-hidden="true"></i>&ensp;Email</label>
                               <p class="col-sm-8">customer@email.com</p>
-                              <label class="col-sm-4"><i class="fa fa-truck" aria-hidden="true"></i>&emsp;Address</label>
+                              <label class="col-sm-4"><i class="fa fa-truck" aria-hidden="true"></i>&ensp;Address</label>
                               <p class="col-sm-8">123 Main St.</br>
                                 Minneapolis, MN 55408</p>
                           </form>
@@ -29,8 +29,8 @@
                         <h3 class="panel-title">Login Information<i class="pull-right fa fa-user" aria-hidden="true"></i></h3>
                       </div>
                       <div class="panel-body">
-                         <p class="col-sm-12"><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Change your password</a></p>
-                         <p class="col-sm-12"><a href="<?= $pages->get('/user/redir/')->url . '?action=logout'; // TODO fix url ?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out of your account</a></p>
+                         <p class="col-sm-12"><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>&ensp;Change your password</a></p>
+                         <p class="col-sm-12"><a href="<?= $pages->get('/user/redir/')->url . '?action=logout'; // TODO fix url ?>"><i class="fa fa-sign-out" aria-hidden="true"></i>&ensp;Log out of your account</a></p>
                       </div>
                     </div>
                 </div>

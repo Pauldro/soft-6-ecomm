@@ -32,7 +32,7 @@
 					<label for="commentgl">Comment</label>
 					<textarea class="form-control" rows="3" id="comment"></textarea>
 				</div>
-				<button type="submit" class="btn btn-info">Submit</button>
+				<button type="submit" class="btn btn-info btn-block">Submit</button>
 			</form>
 		</div>
 	</div>
