@@ -68,7 +68,7 @@
 		}
 	}
 	
-	function writeloginrecord($sessionid, $date, $time, $custid, $shiptoid, $name, $contact, $validlogin, $cconly, $ermes) {
+	function writeloginrecord($sessionid, $date, $time, $custid, $shiptoid, $name, $contact, $validlogin, $cconly, $ermes, $debug) {
 		$sql = wire('database')->prepare("INSERT INTO login (sessionid, date, time, custid, shiptoid, name, contact, validlogin, cconly, ermes) VALUES (:sessionid, :date, :time, :custid, :shiptoid, :name, :contact, :validlogin, :cconly, :ermes)");
 		$switching = array(':sessionid' => $sessionid, ':date' => $date, ':time' => $time, ':custid' => $custid, ':shiptoid' => $shiptoid, ':name' => $name, ':contact' => $contact, ':validlogin' => $validlogin, ':cconly' => $cconly, ':ermes' => $ermes); 
 		$withquotes = array(true, true, true, true, true, true, true, true, true, true, true);
@@ -105,9 +105,11 @@
 		);
 		if (array_key_exists($email, $logins)) {
 			if ($logins[$email]['password'] == $password) {
-				writeloginrecord($sessionID, $date, $time, $logins[$email]['custid'], $logins[$email]['shiptoid'], $logins[$email]['name'], $logins[$email]['contact'], 'Y', $logins[$email]['cconly'], '');
+				if (!is_loggedin($sessionID)) {
+					writeloginrecord($sessionID, $date, $time, $logins[$email]['custid'], $logins[$email]['shiptoid'], $logins[$email]['name'], $logins[$email]['contact'], 'Y', $logins[$email]['cconly'], '', false);
+				}
 			}
 		} else {
-			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'Y', '', 'Invalid Email or Password');
+			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'Y', '', 'Invalid Email or Password', false);
 		}
 	}
