@@ -4,32 +4,10 @@
 		$session->remove('loginerror');
 	   // $session->redirect("/store/"); 
 	}
-	// check for login before outputting markup
-	if ($input->post->email && $input->post->password) {
-		$email = $input->post->text('email');
-		$pass = $input->post->text('password'); 
-		$login = wire()->users->get("email=$email")->name;
-		
-		if ($login) {
-			if ($session->login($login, $pass)) {
-				// login successful
-				$session->remove('loginerror');
-				$session->redirect("/store/"); 
-			} else {
-				$session->loginerror = "Login Failed";
-			}
-		} else {
-			$session->loginerror = "Login Failed";
-		}
-		
-	}
 ?>
 
 
 <?php include('./_head.php'); ?>
-	
-	
-		
 	<div class="container page">
 		<h1><?php echo $page->get('pagetitle|headline|title') ; ?></h1>
 		<div class="row">
@@ -39,7 +17,8 @@
 						<img src="<?= $site->companylogo->maxHeight(50)->url; ?>" alt="<?= $site->company_name; ?> logo" class="img-responsive">
 					</div>
 					
-					<form action="<?= $config->pages->login; ?>" method="post" novalidate>
+					<form action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
+						<input type="hidden" name="action" value="login">
 						<?php if ($session->loginerror) : ?>
 							<br>
 							<div class="alert alert-danger alert-dismissible" role="alert">
