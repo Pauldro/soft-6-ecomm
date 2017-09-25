@@ -30,7 +30,7 @@
 		<div class="col-sm-6">
 			<?php if ($user->loggedin) : ?> 
 			<?php else : ?>
-				<form class="form-inline pull-right header-login" action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
+				<form class="form-inline pull-right header-login hidden-xs" action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
 				  <input type="hidden" name="action" value="login">
 				  <div class="form-group">
 				    <label class="sr-only" for="username">Email address</label>
