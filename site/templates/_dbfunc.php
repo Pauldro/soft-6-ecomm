@@ -1,9 +1,7 @@
 <?php
-
  /* =============================================================
    CART FUNCTIONS
  ============================================================ */
-
  	function get_cart_count($sessionid, $debug) {
 		$sql = wire('database')->prepare("SELECT COUNT(*) FROM cart WHERE sessionid = :sessionid");
 		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
@@ -47,7 +45,7 @@
     
     function is_loggedin($sessionID) {
         $sql = wire('database')->prepare("SELECT IF(validlogin = 'Y',1,0) as validlogin FROM login WHERE sessionid = :sessionid");
-		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
+		$switching = array(':sessionid' => $sessionID); $withquotes = array(true);
 		if ($debug) {
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
@@ -58,7 +56,7 @@
     
     function get_loginrecord($sessionID, $debug) {
         $sql = wire('database')->prepare("SELECT * FROM login WHERE sessionid = :sessionid");
-		$switching = array(':sessionid' => $sessionid); $withquotes = array(true);
+		$switching = array(':sessionid' => $sessionID); $withquotes = array(true);
 		if ($debug) {
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
