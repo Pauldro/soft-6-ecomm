@@ -1,3 +1,5 @@
+<!-- paint color categories -->
+
 <?php $children = $page->children; ?>
 <div class="row">
 	<?php foreach ($children as $child) : ?>

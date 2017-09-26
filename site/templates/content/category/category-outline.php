@@ -1,3 +1,5 @@
+<!-- paint and stains links -->
+
 <?php $children = $page->children(); ?>
 <div class="row">
 	<?php foreach ($children as $child) : ?>
