@@ -26,18 +26,29 @@
 						<h4>Site Links</h4>
 						<div class="row">
 							<div class="col-xs-6">
-								<ul>
-									<li><a href="#">Home</a></li>
+								<ul>	
+									<?php 
+									$homepage = $pages->get('template=home');
+									$links = $homepage->children;
+									?>
+										<li><a href="<?php echo $homepage->url; ?>"><?php echo $homepage->title; ?></a></li>
+									
+									<?php 
+									foreach ($links as $link) { 
+										if ($link->showinnavigation) { 
+									?>
+										<li><a href="<?php echo $link->url; ?>"><?php echo $link->title; ?></a></li>
+									<!-- <li><a href="#">Home</a></li>
 									<li><a href="#">About</a></li>
 									<li><a href="#">Contact</a></li>
 									<li><a href="#">Cart</a></li>
 									<li><a href="#">Login</a></li>
-									<li><a href="#">Site Map</a></li>
+									<li><a href="#">Site Map</a></li> -->	
+									<?php } } ?>
 								</ul>
 							</div>
 							<div class="col-xs-6">
 								<ul>
-									<li><a href="#">Products</a></li>
 									<li><a href="#">Paints</a></li>
 									<li><a href="#">Stains</a></li>
 									<li><a href="#">Rollers</a></li>
