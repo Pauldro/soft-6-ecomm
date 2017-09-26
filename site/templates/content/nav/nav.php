@@ -44,7 +44,7 @@
 				  </div>
 				  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
 				  <button type="submit" class="btn btn-info btn-sm">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-				  <a href="<?php echo $pages->get('template=register')->url; ?>" class="btn btn-primary btn-sm">Register <i class="fa fa-user" aria-hidden="true"></i></a>
+				  <a href="<?php echo $pages->get('template=register')->url; ?>" class="btn btn-primary btn-sm">Register </a>
 				</form>
 			<?php endif; ?>
 		</div>
@@ -67,7 +67,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<?php navigationmenu($children) ; ?>
 
-			<form class="navbar-form navbar-right">
+			<form class="navbar-form navbar-right header-search">
 				<div class="input-group">
 					<input type="text" class="form-control input-sm" placeholder="Search" name="q">
 					<div class="input-group-btn">

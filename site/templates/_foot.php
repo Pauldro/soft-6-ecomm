@@ -23,7 +23,7 @@
 						<p><?php echo $site->hours; ?></p>
 	                </div>
 					<div class="col-sm-4 bottom">
-						<h4>Site Map</h4>
+						<h4>Site Links</h4>
 						<div class="row">
 							<div class="col-xs-6">
 								<ul>
@@ -32,6 +32,7 @@
 									<li><a href="#">Contact</a></li>
 									<li><a href="#">Cart</a></li>
 									<li><a href="#">Login</a></li>
+									<li><a href="#">Site Map</a></li>
 								</ul>
 							</div>
 							<div class="col-xs-6">
@@ -44,7 +45,6 @@
 									<li><a href="#">Accessories</a></li>
 								</ul>
 							</div>
-
 						</div>
 	                </div>
 				</div>
