@@ -264,10 +264,8 @@
 
 .description {display: block;}
 
-.product-container a {
+.product-container a, .breadcrumb a {
 	font-family: 'Montserrat', sans-serif;
-	text-decoration: none;
-	color: #6600cc;
 }
 
 .product-container .blue {
