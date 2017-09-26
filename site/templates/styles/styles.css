@@ -147,6 +147,13 @@
 	.header-login button {margin-top: -10px;}
 
 /*==============================================================
+	REGISTRATION STYLES
+=============================================================*/
+form#register-form {margin-top: 20px;}
+
+form#register-form button {margin-top: 20px;}
+
+/*==============================================================
 		 FEATURED PRODUCTS STYLES
 =============================================================*/
 .featured-products {margin-top: -27px;}
