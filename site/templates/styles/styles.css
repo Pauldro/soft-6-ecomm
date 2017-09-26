@@ -144,7 +144,7 @@
 	}
 	
 	.header-login {margin-top: 30px;}
-	.header-login button {margin-top: -10px;}
+	.header-login a, .header-login button {margin-top: -10px;}
 
 /*==============================================================
 	REGISTRATION STYLES

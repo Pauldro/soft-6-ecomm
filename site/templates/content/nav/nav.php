@@ -43,7 +43,8 @@
 					<span class="help-block"></span>
 				  </div>
 				  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
-				  <button type="submit" class="btn btn-info btn-sm">Sign in</button>
+				  <button type="submit" class="btn btn-info btn-sm">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+				  <a href="<?php echo $pages->get('template=register')->url; ?>" class="btn btn-primary btn-sm">Register <i class="fa fa-user" aria-hidden="true"></i></a>
 				</form>
 			<?php endif; ?>
 		</div>
