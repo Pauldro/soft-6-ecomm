@@ -15,7 +15,7 @@
 					<img class="product-img img-responsive" src="<?= $page->product_image->height(434)->url; ?>" alt="">
 					<h4 class="product-name">Spectrum - <?=  $page->title ?></h4>
 					<p>Model: <?php echo $page->itemid; ?></p>
-					<form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
+					<form class="form-inline" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
 						<input type="hidden" name="action" value="add-to-cart">
 						<input type="hidden" name="itemID" value="<?= $page->itemid; ?>">
 						<input type="hidden" name="page" value="<?= $page->url; ?>">
@@ -38,17 +38,8 @@
 					<?php endif; ?>
 
 					<div class="description">
-						<h4>Product Features</h4>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis risus velit. Phasellus pellentesque
-							laoreet malesuada. Integer vel purus vel quam viverra suscipit at non risus. Cras luctus sodales metus,
-							malesuada pharetra mi tristique sed. Duis in pretium sapien. Aenean iaculis ante id est volutpat, quis
-							faucibus odio pretium. Quisque ut justo vitae leo semper fermentum. In vel nisi sed libero placerat egestas
-							in ac nibh. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-							Nulla aliquet condimentum sem eu egestas. In hac habitasse platea dictumst. Orci varius natoque penatibus
-							et magnis dis parturient montes, nascetur ridiculus mus. Quisque faucibus volutpat luctus. Integer pulvinar
-							malesuada turpis ut vestibulum.
-						</p>
+						<h4>Product Description</h4>
+						<p><?php echo $page->longdesc; ?></p>
 					</div>
 				</div>
 			</div>
