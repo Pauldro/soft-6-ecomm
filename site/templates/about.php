@@ -2,7 +2,7 @@
 <div class="jumbotron page-banner" style="background: url('<?php echo $page->pagebanner->url; ?>'); background-size: cover;">
 </div>
 
-	<div class="container">
+	<div class="container page">
 		<div class="row">
 			<div class="col-md-12">
 				<h1><?php echo $page->headline; ?></h1>

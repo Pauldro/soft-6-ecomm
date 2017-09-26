@@ -4,7 +4,7 @@
 	html { position: relative; height: 100%; }
 	body { height: 100%;}
 
-	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:200px; margin-top: 20px;}
+	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:50px; margin-top: 20px;}
 
 	.tsp-background {background: rgba(0,0,0,0.4);}
 
