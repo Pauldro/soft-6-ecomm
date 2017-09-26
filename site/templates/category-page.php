@@ -1,4 +1,4 @@
-<!-- this page contains "paints" and "stains" links... Also different paint color categories -->
+<!-- this page contains "paints" and "stains" links -->
 
 <?php include('./_head.php'); ?>
 	<div class="container page">

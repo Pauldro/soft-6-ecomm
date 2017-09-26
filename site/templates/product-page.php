@@ -1,15 +1,14 @@
 <?php include('./_head.php'); ?>
 	<div class="container page">
+		<ol class="breadcrumb">
+			<li><a href="<?= $page->parent->parent->parent->url; ?>"><?= $page->parent->parent->parent->title; ?></a></li>
+			<li><a href="<?= $page->parent->parent->url; ?>"><?= $page->parent->parent->title; ?></a></li>
+			<li><a href="<?= $page->parent->url; ?>"><?= $page->parent->title; ?></a></li>
+			<li>Spectrum - <?= $page->title ?></li>
+		</ol>
+		
 		<div class="product-container">
-			<ol class="breadcrumb">
-				<li><a href="<?= $page->parent->parent->parent->url; ?>"><?= $page->parent->parent->parent->title; ?></a></li>
-				<li><a href="<?= $page->parent->parent->url; ?>"><?= $page->parent->parent->title; ?></a></li>
-				<li><a href="<?= $page->parent->url; ?>"><?= $page->parent->title; ?></a></li>
-				<li>Spectrum - <?= $page->title ?></li>
-			</ol>
-
 			<h1>Spectrum - <?= $page->title ?></h1>
-
 			<div class="row">
 				<div class="col-sm-5">
 					<img class="product-img img-responsive" src="<?= $page->product_image->height(434)->url; ?>" alt="">

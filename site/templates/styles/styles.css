@@ -254,6 +254,8 @@ form#register-form button {margin-top: 20px;}
 	 font-style: normal;
 }
 
+.space {margin-top: 30px;}
+
 @media only screen and (max-width: 991px) {
 	.paint-category-title {
 		width: 100%;
