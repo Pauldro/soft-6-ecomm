@@ -123,7 +123,7 @@
 				}
 			}
 		} else {
-			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'Y', '', 'Invalid Email or Password', false);
+			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'N', '', 'Invalid Email or Password', false);
 			wire('session')->loginerror = true;
 		}
 	}

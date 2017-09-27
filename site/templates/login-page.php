@@ -10,6 +10,7 @@
 <?php include('./_head.php'); ?>
 	<div class="container page">
 		<h1><?php echo $page->get('pagetitle|headline|title') ; ?></h1>
+		<?php echo $session->loginerror; ?>
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="well">
