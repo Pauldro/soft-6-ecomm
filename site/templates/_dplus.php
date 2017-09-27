@@ -80,6 +80,18 @@
 		}
 	}
 	
+	function deleteloginrecord($sessionid, $debug) {
+		$sql = wire('database')->prepare("DELETE FROM login WHERE sessionid = :sessionid");
+		$switching = array(':sessionid' => $sessionid); 
+		$withquotes = array(true);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			$sql->execute($switching);
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		}
+	}
+	
 	function userlogin($sessionID, $email, $password) {
 		$date = date('Ymd');
 		$time = date('his');
@@ -111,7 +123,11 @@
 				}
 			}
 		} else {
-			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'Y', '', 'Invalid Email or Password', false);
+			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'N', '', 'Invalid Email or Password', false);
 			wire('session')->loginerror = true;
 		}
+	}
+	
+	function userlogout($sessionID) {
+		deleteloginrecord($sessionID, false);
 	}

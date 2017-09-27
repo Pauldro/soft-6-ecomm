@@ -4,7 +4,7 @@
 	html { position: relative; height: 100%; }
 	body { height: 100%;}
 
-	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:200px; margin-top: 20px;}
+	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:50px; margin-top: 20px;}
 
 	.tsp-background {background: rgba(0,0,0,0.4);}
 
@@ -114,12 +114,54 @@
 		background-color: #6600cc !important;
 		color: #fff !important;
 	}
+	
+	.navbar-toggle {
+	  float: left;
+	  margin-left: 15px;
+	  color: #fff;
+	}
+	
+	.navbar-item {
+	  position: relative;
+	  float: right;
+	  margin-right: 15px;
+	  padding: 9px 10px;
+	  margin-top: 8px;
+	  margin-bottom: 8px;
+	  background-color: transparent;
+	  background-image: none;
+	  border: 1px solid transparent;
+	  border-radius: 0px;
+	}
+	.navbar-item:focus {
+	  outline: 0;
+	}
+
+	@media (min-width: 768px) {
+	  .navbar-item {
+	    display: none;
+	  }
+	}
+	
+	.header-login {margin-top: 30px;}
+	.header-login a, .header-login button {margin-top: -10px;}
+	
+	.header-search {margin-top: 12px;}
+
+/*==============================================================
+	REGISTRATION STYLES
+=============================================================*/
+form#register-form {margin-top: 20px;}
+
+form#register-form button {margin-top: 20px;}
 
 /*==============================================================
 		 FEATURED PRODUCTS STYLES
 =============================================================*/
 .featured-products {margin-top: -27px;}
+
 .featured-products .title {font-family: 'Montserrat', sans-serif;}
+
 .featured-products a {font-family: 'Roboto', sans-serif;}
 
 .featured-products p {
@@ -127,21 +169,9 @@
 	font-size: .9em;
 }
 
-.featured-products .price {
-	font-family: 'Montserrat', sans-serif;
-	color: #669933;
-	font-size: 1.25em;
-}
-
-.featured-products .btn {width: 100%;}
-
 /*==============================================================
 	   NEWSLETTER SIGNUP STYLES
 =============================================================*/
-.newsletter-container {
-	margin-top: 30px;
-}
-
 .newsletter h2 {
 	font-family: 'Montserrat', sans-serif;
 	color: #fff;
@@ -222,6 +252,8 @@
 	 font-style: normal;
 }
 
+.space {margin-top: 30px;}
+
 @media only screen and (max-width: 991px) {
 	.paint-category-title {
 		width: 100%;
@@ -239,10 +271,8 @@
 
 .description {display: block;}
 
-.product-container a {
+.product-container a, .breadcrumb a {
 	font-family: 'Montserrat', sans-serif;
-	text-decoration: none;
-	color: #6600cc;
 }
 
 .product-container .blue {
@@ -282,9 +312,8 @@
 .product-container .quantity {margin-left: 25px;}
 
 .product-container .add_to_cart {
-	margin-top: 15px;
+	margin-top: 30px;
 	margin-bottom: 30px;
-	width: 100%;
 	height: 45px;
 	font-size: 1.3em;
 }
@@ -311,8 +340,6 @@
 =============================================================*/
 .related-products {margin-top: 50px;}
 
-.related-products .btn {width: 100%;}
-
 /*==============================================================
 	 BLOG POST STYLES
 =============================================================*/
@@ -334,6 +361,14 @@
 .panels img {
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+/*==============================================================
+	 CONTACT STYLES
+=============================================================*/
+.contact-info {
+	list-style-type: none;
+	padding-left: 25px;
 }
 
 /*==============================================================

@@ -10,6 +10,7 @@
 <?php include('./_head.php'); ?>
 	<div class="container page">
 		<h1><?php echo $page->get('pagetitle|headline|title') ; ?></h1>
+		<?php echo $session->loginerror; ?>
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="well">
@@ -39,7 +40,7 @@
 							<input type="password" class="form-control" id="password" name="password" title="Please enter your password">
 							<span class="help-block"></span>
 						</div>
-						<div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+						<div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
 						<button type="submit" class="btn btn-success btn-block">Login</button>
 					</form>
 				</div>
