@@ -10,11 +10,7 @@
             $email = $input->post->text('email');
             $pass = $input->post->text('password');
 			userlogin(session_id(), $email, $pass);
-			if (!empty($email) && !empty($pass)) {
-				
-			} else {
-				$session->loginerror = 'One or more fields are empty.';
-			}
+			
             if (is_loggedin(session_id(), false)) {
                 $session->loc = $pages->get('/user/')->url;
             } else {

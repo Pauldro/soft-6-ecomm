@@ -3,14 +3,15 @@
 		// user is already logged in, so they don't need to be here
 		$session->remove('loginerror');
 	   // $session->redirect("/store/"); 
-	}
+   } else {
+	   $login = get_loginrecord(session_id(), false);
+   }
 ?>
 
 
 <?php include('./_head.php'); ?>
 	<div class="container page">
 		<h1><?php echo $page->get('pagetitle|headline|title') ; ?></h1>
-		<?php echo $session->loginerror; ?>
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="well">
@@ -26,7 +27,7 @@
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							  	<span aria-hidden="true">&times;</span>
 							  </button>
-							  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Error!</strong> <?= $session->loginerror; ?>
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Error!</strong> <?= $login['ermes']; ?>
 							</div>
 							<br>
 						<?php endif; ?>

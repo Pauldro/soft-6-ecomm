@@ -121,6 +121,9 @@
 					writeloginrecord($sessionID, $date, $time, $logins[$email]['custid'], $logins[$email]['shiptoid'], $logins[$email]['name'], $logins[$email]['contact'], 'Y', $logins[$email]['cconly'], '', false);
 					wire('session')->remove('loginerror');
 				}
+			} else {
+				writeloginrecord($sessionID, $date, $time, '', '', '', '', 'N', '', 'Invalid Email or Password', false);
+				wire('session')->loginerror = true;
 			}
 		} else {
 			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'N', '', 'Invalid Email or Password', false);
