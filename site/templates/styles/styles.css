@@ -25,6 +25,8 @@
 			text-decoration: none;
 			color: #6600cc;
 		}
+		
+	.small-text {font-size: .7em;}
 
 /* purple underline */
 .sliding-middle-out {
