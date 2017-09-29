@@ -285,11 +285,7 @@
         <div class="col-sm-12">
             <h4>Terms and Conditions</h4>
             <span class="small-text">
-               <strong>TERMS:</strong> 1%-15/NET 30DAYS &ensp;<strong>FINANCE CHARGE:</strong> *1-1/2% Per month computed on the average balance of the account during each monthly billing cycle*.
-               &ensp;<strong>CREDIT AGREEMENT:</strong> Everything that I have stated in this application is correct to the best of my knowledge. I understand that {{{{BUSINESS NAME}}}} will 
-               retain this application whether or not it is approved. You are authorized to check my credit and employment history and to answer questions about your credit experience with me.
-               <strong>I AGREE TO ABIDE</strong> by all the terms of this application and to pay all applicable finance charges, collection fees, and legal expenses relating to payment of 
-               this account.
+               <?php echo $page->terms; ?>
             </span>    
             <div class="checkbox">
               <label>
