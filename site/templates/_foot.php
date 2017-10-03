@@ -22,7 +22,7 @@
 	                	<h4>Hours</h4>
 						<p><?php echo $site->hours; ?></p>
 	                </div>
-					<div class="col-sm-4 bottom">
+					<div class="col-sm-4">
 						<h4>Site Links</h4>
 						<div class="row">
 							<div class="col-xs-6">
