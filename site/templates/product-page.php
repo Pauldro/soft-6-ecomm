@@ -53,7 +53,7 @@
 				<div class="col-xs-6 col-sm-4 col-md-3 form-group">
 					<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
 					<h4><a href="<?php echo $relate->url; ?>"><?php echo $relate->title; ?></a></h4>
-					<p><?php echo $relate->itemid; ?></p>
+					<p>Model: <?php echo $relate->itemid; ?></p>
 					<a href="<?php echo $relate->url; ?>" class="btn btn-info btn-block">See More</a>
 				</div>
 			<?php endforeach; ?>
