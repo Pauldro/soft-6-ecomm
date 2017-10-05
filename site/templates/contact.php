@@ -18,7 +18,7 @@
 		<div class="col-md-6">
 			<form action="" method="">
 				<div class="form-group">
-					<p><?php echo $page->headline; ?></p>
+					<h5><?php echo $page->headline; ?></h5>
 					<!-- <label for="name">Name</label> -->
 					<input type="text" class="form-control" id="name" placeholder="Name">
 				</div>
