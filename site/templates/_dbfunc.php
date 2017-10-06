@@ -61,6 +61,6 @@
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
 			$sql->execute($switching);
-			return $sql->fetchColumn();
+			return $sql->fetch(PDO::FETCH_ASSOC);
 		}
     }

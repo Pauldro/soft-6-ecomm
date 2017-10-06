@@ -106,7 +106,7 @@
 				'cconly' => 'N'
 			),
 			'barbara@cptechinc.com' => array(
-				'email' => 'paul@cptechinc.com',
+				'email' => 'barbara@cptechinc.com',
 				'password' => 'tinypants1',
 				'custid' => 'BECKER',
 				'shiptoid' => '123456',
@@ -115,16 +115,18 @@
 				'cconly' => 'Y'
 			)
 		);
-		if (array_key_exists($email, $logins)) {
-			if ($logins[$email]['password'] == $password) {
-				if (!is_loggedin($sessionID, false)) {
-					writeloginrecord($sessionID, $date, $time, $logins[$email]['custid'], $logins[$email]['shiptoid'], $logins[$email]['name'], $logins[$email]['contact'], 'Y', $logins[$email]['cconly'], '', false);
-					wire('session')->remove('loginerror');
+		if (empty(get_loginrecord($sessionID, false))) {
+			if (!empty($email) && !empty($password) && array_key_exists($email, $logins)) {
+				if ($logins[$email]['password'] == $password) {
+					if (!is_loggedin($sessionID, false)) {
+						writeloginrecord($sessionID, $date, $time, $logins[$email]['custid'], $logins[$email]['shiptoid'], $logins[$email]['name'], $logins[$email]['contact'], 'Y', $logins[$email]['cconly'], '', false);
+						wire('session')->remove('loginerror');
+					}
 				}
+			} else {
+				writeloginrecord($sessionID, $date, $time, '', '', '', '', 'N', '', 'Invalid Email or Password', false);
+				wire('session')->loginerror = true;
 			}
-		} else {
-			writeloginrecord($sessionID, $date, $time, '', '', '', '', 'N', '', 'Invalid Email or Password', false);
-			wire('session')->loginerror = true;
 		}
 	}
 	
