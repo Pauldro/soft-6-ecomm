@@ -43,6 +43,10 @@
 		return $sql->fetchAll(PDO::FETCH_ASSOC);
 	}
     
+    /* =============================================================
+      LOGIN FUNCTIONS
+    ============================================================ */    
+    
     function is_loggedin($sessionID, $debug) {
         $sql = wire('database')->prepare("SELECT IF(validlogin = 'Y',1,0) as validlogin FROM login WHERE sessionid = :sessionid");
 		$switching = array(':sessionid' => $sessionID); $withquotes = array(true);

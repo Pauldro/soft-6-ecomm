@@ -158,20 +158,6 @@ form#register-form {margin-top: 20px;}
 form#register-form button {margin-top: 20px;}
 
 /*==============================================================
-		 FEATURED PRODUCTS STYLES
-=============================================================*/
-.featured-products {margin-top: -27px;}
-
-.featured-products .title {font-family: 'Montserrat', sans-serif;}
-
-.featured-products a {font-family: 'Roboto', sans-serif;}
-
-.featured-products p {
-	color: #000;
-	font-size: .9em;
-}
-
-/*==============================================================
 	   NEWSLETTER SIGNUP STYLES
 =============================================================*/
 .newsletter h2 {

@@ -68,6 +68,10 @@
 		}
 	}
 	
+	/* =============================================================
+      LOGIN FUNCTIONS
+    ============================================================ */	
+	
 	function writeloginrecord($sessionid, $date, $time, $custid, $shiptoid, $name, $contact, $validlogin, $cconly, $ermes, $debug) {
 		$sql = wire('database')->prepare("INSERT INTO login (sessionid, date, time, custid, shiptoid, name, contact, validlogin, cconly, ermes) VALUES (:sessionid, :date, :time, :custid, :shiptoid, :name, :contact, :validlogin, :cconly, :ermes)");
 		$switching = array(':sessionid' => $sessionid, ':date' => $date, ':time' => $time, ':custid' => $custid, ':shiptoid' => $shiptoid, ':name' => $name, ':contact' => $contact, ':validlogin' => $validlogin, ':cconly' => $cconly, ':ermes' => $ermes); 
