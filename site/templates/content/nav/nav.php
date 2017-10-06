@@ -29,6 +29,7 @@
 		</div>
 		<div class="col-sm-6">
 			<?php if ($user->loggedin) : ?> 
+				<a href="<?= $pages->get('/user/redir/')->url . '?action=logout'; // TODO fix url ?>" class="btn btn-info btn-sm pull-right header-login">Logout</a>
 			<?php else : ?>
 				<form class="form-inline pull-right header-login hidden-xs" action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
 				  <input type="hidden" name="action" value="login">
@@ -44,7 +45,7 @@
 				  </div>
 				  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
 				  <button type="submit" class="btn btn-info btn-sm">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-				  <a href="<?php echo $pages->get('template=register')->url; ?>" class="btn btn-primary btn-sm">Register </a>
+				  <a href="<?php echo $pages->get('template=register')->url; ?>" class="btn btn-primary btn-sm">Register</a>
 				</form>
 			<?php endif; ?>
 		</div>
