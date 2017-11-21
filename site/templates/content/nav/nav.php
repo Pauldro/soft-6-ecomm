@@ -67,8 +67,9 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<?php navigationmenu($children) ; ?>
-
-			<form class="navbar-form navbar-right header-search">
+			
+			<!-- SEARCH BAR -->
+			<form class="navbar-form navbar-right header-search" action="<?= $pages->get('/search/')->url; ?>" method="get" autocomplete="off">
 				<div class="input-group">
 					<input type="text" class="form-control input-sm" placeholder="Search" name="q">
 					<div class="input-group-btn">

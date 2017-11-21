@@ -9,11 +9,9 @@
 
             <div class="panels row">
                 <div class="col-md-4">
-                    <?php
-                     if($panel->blog_thumbnail){
-                        echo "<a href='{$panel->url}'><img class='img-responsive' src='{$panel->blog_thumbnail->height(400)->url}' alt=''></a>";
-                     }
-                     ?>
+                    <?php if($panel->blog_thumbnail) : ?>
+                        <?php echo "<a href='{$panel->url}'><img class='img-responsive' src='{$panel->blog_thumbnail->height(400)->url}' alt=''></a>"; ?>
+                    <?php endif; ?>
                 </div>
                 <div class="col-md-6">
                     <h2><a href="<?php echo $panel->url; ?>" class="sliding-middle-out"><?php echo $panel->title; ?></a></h2>

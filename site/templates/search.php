@@ -2,7 +2,7 @@
 
 include("./_head.php"); ?>
 
-<div id='content'>
+<div class="container page" id='content'>
 
 	<?php
 
@@ -12,6 +12,7 @@ include("./_head.php"); ?>
 	// look for a GET variable named 'q' and sanitize it
 	$q = $sanitizer->text($input->get->q); 
 
+	echo "<h1>Search Results</h1><hr>";
 	// did $q have anything in it?
 	if($q) { 
 
@@ -32,19 +33,18 @@ include("./_head.php"); ?>
 
 		// Find pages that match the selector
 		$matches = $pages->find($selector); 
-
+		
 		// did we find any matches? ...
 		if($matches->count) {
-
 			// we found matches
-			echo "<h2>Found $matches->count page(s) matching your query:</h2>";
+			echo "<h3>Found $matches->count page(s) matching your query:</h3>";
 			
 			// output navigation for them (see TIP below)
 			echo "<ul class='nav'>";
 
 			foreach($matches as $match) {
 				echo "<li><a href='$match->url'>$match->title</a>";
-				echo "<div class='summary'>$match->summary</div></li>";
+				// echo "<div class='summary'>$match->summary</div></li>";
 			}
 
 			echo "</ul>";
@@ -54,12 +54,12 @@ include("./_head.php"); ?>
 
 		} else {
 			// we didn't find any
-			echo "<h2>Sorry, no results were found.</h2>";
+			echo "<h3>Sorry, no results were found.</h3>";
 		}
 
 	} else {
 		// no search terms provided
-		echo "<h2>Please enter a search term in the search box (upper right corner)</h2>";
+		echo "<h3>Please enter a search term in the search box (upper right corner)</h3>";
 	}
 
 	?>
