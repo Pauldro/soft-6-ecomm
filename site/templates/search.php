@@ -43,7 +43,7 @@ include("./_head.php"); ?>
 			echo "<ul class='nav'>";
 
 			foreach($matches as $match) {
-				echo "<li><a href='$match->url'>$match->title</a>";
+				echo "<li><a href='$match->url'>$match->title</a></li>";
 				// echo "<div class='summary'>$match->summary</div></li>";
 			}
 
