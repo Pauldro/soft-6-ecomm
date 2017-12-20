@@ -108,6 +108,7 @@
 
         <?php include ($config->paths->content.'billing/cart.php'); ?>
 
+        </br>
         <div class="row">
             <div class="col-sm-12 ">
                 <button class="btn btn-success btn-block">Process Order</button>

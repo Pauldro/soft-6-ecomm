@@ -37,14 +37,17 @@ include("./_head.php"); ?>
 		// did we find any matches? ...
 		if($matches->count) {
 			// we found matches
-			echo "<h3>Found $matches->count page(s) matching your query:</h3>";
+			echo "<h5>Found $matches->count results matching your query:</h5>";
 			
 			// output navigation for them (see TIP below)
 			echo "<ul class='nav'>";
 
 			foreach($matches as $match) {
-				echo "<li><a href='$match->url'>$match->title</a></li>";
-				// echo "<div class='summary'>$match->summary</div></li>";
+				echo "<li><h4><a href='$match->url'>$match->title</a></h4></li>";
+				echo "<li><p class='small'><a href='$match->url' class='text-muted'>$match->url</a></p></li>";
+				echo "<li><p><a href='$match->url'>$match->title</a></p></li>";
+				echo "<img src='' >";
+				echo "</br>";
 			}
 
 			echo "</ul>";

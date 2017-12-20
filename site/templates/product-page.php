@@ -12,8 +12,7 @@
 			<div class="row">
 				<div class="col-sm-5">
 					<img class="product-img img-responsive" src="<?= $page->product_image->height(434)->url; ?>" alt="">
-					<h4 class="product-name">Spectrum - <?=  $page->title ?></h4>
-					<p>Model: <?php echo $page->itemid; ?></p>
+					<h4>Model: <?php echo $page->itemid; ?></h4>
 					<form class="form-inline" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
 						<input type="hidden" name="action" value="add-to-cart">
 						<input type="hidden" name="itemID" value="<?= $page->itemid; ?>">

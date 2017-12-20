@@ -1,3 +1,4 @@
+
 <hr class="title-divider">
 <div class="column-labels row">
     <label class="col-md-2"><p></p></label>
@@ -13,6 +14,7 @@
   $cartdetails = get_cart(session_id(), false);
   $subtotal = 0;
   setlocale(LC_MONETARY, NULL);
+  $cartqty = 0;
   foreach ($cartdetails as $cartdetail) :
 ?>
 
@@ -40,6 +42,9 @@
     <h4 class="col-sm-2 col-md-1 product-total green">
         $<?php echo $cartdetail['amount']; ?>
     </h4>
+    
+    <?php $subtotal += $cartdetail['amount']; ?>
+    <?php $cartqty += $cartdetail['qty']; ?>
 
     <div class="col-sm-12 col-md-2 btn-form">
         <form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
@@ -58,7 +63,6 @@
     </div>
 </div>
 <hr>
-<?php $subtotal += $cartdetail['amount']; ?>
 
 <?php endforeach; ?>
 
@@ -66,7 +70,7 @@
     <div class="col-md-2 text-right pull-right">
         <p>$<?php echo money_format("%i", $subtotal); ?></p>
         <p>$<?php $shipping = "5.00"; echo money_format("%i", $shipping); ?></p>
-        <h3>$<?php $total = $subtotal + $shipping; echo money_format("%i", $total); ?></h3>
+        <h3 class="price">$<?php $total = $subtotal + $shipping; echo money_format("%i", $total); ?></h3>
     </div>
     <div class="col-md-2 text-right pull-right">
         <p>Subtotal</p>
