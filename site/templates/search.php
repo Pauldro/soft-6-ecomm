@@ -45,11 +45,37 @@ include("./_head.php"); ?>
 			foreach($matches as $match) {
 				echo "<li><h4><a href='$match->url'>$match->title</a></h4></li>";
 				echo "<li><p class='small'><a href='$match->url' class='text-muted'>$match->url</a></p></li>";
-				echo "<li><p><a href='$match->url'>$match->title</a></p></li>";
-				echo "<img src='' >";
-				echo "</br>";
+				echo "<li><p>Surround text <a href='$match->url'>$match->title</a> Surrounding text</p></li>";
+				
+				if ($match->parent->parent->name == 'paints' ||
+					$match->parent->name == 'stains' ||
+					$match->parent->parent->name == 'paint-tools') {
+					
+					?>
+					
+					    <?php $matchimage = $match->product_image->url; ?>
+						<!-- for some reason the image url wouldn't convert with the echo method -->
+						<img height='150px' src="<?php echo $matchimage; ?>" >
+				
+					<?php
+					echo "<li><p class='price'>$match->price</p></li>";
+					echo "<hr>";
+					
+				} elseif ($match->parent->name == 'blog') {
+					?>
+					
+					    <?php $matchimage = $match->blog_image->url; ?>
+						<!-- for some reason the image url wouldn't convert with the echo method -->
+						<img height='150px' src="<?php echo $matchimage; ?>" >
+				
+					<?php
+					echo "<hr>";
+					
+				} else {
+					echo "<hr>";
+				}
 			}
-
+			
 			echo "</ul>";
 			
 			// TIP: you could replace everything from the <ul class='nav'> above
