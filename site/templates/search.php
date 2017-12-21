@@ -5,14 +5,32 @@ include("./_head.php"); ?>
 <div class="container page" id='content'>
 
 	<?php
+	
+	// --------------------- example regex ------------------
+	
+	// function find_words($haystack, $needle) {
+	//     $regex = '%\w+\s\w+\s' . preg_quote($needle) . '\s\w+\s\w+%';
+    // 
+	//     if (preg_match($regex, $haystack, $matches)) {
+	//         return $matches[0];
+	//     } else {
+	//         return false;
+	//     }
+	// }
+    // 
+	// $s = 'John Brown: Lives in New York, married, have 3 sons and love playing football';
+	// $search = 'sons';
+	// var_dump(find_words($s, $search));
+	
+	// ------------------- end example --------------------
 
 	// search.php template file
 	// See README.txt for more information. 
 
 	// look for a GET variable named 'q' and sanitize it
 	$q = $sanitizer->text($input->get->q); 
-
-	echo "<h1>Search Results</h1><hr>";
+	
+	echo "<h1>Search Results</h1>";
 	// did $q have anything in it?
 	if($q) { 
 
@@ -38,45 +56,56 @@ include("./_head.php"); ?>
 		if($matches->count) {
 			// we found matches
 			echo "<h5>Found $matches->count results matching your query:</h5>";
+			echo "<hr>";
 			
-			// output navigation for them (see TIP below)
-			echo "<ul class='nav'>";
-
-			foreach($matches as $match) {
-				echo "<li><h4><a href='$match->url'>$match->title</a></h4></li>";
-				echo "<li><p class='small'><a href='$match->url' class='text-muted'>$match->url</a></p></li>";
-				echo "<li><p>Surround text <a href='$match->url'>$match->title</a> Surrounding text</p></li>";
+			foreach ($matches as $match) {
 				
-				if ($match->parent->parent->name == 'paints' ||
-					$match->parent->name == 'stains' ||
-					$match->parent->parent->name == 'paint-tools') {
+				if ($match->template == 'product-page') {
+					$matchimage = $match->product_image->url;
+						echo "<div class='col-md-3'>";
+							echo "<img class='img-responsive' src='$matchimage' >";
+							echo "<h4><a href='$match->url'>$match->title</a></h4>";
+							echo "<p>Model: $match->itemid</p>";
+							echo "<a href='$match->url' class='btn btn-info btn-block'>See more</a>";
+							echo "</br>";
+							echo "</br>";
+						echo "</div>";
 					
-					?>
+				} elseif ($match->template == 'blog-post') {
+					$matchimage = $match->blog_image->url;
+					echo "<div class='row'>";
+						echo "<div class='col-md-12'>";
+							echo "<h4><a href='$match->url'>$match->title</a></h4>";
+							echo "<p class='small'><a href='$match->url' class='text-muted'>$match->url</a></p>";
+						echo "</div>";
+					echo "</div>";
 					
-					    <?php $matchimage = $match->product_image->url; ?>
-						<!-- for some reason the image url wouldn't convert with the echo method -->
-						<img height='150px' src="<?php echo $matchimage; ?>" >
-				
-					<?php
-					echo "<li><p class='price'>$match->price</p></li>";
-					echo "<hr>";
-					
-				} elseif ($match->parent->name == 'blog') {
-					?>
-					
-					    <?php $matchimage = $match->blog_image->url; ?>
-						<!-- for some reason the image url wouldn't convert with the echo method -->
-						<img height='150px' src="<?php echo $matchimage; ?>" >
-				
-					<?php
+					echo "<div class='row'>";
+						echo "<div class='col-md-4'>";
+							echo "<img class='img-responsive' src='$matchimage' >";
+						echo "</div>";
+						echo "<div class='col-md-8'>";
+							echo "<p>Surrounding text <a href='$match->url'>$q</a> Surrounding text</p>";
+						echo "</div>";
+					echo "</div>";
+					echo "</br>";
 					echo "<hr>";
 					
 				} else {
+					echo "<div class='row'>";
+						echo "<div class='col-md-12'>";
+							echo "<ul class='nav'>";
+								echo "<li><h4><a href='$match->url'>$match->title</a></h4></li>";
+								echo "<li><p class='small'><a href='$match->url' class='text-muted'>$match->url</a></p></li>";
+								echo "<li><p>Surrounding text <a href='$match->url'>$q</a> Surrounding text</p></li>";
+							echo "</ul>";
+						echo "</div>";
+					echo "</div>";
 					echo "<hr>";
+					
 				}
+				
 			}
-			
-			echo "</ul>";
 			
 			// TIP: you could replace everything from the <ul class='nav'> above
 			// all the way to here, with just this: renderNav($matches); 
