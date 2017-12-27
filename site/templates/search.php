@@ -18,7 +18,7 @@
 
 		<!-- Search the title and body fields for our query text.
 		Limit the results to 50 pages.  -->
-		<?php $selector = "title|body~=$q, limit=50"; ?>
+		<?php $selector = "title|body|headline~=$q, limit=50"; ?>
 
 		<!-- If user has access to admin pages, lets exclude them from the search results.
 		Note that 2 is the ID of the admin page, so this excludes all results that have
@@ -47,11 +47,20 @@
 					</div>
 					<div class='row'>
 						<div class='col-md-4'>
-							<img class='img-responsive' src='<?= $matchimage; ?>' >
+							<a href='<?= $match->url; ?>'>
+								<img class='img-responsive' src='<?= $matchimage; ?>' >
+							</a>
 						</div>
 						<div class='col-md-8'>
 							<h5><?= $match->blog_date; ?></h5>
-							<p>Surrounding text <a href='<?= $match->url; ?>'><?= $q; ?></a> Surrounding text</p>
+							
+							<!-- will give a sample of the blog article from the beginning -->
+							<?php $chars = 500; ?>
+		                    <?php $match->body = substr($match->body, 0, $chars); ?>
+		                    <?php $match->body = substr($match->body, 0, strrpos($match->body,' ')); ?>
+		                    <?php $match->body = $match->body . " ..."; ?>
+		                    
+		                    <p><?php echo $match->body; ?></p>
 						</div>
 					</div>
 					</br>
@@ -64,9 +73,24 @@
 					<div class='row'>
 						<div class='col-md-12'>
 							<ul class='nav'>
-								<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
-								<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
-								<li><p>Surrounding text <a href='<?= $match->url; ?>'><?= $q; ?></a> Surrounding text</p></li>
+								<!-- about page uses the basic page template... would it be better to use the parent->name != 'about' ? -->
+								<?php if ($match->template != 'basic-page') : ?>
+									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
+									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
+									
+								<?php else : ?>
+									<li><h4><a href='<?= $match->parent->url; ?>'><?= $match->title; ?></a></h4></li>
+									<li><p class='small'><a href='<?= $match->parent->url; ?>' class='text-muted'><?= $match->parent->url; ?></a></p></li>
+									
+								<?php endif; ?>	
+								
+								<!-- give sample of the paragraph from the beginning -->
+								<?php $chars = 500; ?>
+			                    <?php $match->body = substr($match->body, 0, $chars); ?>
+			                    <?php $match->body = substr($match->body, 0, strrpos($match->body,' ')); ?>
+			                    <?php $match->body = $match->body . " ..."; ?>
+			                    
+			                    <p><?php echo $match->body; ?></p>
 							</ul>
 							<hr>
 						</div>
@@ -80,7 +104,9 @@
 					<?php if ($match->template == 'product-page') : ?>
 						<?php $matchimage = $match->product_image->url; ?>
 						<div class='col-md-3'>
-							<img class='img-responsive' src='<?= $matchimage; ?>' >
+							<a href='<?= $match->url; ?>'>
+								<img class='img-responsive' src='<?= $matchimage; ?>' >
+							</a>
 							<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
 							<p>Model: <?= $match->itemid; ?></p>
 							<a href='<?= $match->url; ?>' class='btn btn-info btn-block'>See more</a>
