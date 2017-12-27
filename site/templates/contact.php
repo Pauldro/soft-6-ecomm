@@ -1,19 +1,24 @@
 <?php include('./_head.php'); ?>
 
 <div class="container page">
+	
 	<h1>Contact Us!</h1>
 	<div class="row">
 		<div class="col-md-3">
 			<h4><i class="fa fa-home" aria-hidden="true"></i>&ensp;Address</h4>
-					<p><?php echo $site->address; ?></p>
+				<p><?php echo $site->address; ?></p>
+				</br>
 			<h4><i class="fa fa-phone" aria-hidden="true"></i>&ensp;Phone</h4>
-					<p><a href="tel:+<?php echo $site->phone800; ?>"><?php echo $site->phone800; ?></a></p>
+				<p><a href="tel:+<?php echo $site->phone800; ?>"><?php echo $site->phone800; ?></a></p>
+				</br>
 			<h4><i class="fa fa-envelope-o" aria-hidden="true"></i>&ensp;Email</h4>
-					<p><a href="mailto:<?php echo $site->company_email; ?>"><?php echo $site->company_email; ?></a></p>
+				<p><a href="mailto:<?php echo $site->company_email; ?>"><?php echo $site->company_email; ?></a></p>
+				</br>
 		</div>
 		<div class="col-md-3">
 			<h4><i class="fa fa-clock-o" aria-hidden="true"></i>&ensp;Hours</h4>
-					<p><?php echo $site->hours; ?></p>
+				<p><?php echo $site->hours; ?></p>
+				</br>
 		</div>
 		<div class="col-md-6">
 			<form action="" method="">
