@@ -25,9 +25,9 @@
 		}
 	}
 
-	function update_cartline($sessionID, $linenbr, $qty, $debug) {
-		$sql = wire('database')->prepare("UPDATE cart SET qty = :qty WHERE sessionid = :sessionid AND recordno = :linenbr");
-		$switching = array(':qty' => $qty, ':sessionid' => $sessionID, ':linenbr' => $linenbr); $withquotes = array(true, true, true);
+	function update_cartline($sessionID, $linenbr, $qty, $price, $debug) {
+		$sql = wire('database')->prepare("UPDATE cart SET qty = :qty, amount = :amount WHERE sessionid = :sessionid AND recordno = :linenbr");
+		$switching = array(':sessionid' => $sessionID, ':linenbr' => $linenbr, ':qty' => $qty, ':amount' => ($price * $qty)); $withquotes = array(true, true, true);
 		if ($debug) {
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {

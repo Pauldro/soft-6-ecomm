@@ -19,7 +19,6 @@
 ?>
 
 <div class="product row">
-
     <a href="<?php echo $pages->get("itemid=".$cartdetail['itemid'])->url; ?>">
         <img class="col-sm-2 col-md-2 img-responsive" src="<?php echo $pages->get("itemid=".$cartdetail['itemid'])->product_image->height(300)->url; ?>" alt="">
     </a>
@@ -36,7 +35,14 @@
     </p>
 
     <div class="col-sm-2 col-md-1 product-quantity">
-        <input type="text" class="form-control input-sm auto-width" size="4" name="qty" value="<?php echo $cartdetail['qty']; ?>">
+        <form class="" id="<?php echo $cartdetail['itemid'].'-form'; ?>" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
+          <input type="hidden" name="action" value="update-line">
+          <input type="hidden" name="itemID" value="<?php echo $cartdetail['itemid']; ?>">
+          <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
+          <input type="hidden" name="price" value="<?php echo $cartdetail['price']; ?>">
+          <input type="text" class="form-control input-sm auto-width" size="4" name="qty" value="<?php echo $cartdetail['qty']; ?>">
+          <input type="hidden" name="page" value="<?php echo $page->url; ?>">
+        </form>
     </div>
 
     <h4 class="col-sm-2 col-md-1 product-total green">
@@ -48,18 +54,13 @@
 
     <div class="col-sm-12 col-md-2 btn-form">
         <form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
-          <input type="hidden" name="action" value="update-line">
-          <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
-          <input type="hidden" name="qty" value="<?php echo $cartdetail['qty']; ?>">
-          <input type="hidden" name="page" value="<?php echo $page->url; ?>">
-          <button type="submit" class="btn btn-md btn-warning">Update</button>
-        </form>
-        <form class="" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
           <input type="hidden" name="action" value="remove-line">
           <input type="hidden" name="linenbr" value="<?php echo $cartdetail['recordno']; ?>">
           <input type="hidden" name="page" value="<?php echo $page->url; ?>">
           <button type="submit" class="btn btn-md btn-danger">Remove</button>
         </form>
+        
+        <button form="<?php echo $cartdetail['itemid'].'-form'; ?>" type="submit" class="btn btn-md btn-warning pull-right">Update</button>
     </div>
 </div>
 <hr>
