@@ -15,6 +15,7 @@
 			} else {
 				
 			}
+
             if (is_loggedin(session_id(), false)) {
                 $session->loc = $pages->get('/user/')->url;
             } else {
