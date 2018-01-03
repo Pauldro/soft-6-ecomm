@@ -100,7 +100,7 @@ $config->prependTemplateFile = '_init.php';
  * Installer: HTTP Hosts Whitelist
  * 
  */
-	$config->httpHosts = array('192.168.1.28');
+	$config->httpHosts = array('192.168.1.2');
 
 	$config->siteimages = $config->urls->root . 'assets/files/images/';
 
@@ -108,5 +108,3 @@ $config->prependTemplateFile = '_init.php';
 	$config->pages->index = $config->urls->root; 
 	$config->pages->about = $config->urls->root . 'about/';
 	$config->pages->products = $config->urls->root . 'products/'; 
-
-

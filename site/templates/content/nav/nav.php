@@ -19,6 +19,13 @@
 		$session->remove('loginerror');
 	   // $session->redirect("/store/"); 
 	}
+	  
+    $cartdetails = get_cart(session_id(), false);
+    $cartqty = 0;
+    foreach ($cartdetails as $cartdetail) {
+		$cartqty += $cartdetail['qty'];
+	}
+	
 ?>
 <div class="container">
 	<div class="row">
@@ -29,6 +36,7 @@
 		</div>
 		<div class="col-sm-6">
 			<?php if ($user->loggedin) : ?> 
+				<a href="<?= $pages->get('/user/redir/')->url . '?action=logout'; // TODO fix url ?>" class="btn btn-info btn-sm pull-right header-login">Logout</a>
 			<?php else : ?>
 				<form class="form-inline pull-right header-login hidden-xs" action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
 				  <input type="hidden" name="action" value="login">
@@ -44,7 +52,7 @@
 				  </div>
 				  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
 				  <button type="submit" class="btn btn-info btn-sm">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-				  <a href="<?php echo $pages->get('template=register')->url; ?>" class="btn btn-primary btn-sm">Register </a>
+				  <a href="<?php echo $pages->get('template=register')->url; ?>" class="btn btn-primary btn-sm">Register</a>
 				</form>
 			<?php endif; ?>
 		</div>
@@ -66,8 +74,9 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<?php navigationmenu($children) ; ?>
-
-			<form class="navbar-form navbar-right header-search">
+			
+			<!-- SEARCH BAR -->
+			<form class="navbar-form navbar-right header-search" action="<?= $pages->get('/search/')->url; ?>" method="get" autocomplete="off">
 				<div class="input-group">
 					<input type="text" class="form-control input-sm" placeholder="Search" name="q">
 					<div class="input-group-btn">
@@ -77,7 +86,7 @@
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="<?php echo $pages->get("template=cart")->url; ?>" class="sliding-white">Cart (0<!-- TODO INSERT ITEM NUMBERS -->) <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+					<a href="<?php echo $pages->get("template=cart")->url; ?>" class="sliding-white">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i> ( <?php echo $cartqty; ?> ) </a>
 				</li>
 			</ul>
 		</div><!--/.nav-collapse -->

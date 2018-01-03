@@ -22,38 +22,38 @@
 	                	<h4>Hours</h4>
 						<p><?php echo $site->hours; ?></p>
 	                </div>
-					<div class="col-sm-4 bottom">
+					<div class="col-sm-4">
 						<h4>Site Links</h4>
 						<div class="row">
 							<div class="col-xs-6">
-								<ul>	
-									<?php 
-									$homepage = $pages->get('template=home');
-									$links = $homepage->children;
-									?>
-										<li><a href="<?php echo $homepage->url; ?>"><?php echo $homepage->title; ?></a></li>
-									
-									<?php 
-									foreach ($links as $link) { 
-										if ($link->showinnavigation) { 
-									?>
-										<li><a href="<?php echo $link->url; ?>"><?php echo $link->title; ?></a></li>
-									<!-- <li><a href="#">Home</a></li>
-									<li><a href="#">About</a></li>
-									<li><a href="#">Contact</a></li>
-									<li><a href="#">Cart</a></li>
-									<li><a href="#">Login</a></li>
-									<li><a href="#">Site Map</a></li> -->	
-									<?php } } ?>
+								<ul>
+									<li><a href="<?php echo $homepage->url; ?>"><?php echo $homepage->title; ?></a></li>
+									<?php $links = $homepage->children; ?>
+									<?php foreach ($links as $link) : ?>
+										<?php if ($link->showinnavigation) : ?> 
+											<li><a href="<?php echo $link->url; ?>"><?php echo $link->title; ?></a></li>
+											<!-- <li><a href="#">Home</a></li>
+											<li><a href="#">About</a></li>
+											<li><a href="#">Contact</a></li>
+											<li><a href="#">Cart</a></li>
+											<li><a href="#">Login</a></li>
+											<li><a href="#">Site Map</a></li> -->	
+										<?php endif; ?>
+									<?php endforeach; ?>
 								</ul>
 							</div>
 							<div class="col-xs-6">
 								<ul>
-									<li><a href="#">Paints</a></li>
-									<li><a href="#">Stains</a></li>
-									<li><a href="#">Rollers</a></li>
-									<li><a href="#">Brushes</a></li>
-									<li><a href="#">Accessories</a></li>
+									<?php foreach ($pages->get('/products/')->children as $children) : ?>
+									    <?php foreach ($children->children as $child) : ?>
+									       <li><a href="<?php echo $child->url; ?>"><?php echo $child->title; ?></a></li>
+										   <!-- <li><a href="#">Paints</a></li>
+		   								   <li><a href="#">Stains</a></li>
+		   								   <li><a href="#">Rollers</a></li>
+		   								   <li><a href="#">Brushes</a></li>
+		   								   <li><a href="#">Accessories</a></li> -->
+									   	<?php endforeach; ?>
+									<?php endforeach; ?>
 								</ul>
 							</div>
 						</div>

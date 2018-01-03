@@ -1,30 +1,32 @@
 /*==============================================================
    GENERAL STYLES
  =============================================================*/
-	html { position: relative; height: 100%; }
-	body { height: 100%;}
+html { position: relative; height: 100%; }
+body { height: 100%;}
 
-	.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:50px; margin-top: 20px;}
+.container.page {min-height: 100%; height: 100%; height: auto; padding-bottom:50px; margin-top: 20px;}
 
-	.tsp-background {background: rgba(0,0,0,0.4);}
+.tsp-background {background: rgba(0,0,0,0.4);}
 
-	.page-banner{height: 500px;}
-	@media screen and (max-width:600px) {
-		.page-banner{height: 300px;}
-	}
+.page-banner{height: 500px;}
+@media screen and (max-width:600px) {
+	.page-banner{height: 300px;}
+}
 
 
-	p {font-size: 1.125em;}
+p {font-size: 1.125em;}
 
-	a {
-		font-weight: normal;
-		color: #6600cc;
+a {
+	font-weight: normal;
+	color: #6600cc;
+	text-decoration: none;
+}
+	a:hover {
 		text-decoration: none;
+		color: #6600cc;
 	}
-		a:hover {
-			text-decoration: none;
-			color: #6600cc;
-		}
+	
+.small-text {font-size: .7em;}
 
 /* purple underline */
 .sliding-middle-out {
@@ -154,20 +156,6 @@
 form#register-form {margin-top: 20px;}
 
 form#register-form button {margin-top: 20px;}
-
-/*==============================================================
-		 FEATURED PRODUCTS STYLES
-=============================================================*/
-.featured-products {margin-top: -27px;}
-
-.featured-products .title {font-family: 'Montserrat', sans-serif;}
-
-.featured-products a {font-family: 'Roboto', sans-serif;}
-
-.featured-products p {
-	color: #000;
-	font-size: .9em;
-}
 
 /*==============================================================
 	   NEWSLETTER SIGNUP STYLES

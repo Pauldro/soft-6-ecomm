@@ -10,7 +10,12 @@
             $email = $input->post->text('email');
             $pass = $input->post->text('password');
 			userlogin(session_id(), $email, $pass);
-			
+			if (empty($email) || empty($pass)) {
+				$session->loginerror = 'One or more fields are empty.';
+			} else {
+				
+			}
+
             if (is_loggedin(session_id(), false)) {
                 $session->loc = $pages->get('/user/')->url;
             } else {
@@ -20,7 +25,7 @@
 		case 'logout':
 			if (is_loggedin(session_id(), false)) {
 				userlogout(session_id());
-				$session->loc = $pages->get('user/logout/')->url;
+				$session->loc = $pages->get('/user/logout/')->url;
 			}
 			break;
         }

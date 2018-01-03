@@ -55,7 +55,7 @@ function navigationmenu(PageArray $items) {
 	echo "<ul class='nav navbar-nav' role='navigation'>";
 	foreach ($items as $item) {
 		if ($item->showinnavigation) {
-			if ($item->hasChildren() && $item->id != wire('pages')->get('/')->id && $item->template != 'blog') {
+			if ($item->hasChildren() && $item->id != wire('pages')->get('/')->id && $item->template != 'blog' && $item->template != 'about') {
 				if($item->id == wire('page')->rootParent->id) {
 					// if current item is the same as the page being viewed, add a "current" class to it
 					echo "<li class='active dropdown' aria-current='true'>";

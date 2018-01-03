@@ -1,7 +1,7 @@
 <?php include('./_head.php'); ?>
 
 <div class="container page">
-    <?php include ($config->paths->content.'billing/process-steps.php'); ?>
+    <?php // include ($config->paths->content.'billing/process-steps.php'); ?>
     <h1>Success!</h1>
     <p>Your order has been received and will be processed shortly. Your confirmation number is: <strong>AX67932<!-- TODO: replace hardcoded confirmation --></strong></p>
     <h3>Thank you for your purchase, Barbara!<!-- TODO: replace hardcoded name --></h3>

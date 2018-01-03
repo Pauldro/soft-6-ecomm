@@ -25,9 +25,9 @@
 		}
 	}
 
-	function update_cartline($sessionID, $linenbr, $qty, $debug) {
-		$sql = wire('database')->prepare("UPDATE cart SET qty = :qty WHERE sessionid = :sessionid AND recordno = :linenbr");
-		$switching = array(':qty' => $qty, ':sessionid' => $sessionID, ':linenbr' => $linenbr); $withquotes = array(true, true, true);
+	function update_cartline($sessionID, $linenbr, $qty, $price, $debug) {
+		$sql = wire('database')->prepare("UPDATE cart SET qty = :qty, amount = :amount WHERE sessionid = :sessionid AND recordno = :linenbr");
+		$switching = array(':sessionid' => $sessionID, ':linenbr' => $linenbr, ':qty' => $qty, ':amount' => ($price * $qty)); $withquotes = array(true, true, true);
 		if ($debug) {
 			return returnsqlquery($sql->queryString, $switching, $withquotes);
 		} else {
@@ -68,6 +68,10 @@
 		}
 	}
 	
+	/* =============================================================
+      LOGIN FUNCTIONS
+    ============================================================ */	
+	
 	function writeloginrecord($sessionid, $date, $time, $custid, $shiptoid, $name, $contact, $validlogin, $cconly, $ermes, $debug) {
 		$sql = wire('database')->prepare("INSERT INTO login (sessionid, date, time, custid, shiptoid, name, contact, validlogin, cconly, ermes) VALUES (:sessionid, :date, :time, :custid, :shiptoid, :name, :contact, :validlogin, :cconly, :ermes)");
 		$switching = array(':sessionid' => $sessionid, ':date' => $date, ':time' => $time, ':custid' => $custid, ':shiptoid' => $shiptoid, ':name' => $name, ':contact' => $contact, ':validlogin' => $validlogin, ':cconly' => $cconly, ':ermes' => $ermes); 
@@ -106,7 +110,7 @@
 				'cconly' => 'N'
 			),
 			'barbara@cptechinc.com' => array(
-				'email' => 'paul@cptechinc.com',
+				'email' => 'barbara@cptechinc.com',
 				'password' => 'tinypants1',
 				'custid' => 'BECKER',
 				'shiptoid' => '123456',
@@ -115,7 +119,12 @@
 				'cconly' => 'Y'
 			)
 		);
-		if (array_key_exists($email, $logins)) {
+		
+		if (!empty(get_loginrecord($sessionID, false))) {
+			deleteloginrecord($sessionID, false);
+		} 
+		
+		if (!empty($email) && !empty($password) && array_key_exists($email, $logins)) {
 			if ($logins[$email]['password'] == $password) {
 				if (!is_loggedin($sessionID, false)) {
 					writeloginrecord($sessionID, $date, $time, $logins[$email]['custid'], $logins[$email]['shiptoid'], $logins[$email]['name'], $logins[$email]['contact'], 'Y', $logins[$email]['cconly'], '', false);

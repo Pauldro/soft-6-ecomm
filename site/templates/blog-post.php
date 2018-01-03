@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-sm-9">
 	        <h1 class="blog-post"><?php echo $page->title; ?></h1>
-	        <img class='blog-post img-responsive' src='<?= $page->blog_image->height(400)->url; ?>' alt=''>
+	        <img class='blog-post img-responsive' src='<?= $page->blog_image->width(1140)->url; ?>' alt=''>
 			<h4 class="blog-post"><?php echo $page->blog_date; ?></h4>
 	        <p><?= $page->body; ?></p>
 		</div>

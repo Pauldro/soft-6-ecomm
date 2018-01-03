@@ -12,8 +12,7 @@
 			<h4>
 				<a href="<?= $random->url; ?>" class="title"><?= $random->title; ?></a>
 			</h4>
-			<p><?= $random->itemid; ?></p>
-			<p class="price">$<?php echo $random->price; ?></p>
+			<p>Model: <?= $random->itemid; ?></p>
 			<a href="<?php echo $random->url; ?>" class="btn btn-info btn-block">See More</a>
 		</div>
 	<?php endforeach; ?>

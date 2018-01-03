@@ -12,8 +12,7 @@
 			<div class="row">
 				<div class="col-sm-5">
 					<img class="product-img img-responsive" src="<?= $page->product_image->height(434)->url; ?>" alt="">
-					<h4 class="product-name">Spectrum - <?=  $page->title ?></h4>
-					<p>Model: <?php echo $page->itemid; ?></p>
+					<h4>Model: <?php echo $page->itemid; ?></h4>
 					<form class="form-inline" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
 						<input type="hidden" name="action" value="add-to-cart">
 						<input type="hidden" name="itemID" value="<?= $page->itemid; ?>">
@@ -53,7 +52,7 @@
 				<div class="col-xs-6 col-sm-4 col-md-3 form-group">
 					<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
 					<h4><a href="<?php echo $relate->url; ?>"><?php echo $relate->title; ?></a></h4>
-					<p><?php echo $relate->itemid; ?></p>
+					<p>Model: <?php echo $relate->itemid; ?></p>
 					<a href="<?php echo $relate->url; ?>" class="btn btn-info btn-block">See More</a>
 				</div>
 			<?php endforeach; ?>

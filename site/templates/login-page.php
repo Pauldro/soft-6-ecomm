@@ -1,7 +1,8 @@
 <?php 
+	$loginrecord = get_loginrecord(session_id(), false);
 	if ($user->isLoggedin()) {
 		// user is already logged in, so they don't need to be here
-		$session->remove('loginerror');
+		// $session->remove('loginerror');
 	   // $session->redirect("/store/"); 
    } else {
 	   $login = get_loginrecord(session_id(), false);
@@ -21,13 +22,13 @@
 					
 					<form action="<?= $pages->get('/user/redir/')->url; ?>" method="post" novalidate>
 						<input type="hidden" name="action" value="login">
-						<?php if ($session->loginerror) : ?>
+						<?php if ($loginrecord['validlogin'] == 'N') : ?>
 							<br>
 							<div class="alert alert-danger alert-dismissible" role="alert">
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							  	<span aria-hidden="true">&times;</span>
 							  </button>
-							  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Error!</strong> <?= $login['ermes']; ?>
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Error!</strong> <?= $loginrecord['ermes']; ?>
 							</div>
 							<br>
 						<?php endif; ?>
