@@ -18,7 +18,7 @@
 
 		<!-- Search the title and body fields for our query text.
 		Limit the results to 50 pages.  -->
-		<?php $selector = "title|body|headline~=$q, limit=50"; ?>
+		<?php $selector = "title|body|headline|longdesc~=$q, limit=50"; ?>
 
 		<!-- If user has access to admin pages, lets exclude them from the search results.
 		Note that 2 is the ID of the admin page, so this excludes all results that have
@@ -35,8 +35,8 @@
 			<!-- we found matches -->
 			<h5>Found <?= $matches->count; ?> results matching your query:</h5>
 			<hr>
-			
 			<?php foreach ($matches as $match) : ?>
+				
 				<?php if ($match->template == 'blog-post') : ?>
 					<?php $matchimage = $match->blog_image->url; ?>
 					<div class='row'>
@@ -73,24 +73,34 @@
 					<div class='row'>
 						<div class='col-md-12'>
 							<ul class='nav'>
-								<!-- about page uses the basic page template... would it be better to use the parent->name != 'about' ? -->
 								<?php if ($match->template != 'basic-page') : ?>
+									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
+									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
+									
+								<!-- TODO need to figure this out -->
+								<?php elseif ($match->template == 'category-page') : ?>
 									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
 									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
 									
 								<?php else : ?>
 									<li><h4><a href='<?= $match->parent->url; ?>'><?= $match->title; ?></a></h4></li>
 									<li><p class='small'><a href='<?= $match->parent->url; ?>' class='text-muted'><?= $match->parent->url; ?></a></p></li>
-									
 								<?php endif; ?>	
 								
-								<!-- give sample of the paragraph from the beginning -->
-								<?php $chars = 500; ?>
-			                    <?php $match->body = substr($match->body, 0, $chars); ?>
-			                    <?php $match->body = substr($match->body, 0, strrpos($match->body,' ')); ?>
-			                    <?php $match->body = $match->body . " ..."; ?>
-			                    
-			                    <p><?php echo $match->body; ?></p>
+								<?php $express = "/(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\'+)? ?$q ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\'+)?/i"; ?>
+								<?php if ($match->template != 'family-page') : ?>
+									<?php $para = $match->body; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php else : ?>
+									<?php $para = $match->longdesc; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php endif; ?>
 							</ul>
 							<hr>
 						</div>
