@@ -35,6 +35,47 @@
 			<!-- we found matches -->
 			<h5>Found <?= $matches->count; ?> results matching your query:</h5>
 			<hr>
+					
+			<?php foreach ($matches as $match) : ?>
+				<?php if ($match->template != 'blog-post' && $match->template != 'product-page') : ?>
+					<div class='row'>
+						<div class='col-md-12'>
+							<ul class='nav'>
+								<?php if ($match->template != 'basic-page' || $match->template == 'category-page' || $match->template == 'contact') : ?>
+									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
+									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
+								<?php else : ?>
+									<li><h4><a href='<?= $match->parent->url; ?>'><?= $match->title; ?></a></h4></li>
+									<li><p class='small'><a href='<?= $match->parent->url; ?>' class='text-muted'><?= $match->parent->url; ?></a></p></li>
+								<?php endif; ?>
+								
+								<?php $express = "/(\w+\')? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?$q ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\'\w+)?/i"; ?>
+								<?php if ($match->template != 'login-page' && $match->template != 'family-page' && $match->template != 'category-page' && $match->template != 'contact') : ?>
+									<?php $para = $match->body; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php elseif ($match->template != 'login-page' && $match->template != 'family-page' && $match->template != 'category-page' && $match->template != 'contact') : ?>
+									<?php $para = $match->longdesc; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php elseif ($match->template != 'login-page' && $match->template != 'family-page' && $match->template == 'contact') : ?>
+									<?php $para = $match->headline; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php endif; ?>
+							</ul>
+							<hr>
+						</div>
+					</div>
+				<?php endif; ?>
+			<?php endforeach; ?>
+			
 			<?php foreach ($matches as $match) : ?>
 				
 				<?php if ($match->template == 'blog-post') : ?>
@@ -65,46 +106,6 @@
 					</div>
 					</br>
 					<hr>
-				<?php endif; ?>
-			<?php endforeach; ?>
-					
-			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template != 'blog-post' && $match->template != 'product-page') : ?>
-					<div class='row'>
-						<div class='col-md-12'>
-							<ul class='nav'>
-								<?php if ($match->template != 'basic-page') : ?>
-									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
-									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
-									
-								<!-- TODO need to figure this out -->
-								<?php elseif ($match->template == 'category-page') : ?>
-									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
-									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
-									
-								<?php else : ?>
-									<li><h4><a href='<?= $match->parent->url; ?>'><?= $match->title; ?></a></h4></li>
-									<li><p class='small'><a href='<?= $match->parent->url; ?>' class='text-muted'><?= $match->parent->url; ?></a></p></li>
-								<?php endif; ?>	
-								
-								<?php $express = "/(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\'+)? ?$q ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\'+)?/i"; ?>
-								<?php if ($match->template != 'family-page') : ?>
-									<?php $para = $match->body; ?>
-									<?php preg_match($express, $para, $result); ?>
-									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
-									<?php $result[0] .= "..."; ?>
-									<?php echo $result[0]; ?>
-								<?php else : ?>
-									<?php $para = $match->longdesc; ?>
-									<?php preg_match($express, $para, $result); ?>
-									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
-									<?php $result[0] .= "..."; ?>
-									<?php echo $result[0]; ?>
-								<?php endif; ?>
-							</ul>
-							<hr>
-						</div>
-					</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
 			
