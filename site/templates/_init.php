@@ -23,8 +23,9 @@
 	$page->script = str_replace($config->urls->root, '', $_SERVER['SCRIPT_NAME']);
 	$page->fullURL = new \Purl\Url($page->httpUrl);
 	$page->fullURL->path = '';
+	
 	if (!empty($page->filename) && $page->filename != '/') {
-		$page->fullURL->join($config->filename);
+		$page->fullURL->join($page->filename);
 	}
 	
 	$page->bootstrap = new Contento();
