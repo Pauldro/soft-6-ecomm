@@ -19,27 +19,20 @@
 	include_once($config->paths->templates.'classes/Product.class.php');
 	$session->sessionName = session_name();
 
-	//$page->querystring = $querystring = "?".return_querystring($config->filename);
-	//$page->PageURL = $page->httpUrl.$querystring;
+	$page->fullURL = new \Purl\Url($page->httpUrl);
+	$page->fullURL->path = '';
+	if (!empty($config->filename) && $config->filename != '/') {
+		$page->fullURL->join($config->filename);
+	}
+	
+	$page->bootstrap = new Contento();
+	$page->stringerbell = new StringerBell();
 
 	$config->styles->append($config->urls->templates.'styles/libs/bootstrap.min.css');
 	$config->styles->append($config->urls->templates.'styles/styles.css');
 
-	/*
-	$config->styles->append('https://fonts.googleapis.com/icon?family=Material+Icons');
-	$config->styles->append($config->urls->templates.'styles/libraries.css');
-	
-	$config->styles->append($config->urls->templates.'styles/libs/fuelux.css');*/
-
-
 	$config->scripts->append($config->urls->templates.'scripts/libs/bootstrap.min.js');
 	$config->scripts->append($config->urls->templates.'scripts/scripts.js');
-	/*$config->scripts->append($config->urls->templates.'scripts/js-config.js');
-	$config->scripts->append($config->urls->templates.'scripts/libraries.js');
-	$config->scripts->append($config->urls->templates.'scripts/libs/key-listener.js');
-	$config->scripts->append($config->urls->templates.'scripts/classes.js');
-	
-	$config->scripts->append($config->urls->templates.'scripts/fuelux.js');*/
 
 	$site = $pages->get('/config/');
 	$user->loggedin = is_loggedin(session_id(), false);
