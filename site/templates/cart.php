@@ -9,7 +9,7 @@
         </br>
         <div class="row">
             <div class="col-md-12">
-                <button class="btn btn-md btn-success btn-block">Checkout</button>
+                <a href="" class="btn btn-md btn-success btn-block">Checkout</a>
             </div>
         </div>
 </div>
