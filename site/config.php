@@ -93,7 +93,7 @@ $config->prependTemplateFile = '_init.php';
  * Please leave this value as-is.
  * 
  */
-		$config->installed = 1496352426;
+	$config->installed = 1496352426;
 
 
 /**
@@ -101,10 +101,11 @@ $config->prependTemplateFile = '_init.php';
  * 
  */
 	$config->httpHosts = array('192.168.1.2');
-
 	$config->siteimages = $config->urls->root . 'assets/files/images/';
 
-	$config->pages = new Paths($rootURL);
-	$config->pages->index = $config->urls->root; 
-	$config->pages->about = $config->urls->root . 'about/';
-	$config->pages->products = $config->urls->root . 'products/'; 
+	$config->rootURL = $rootURL;
+	$config->urls->vendor = "vendor/";
+	$config->urls->content = "$siteDir/templates/content/";
+	$config->paths = clone $config->urls;
+	$config->paths->root = $rootPath . '/';
+	$config->paths->sessions = $config->paths->assets . "sessions/";
