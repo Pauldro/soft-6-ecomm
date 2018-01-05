@@ -51,46 +51,44 @@ function renderNav(PageArray $items) {
 }
 
 function navigationmenu(PageArray $items) {
-	if(!$items->count()) return;
-	echo "<ul class='nav navbar-nav' role='navigation'>";
+	if (!$items->count()) return;
+	$bootstrap = new Contento();
+	$list = '';
 	foreach ($items as $item) {
 		if ($item->showinnavigation) {
 			if ($item->hasChildren() && $item->id != wire('pages')->get('/')->id && $item->template != 'blog' && $item->template != 'about') {
-				if($item->id == wire('page')->rootParent->id) {
+				
+				$sublist= $bootstrap->a('href=#|class=dropdown-toggle|data-toggle=dropdown|role=button|aria-haspopup=true|aria-expanded=false', $item->title.$bootstrap->createicon('caret'));
+				
+				$innerlist = $bootstrap->li('', $bootstrap->a("href=$item->url|class=sliding-white", $item->title));
+				$innerlist .= $bootstrap->li('role=separator|class=divider');
+				foreach ($item->children() as $child) {
+					$innerlist .= $bootstrap->li('', $bootstrap->a("href=$child->url|class=sliding-white", $child->title));
+				}
+				$sublist .= $bootstrap->ul('class=dropdown-menu', $innerlist); 
+				
+				if ($item->id == wire('page')->rootParent->id) {
 					// if current item is the same as the page being viewed, add a "current" class to it
-					echo "<li class='active dropdown' aria-current='true'>";
+					$li = $bootstrap->li('class=active dropdown|aria-current=true', $sublist);
 				} else {
 					// otherwise just a regular list item
-					echo "<li class='dropdown'>";
+					$li = $bootstrap->li('class=active', $sublist);
 				}
-				echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>" .
-					 $item->title."<span class='caret'></span></a>";
-				echo "<ul class='dropdown-menu'>";
-				echo "<li><a href='".$item->url."' class='sliding-white'>".$item->title."</a></li>";
-				echo '<li role="separator" class="divider"></li>';
-				// echo '<li class="dropdown-header">Product Categories</li>';
-				foreach ($item->children() as $itemchild) {
-					echo "<li><a href='".$itemchild->url."' class='sliding-white'>".$itemchild->title."</a></li>";
-				}
-				echo "</ul>";
 			} else {
-				if($item->id == wire('page')->id) {
+				$link = $bootstrap->a("href=$item->url|class=sliding-white", $item->title);
+				
+				if ($item->id == wire('page')->id) {
 					// if current item is the same as the page being viewed, add a "current" class to it
-					echo "<li class='active' aria-current='true'>";
+					$li = $bootstrap->li('class=active|aria-current=true', $link);
 				} else {
 					// otherwise just a regular list item
-					echo "<li>";
+					$li = $bootstrap->li('', $link);
 				}
-				echo "<a href='$item->url' class='sliding-white'>$item->title</a> ";
 			}
-
-
-			echo "</li>";
+			$list .= $li;
 		}
-
 	}
-	echo "</ul>";
-
+	return $bootstrap->ul('class=nav navbar-nav role=navigation', $list);
 }
 
 /**

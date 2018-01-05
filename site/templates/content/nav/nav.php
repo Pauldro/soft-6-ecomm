@@ -73,7 +73,7 @@
 
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
-			<?php navigationmenu($children) ; ?>
+			<?= navigationmenu($children) ; ?>
 			
 			<!-- SEARCH BAR -->
 			<form class="navbar-form navbar-right header-search" action="<?= $pages->get('/search/')->url; ?>" method="get" autocomplete="off">

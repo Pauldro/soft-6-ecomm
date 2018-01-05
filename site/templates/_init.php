@@ -30,12 +30,15 @@
 	
 	$page->bootstrap = new Contento();
 	$page->stringerbell = new StringerBell();
+	Paginator::setup_displayonpage();
 
 	$config->styles->append($config->urls->templates.'styles/libs/bootstrap.min.css');
 	$config->styles->append($config->urls->templates.'styles/styles.css');
 
 	$config->scripts->append($config->urls->templates.'scripts/libs/bootstrap.min.js');
+	$config->scripts->append($config->urls->templates.'scripts/libs/uri.js');
 	$config->scripts->append($config->urls->templates.'scripts/scripts.js');
 
 	$site = $pages->get('/config/');
 	$user->loggedin = is_loggedin(session_id(), false);
+	

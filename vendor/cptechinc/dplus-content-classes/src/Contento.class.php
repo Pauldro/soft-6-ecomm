@@ -8,7 +8,7 @@
             'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'i', 'b', 'strong', 'code', 'pre',
             'div', 'nav', 'ol', 'ul', 'li', 'button',
             'table', 'tr', 'td', 'th', 'thead', 'tbody', 'tfoot',
-            'textarea', 'option', 'label', 'a'
+            'form', 'textarea', 'option', 'label', 'a'
         );
         protected $emptytags = array(
             'input', 'img', 'br'
@@ -51,7 +51,7 @@
         public function __call($name, $args) {
             if (!method_exists($this, $name)) {
                 if (in_array($name, $this->closeable)) {
-                    if (!$args[1]) {
+                    if (!isset($args[1])) {
                         return $this->open($name, $args[0]); // OPEN ONLY
                     }
                     return $this->openandclose($name, $args[0], $args[1]); // CLOSE ONLY
