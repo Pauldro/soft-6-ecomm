@@ -33,52 +33,44 @@
 		<!-- did we find any matches? ... -->
 		<?php if ($matches->count) : ?>
 			<!-- we found matches -->
-			<h5>Found <?= $matches->count; ?> results matching your query:</h5>
+			<h5>Found <?= $matches->count; ?> results matching "<?php echo $q; ?>":</h5>
 			<hr>
-					
+			
+			<!-- PRODUCTS -->
+			<div class="row">
+			<?php $count = 0; ?>
 			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template != 'blog-post' && $match->template != 'product-page') : ?>
-					<div class='row'>
-						<div class='col-md-12'>
-							<ul class='nav'>
-								<?php if ($match->template != 'basic-page' || $match->template == 'category-page' || $match->template == 'contact') : ?>
-									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
-									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
-								<?php else : ?>
-									<li><h4><a href='<?= $match->parent->url; ?>'><?= $match->title; ?></a></h4></li>
-									<li><p class='small'><a href='<?= $match->parent->url; ?>' class='text-muted'><?= $match->parent->url; ?></a></p></li>
-								<?php endif; ?>
-								
-								<?php $express = "/(\w+\')? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?$q ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\'\w+)?/i"; ?>
-								<?php if ($match->template != 'login-page' && $match->template != 'family-page' && $match->template != 'category-page' && $match->template != 'contact') : ?>
-									<?php $para = $match->body; ?>
-									<?php preg_match($express, $para, $result); ?>
-									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
-									<?php $result[0] .= "..."; ?>
-									<?php echo $result[0]; ?>
-								<?php elseif ($match->template != 'login-page' && $match->template != 'family-page' && $match->template != 'category-page' && $match->template != 'contact') : ?>
-									<?php $para = $match->longdesc; ?>
-									<?php preg_match($express, $para, $result); ?>
-									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
-									<?php $result[0] .= "..."; ?>
-									<?php echo $result[0]; ?>
-								<?php elseif ($match->template != 'login-page' && $match->template != 'family-page' && $match->template == 'contact') : ?>
-									<?php $para = $match->headline; ?>
-									<?php preg_match($express, $para, $result); ?>
-									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
-									<?php $result[0] .= "..."; ?>
-									<?php echo $result[0]; ?>
-								<?php endif; ?>
-							</ul>
+				<?php if ($match->template == 'product-page') : ?>
+					<?php $count++; ?>
+					<?php if ($count == 1) : ?>
+						<div class="col-md-12">
+							<h3>Products</h3>
 							<hr>
 						</div>
+					<?php endif; ?>
+					<?php $matchimage = $match->product_image->url; ?>
+					<div class='col-md-3'>
+						<a href='<?= $match->url; ?>'>
+							<img class='img-responsive' src='<?= $matchimage; ?>' >
+						</a>
+						<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
+						<p>Model: <?= $match->itemid; ?></p>
+						<a href='<?= $match->url; ?>' class='btn btn-info btn-block'>See more</a>
+					</br>
 					</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
+			</div>
 			
+			<!-- BLOG -->
+			<?php $count = 0; ?>
 			<?php foreach ($matches as $match) : ?>
-				
 				<?php if ($match->template == 'blog-post') : ?>
+					<?php $count++; ?>
+					<?php if ($count == 1) : ?>
+						<h3>Blog</h3>
+						<hr>
+					<?php endif; ?>
 					<?php $matchimage = $match->blog_image->url; ?>
 					<div class='row'>
 						<div class='col-md-12'>
@@ -94,38 +86,86 @@
 						</div>
 						<div class='col-md-8'>
 							<h5><?= $match->blog_date; ?></h5>
-							
 							<!-- will give a sample of the blog article from the beginning -->
 							<?php $chars = 500; ?>
 		                    <?php $match->body = substr($match->body, 0, $chars); ?>
 		                    <?php $match->body = substr($match->body, 0, strrpos($match->body,' ')); ?>
 		                    <?php $match->body = $match->body . " ..."; ?>
-		                    
 		                    <p><?php echo $match->body; ?></p>
 						</div>
 					</div>
-					</br>
+				</br>
 					<hr>
 				<?php endif; ?>
 			<?php endforeach; ?>
 			
-			<div class="row">
-			</br>
-				<?php foreach ($matches as $match) : ?>
-					<?php if ($match->template == 'product-page') : ?>
-						<?php $matchimage = $match->product_image->url; ?>
-						<div class='col-md-3'>
-							<a href='<?= $match->url; ?>'>
-								<img class='img-responsive' src='<?= $matchimage; ?>' >
-							</a>
-							<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
-							<p>Model: <?= $match->itemid; ?></p>
-							<a href='<?= $match->url; ?>' class='btn btn-info btn-block'>See more</a>
-						</br>
-						</div>
+			<!-- CATEGORIES -->
+			<?php $count = 0; ?>
+			<?php foreach ($matches as $match) : ?>
+				<?php if ($match->template == 'all-products-page' || $match->template == 'category-page' || $match->template == 'family-page') : ?>
+					<?php $count++; ?>
+					<?php if ($count == 1) : ?>
+						<h3>Categories</h3>
+						<hr>
 					<?php endif; ?>
-				<?php endforeach; ?>
-			</div>
+					<div class='row'>
+						<div class='col-md-12'>
+							<ul class='nav'>	
+								<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
+								<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
+							</ul>
+							<hr>
+						</div>
+					</div>
+				<?php endif; ?>
+			<?php endforeach; ?>
+					
+			<!-- MISCELLANEOUS -->
+			<?php $count = 0; ?>
+			<?php foreach ($matches as $match) : ?>
+				<?php if ($match->template != 'blog-post' && $match->template != 'product-page' && $match->template != 'category-page' && $match->template != 'family-page') : ?>
+					<?php $count++; ?>
+					<?php if ($count == 1) : ?>
+						<h3>Miscellaneous</h3>
+						<hr>
+					<?php endif; ?>
+					<div class='row'>
+						<div class='col-md-12'>
+							<ul class='nav'>
+								<?php if ($match->template != 'basic-page' || $match->template == 'contact') : ?>
+									<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
+									<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
+								<?php else : ?>
+									<li><h4><a href='<?= $match->parent->url; ?>'><?= $match->title; ?></a></h4></li>
+									<li><p class='small'><a href='<?= $match->parent->url; ?>' class='text-muted'><?= $match->parent->url; ?></a></p></li>
+								<?php endif; ?>
+								
+								<?php $express = "/(\w+\')? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?$q ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\w+)? ?(\'\w+)?/i"; ?>
+								<?php if ($match->template != 'login-page' && $match->template != 'contact') : ?>
+									<?php $para = $match->body; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php elseif ($match->template != 'login-page' && $match->template != 'contact') : ?>
+									<?php $para = $match->longdesc; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php elseif ($match->template != 'login-page' && $match->template == 'contact') : ?>
+									<?php $para = $match->headline; ?>
+									<?php preg_match($express, $para, $result); ?>
+									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
+									<?php $result[0] .= "..."; ?>
+									<?php echo $result[0]; ?>
+								<?php endif; ?>
+							</ul>
+							<hr>
+						</div>
+					</div>
+				<?php endif; ?>
+			<?php endforeach; ?>
 			
 			<!-- TIP: you could replace everything from the <ul class='nav'> above
 			all the way to here, with just this: renderNav($matches);  -->
