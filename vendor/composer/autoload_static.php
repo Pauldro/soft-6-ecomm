@@ -29,6 +29,20 @@ class ComposerStaticInitc9f403e9d38c013b836f43af5a4e88de
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Purl' => 
+            array (
+                0 => __DIR__ . '/..' . '/jwage/purl/src',
+            ),
+            'Pdp\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/library',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'SqlFormatter' => __DIR__ . '/..' . '/jdorn/sql-formatter/lib/SqlFormatter.php',
     );
@@ -38,6 +52,7 @@ class ComposerStaticInitc9f403e9d38c013b836f43af5a4e88de
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitc9f403e9d38c013b836f43af5a4e88de::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitc9f403e9d38c013b836f43af5a4e88de::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc9f403e9d38c013b836f43af5a4e88de::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitc9f403e9d38c013b836f43af5a4e88de::$classMap;
 
         }, null, ClassLoader::class);
