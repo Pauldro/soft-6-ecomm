@@ -50,3 +50,10 @@ Temporary Items
 # DW Dreamweaver added files
 _notes/
 dwsync.xml
+
+# Test Files
+site/templates/test.php
+
+# Project Configurations
+.ftpconfig
+site/config.php

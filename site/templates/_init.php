@@ -14,31 +14,28 @@
 	include_once("./_func.php"); // include our shared functions
 	include_once("./_dbfunc.php"); // include our shared functions
 	include_once("./_dplus.php");
+	include_once($config->paths->vendor.'cptechinc/dplus-content-classes/vendor/autoload.php');
 	include_once($config->paths->templates.'classes/Family.class.php');
 	include_once($config->paths->templates.'classes/Product.class.php');
 	$session->sessionName = session_name();
-
-	//$page->querystring = $querystring = "?".return_querystring($config->filename);
-	//$page->PageURL = $page->httpUrl.$querystring;
+	
+	$page->filename = $_SERVER['REQUEST_URI'];
+	$page->script = str_replace($config->urls->root, '', $_SERVER['SCRIPT_NAME']);
+	$page->fullURL = new \Purl\Url($page->httpUrl);
+	$page->fullURL->path = '';
+	
+	if (!empty($page->filename) && $page->filename != '/') {
+		$page->fullURL->join($page->filename);
+	}
+	
+	$page->bootstrap = new Contento();
+	$page->stringerbell = new StringerBell();
 
 	$config->styles->append($config->urls->templates.'styles/libs/bootstrap.min.css');
 	$config->styles->append($config->urls->templates.'styles/styles.css');
 
-	/*
-	$config->styles->append('https://fonts.googleapis.com/icon?family=Material+Icons');
-	$config->styles->append($config->urls->templates.'styles/libraries.css');
-	
-	$config->styles->append($config->urls->templates.'styles/libs/fuelux.css');*/
-
-
 	$config->scripts->append($config->urls->templates.'scripts/libs/bootstrap.min.js');
 	$config->scripts->append($config->urls->templates.'scripts/scripts.js');
-	/*$config->scripts->append($config->urls->templates.'scripts/js-config.js');
-	$config->scripts->append($config->urls->templates.'scripts/libraries.js');
-	$config->scripts->append($config->urls->templates.'scripts/libs/key-listener.js');
-	$config->scripts->append($config->urls->templates.'scripts/classes.js');
-	
-	$config->scripts->append($config->urls->templates.'scripts/fuelux.js');*/
 
 	$site = $pages->get('/config/');
 	$user->loggedin = is_loggedin(session_id(), false);
