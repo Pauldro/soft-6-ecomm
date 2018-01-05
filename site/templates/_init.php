@@ -18,10 +18,12 @@
 	include_once($config->paths->templates.'classes/Family.class.php');
 	include_once($config->paths->templates.'classes/Product.class.php');
 	$session->sessionName = session_name();
-
+	
+	$page->filename = $_SERVER['REQUEST_URI'];
+	$page->script = str_replace($config->urls->root, '', $_SERVER['SCRIPT_NAME']);
 	$page->fullURL = new \Purl\Url($page->httpUrl);
 	$page->fullURL->path = '';
-	if (!empty($config->filename) && $config->filename != '/') {
+	if (!empty($page->filename) && $page->filename != '/') {
 		$page->fullURL->join($config->filename);
 	}
 	
