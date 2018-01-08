@@ -56,7 +56,7 @@ function navigationmenu(PageArray $items) {
 	$list = '';
 	foreach ($items as $item) {
 		if ($item->showinnavigation) {
-			if ($item->hasChildren() && $item->id != wire('pages')->get('/')->id && $item->template != 'blog' && $item->template != 'about') {
+			if ($item->hasChildren() && $item->id != wire('pages')->get('/')->id && $item->template != 'blog' && $item->template != 'about' && $item->template != 'events') {
 				
 				$sublist= $bootstrap->a('href=#|class=dropdown-toggle|data-toggle=dropdown|role=button|aria-haspopup=true|aria-expanded=false', $item->title.$bootstrap->createicon('caret'));
 				
