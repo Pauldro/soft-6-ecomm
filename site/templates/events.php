@@ -7,11 +7,13 @@
     <?php foreach($events as $event) : ?>
         <div class="row">
             <div class="col-md-2">
-                <img class="img-responsive" src="<?php echo $event->images->url; ?>" alt="">
+                <a href="<?= $event->url; ?>">
+                    <img class="img-responsive" src="<?php echo $event->images->url; ?>" alt="">
+                </a>
             </div>
             <div class="col-md-10">
-                <h2><a href="<?php echo $event->url; ?>"><?php echo $event->title; ?></a></h2>
-                <h4><?php echo $event->startdate; ?> - <?php echo $event->throughdate; ?></h4>
+                <h3><a href="<?php echo $event->url; ?>"><?php echo $event->title; ?></a></h3>
+                <h4><?php echo $event->startdate; ?></h4>
                 <p><?php echo $event->address; ?></p>
             </div>
         </div>

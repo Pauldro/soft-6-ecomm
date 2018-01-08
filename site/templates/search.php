@@ -18,7 +18,7 @@
 
 		<!-- Search the title and body fields for our query text.
 		Limit the results to 50 pages.  -->
-		<?php $selector = "title|body|headline|longdesc~=$q, limit=50"; ?>
+		<?php $selector = "title|body|headline|longdesc~=$q"; ?>
 
 		<!-- If user has access to admin pages, lets exclude them from the search results.
 		Note that 2 is the ID of the admin page, so this excludes all results that have
@@ -99,6 +99,42 @@
 				<?php endif; ?>
 			<?php endforeach; ?>
 			
+			<!-- EVENTS -->
+			<?php $count = 0; ?>
+			<?php foreach ($matches as $match) : ?>
+				<?php if ($match->template == 'event') : ?>
+					<?php $count++; ?>
+					<?php if ($count == 1) : ?>
+						<h3>Events</h3>
+						<hr>
+					<?php endif; ?>
+					<?php $matchimage = $match->images->url; ?>
+					<div class='row'>
+						<div class='col-md-12'>
+							<h3><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h3>
+							<p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p>
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-md-2'>
+							<a href='<?= $match->url; ?>'>
+								<img class='img-responsive' src='<?= $matchimage; ?>' >
+							</a>
+						</div>
+						<div class='col-md-10'>
+							<h4><?= $match->startdate; ?></h4>
+							<?php $chars = 200; ?>
+		                    <?php $match->body = substr($match->body, 0, $chars); ?>
+		                    <?php $match->body = substr($match->body, 0, strrpos($match->body,' ')); ?>
+		                    <?php $match->body = $match->body . " ..."; ?>
+		                    <p><?php echo $match->body; ?></p>
+						</div>
+					</div>
+				</br>
+					<hr>
+				<?php endif; ?>
+			<?php endforeach; ?>
+			
 			<!-- CATEGORIES -->
 			<?php $count = 0; ?>
 			<?php foreach ($matches as $match) : ?>
@@ -123,7 +159,7 @@
 			<!-- MISCELLANEOUS -->
 			<?php $count = 0; ?>
 			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template != 'blog-post' && $match->template != 'product-page' && $match->template != 'category-page' && $match->template != 'family-page') : ?>
+				<?php if ($match->template != 'blog-post' && $match->template != 'product-page' && $match->template != 'category-page' && $match->template != 'family-page' && $match->template != 'event') : ?>
 					<?php $count++; ?>
 					<?php if ($count == 1) : ?>
 						<h3>Miscellaneous</h3>
