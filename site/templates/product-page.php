@@ -50,7 +50,9 @@
 		<div class="row">
 			<?php foreach ($page->siblings('limit=4', false) as $relate) : ?>
 				<div class="col-xs-6 col-sm-4 col-md-3 form-group">
-					<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
+					<a href="<?= $relate->url; ?>">
+						<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
+					</a>
 					<h4><a href="<?php echo $relate->url; ?>"><?php echo $relate->title; ?></a></h4>
 					<p>Model: <?php echo $relate->itemid; ?></p>
 					<a href="<?php echo $relate->url; ?>" class="btn btn-info btn-block">See More</a>
