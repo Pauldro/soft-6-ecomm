@@ -7,8 +7,8 @@
             <img class="img-responsive" src="<?php echo $page->images->url; ?>" alt="">
         </div>
         <div class="col-md-8">
-            <h4>Start: <?php echo $page->startdate; ?></h4>
-            <h4>End: <?php echo $page->throughdate; ?></h4>
+            <h4>Start:&nbsp;&nbsp;<?php echo $page->startdate; ?></h4>
+            <h4>End:&nbsp;&nbsp;<?php echo $page->throughdate; ?></h4>
             <p><?php echo $page->address; ?></p>
             <p><a href="<?php echo $page->link; ?>"><?php echo $page->link; ?></a></p>
             <p><?php echo $page->body; ?></p>
