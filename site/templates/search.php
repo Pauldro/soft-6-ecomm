@@ -36,11 +36,14 @@
 			<h5>Found <?= $matches->count; ?> results matching "<?php echo $q; ?>":</h5>
 			<hr>
 			
+			<?php $paginator = new Paginator($input->pageNum, $matches->count, $page->fullURL->getUrl(), $page->name); ?>
+			<?= $paginator->generate_showonpage(); ?>
+			
 			<!-- PRODUCTS -->
 			<div class="row">
 			<?php $count = 0; ?>
 			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template == 'product-page') : ?>
+				<?php if ($match->template == 'product-page' || ($match->template == 'family-page' && !empty($match->longdesc))) : ?>
 					<?php $count++; ?>
 					<?php if ($count == 1) : ?>
 						<div class="col-md-12">
@@ -48,16 +51,16 @@
 							<hr>
 						</div>
 					<?php endif; ?>
-					<?php $matchimage = $match->product_image->url; ?>
-					<div class='col-md-3'>
-						<a href='<?= $match->url; ?>'>
-							<img class='img-responsive' src='<?= $matchimage; ?>' >
-						</a>
-						<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
-						<p>Model: <?= $match->itemid; ?></p>
-						<a href='<?= $match->url; ?>' class='btn btn-info btn-block'>See more</a>
-					</br>
-					</div>
+						<?php $matchimage = $match->product_image->url; ?>
+						<div class='col-md-3'>
+							<a href='<?= $match->url; ?>'>
+								<img class='img-responsive' src='<?= $matchimage; ?>' >
+							</a>
+							<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
+							<p>Model: <?= $match->itemid; ?></p>
+							<a href='<?= $match->url; ?>' class='btn btn-info btn-block'>See more</a>
+						</br>
+						</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
 			</div>
@@ -123,7 +126,7 @@
 						</div>
 						<div class='col-md-10'>
 							<h4><?= $match->startdate; ?></h4>
-							<?php $chars = 200; ?>
+							<?php $chars = 300; ?>
 		                    <?php $match->body = substr($match->body, 0, $chars); ?>
 		                    <?php $match->body = substr($match->body, 0, strrpos($match->body,' ')); ?>
 		                    <?php $match->body = $match->body . " ..."; ?>
@@ -138,7 +141,7 @@
 			<!-- CATEGORIES -->
 			<?php $count = 0; ?>
 			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template == 'all-products-page' || $match->template == 'category-page' || $match->template == 'family-page') : ?>
+				<?php if ($match->template == 'all-products-page' || $match->template == 'category-page' || ($match->template == 'family-page' && empty($match->longdesc))) : ?>
 					<?php $count++; ?>
 					<?php if ($count == 1) : ?>
 						<h3>Categories</h3>
@@ -159,7 +162,7 @@
 			<!-- MISCELLANEOUS -->
 			<?php $count = 0; ?>
 			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template != 'blog-post' && $match->template != 'product-page' && $match->template != 'category-page' && $match->template != 'family-page' && $match->template != 'event') : ?>
+				<?php if ($match->template != 'blog-post' && $match->template != 'product-page' && $match->template != 'category-page' && $match->template != 'family-page' && $match->template != 'event' && $match->template != 'comingsoon') : ?>
 					<?php $count++; ?>
 					<?php if ($count == 1) : ?>
 						<h3>Miscellaneous</h3>
@@ -183,13 +186,7 @@
 									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
 									<?php $result[0] .= "..."; ?>
 									<?php echo $result[0]; ?>
-								<?php elseif ($match->template != 'login-page' && $match->template != 'contact') : ?>
-									<?php $para = $match->longdesc; ?>
-									<?php preg_match($express, $para, $result); ?>
-									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
-									<?php $result[0] .= "..."; ?>
-									<?php echo $result[0]; ?>
-								<?php elseif ($match->template != 'login-page' && $match->template == 'contact') : ?>
+								<?php elseif ($match->template == 'contact') : ?>
 									<?php $para = $match->headline; ?>
 									<?php preg_match($express, $para, $result); ?>
 									<?php preg_replace("/$q/","<strong>$q</strong>", $result[0]); ?>
@@ -205,6 +202,8 @@
 			
 			<!-- TIP: you could replace everything from the <ul class='nav'> above
 			all the way to here, with just this: renderNav($matches);  -->
+
+			<?= $paginator; ?>
 
 		<?php else : ?>
 			<!-- we didn't find any -->
