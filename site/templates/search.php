@@ -1,32 +1,27 @@
+<?php 
+	$q = $input->get->text('q');
+	if ($q) {
+		// Sanitize for placement within a selector string. This is important for any 
+		// values that you plan to bundle in a selector string like we are doing here.
+		$q = $sanitizer->selectorValue($q);
+		// Search the title and body fields for our query text.
+		// Limit the results to 50 pages.
+		$selector = "title|body|headline|longdesc~=$q";
+		// If user has access to admin pages, lets exclude them from the search results.
+		// Note that 2 is the ID of the admin page, so this excludes all results that have
+		// that page as one of the parents/ancestors. This isn't necessary if the user 
+		// doesn't have access to view admin pages. So it's not technically necessary to
+		// have this here, but we thought it might be a good way to introduce has_parent.
+		if ($user->isLoggedin()) $selector .= ", has_parent!=2";
+	}
+?>
 <?php include("./_head.php"); ?>
 
 <div class="container page" id='content'>
-
-	<!-- search.php template file
-	See README.txt for more information. 
-
-	look for a GET variable named 'q' and sanitize it  -->
-	<?php $q = $sanitizer->text($input->get->q); ?>
 	
 	<h1>Search Results</h1>
 	<!-- did $q have anything in it? -->
 	<?php if ($q) : ?> 
-
-		<!-- Sanitize for placement within a selector string. This is important for any 
-		values that you plan to bundle in a selector string like we are doing here. -->
-		<?php $q = $sanitizer->selectorValue($q); ?>
-
-		<!-- Search the title and body fields for our query text.
-		Limit the results to 50 pages.  -->
-		<?php $selector = "title|body|headline|longdesc~=$q"; ?>
-
-		<!-- If user has access to admin pages, lets exclude them from the search results.
-		Note that 2 is the ID of the admin page, so this excludes all results that have
-		that page as one of the parents/ancestors. This isn't necessary if the user 
-		doesn't have access to view admin pages. So it's not technically necessary to
-		have this here, but we thought it might be a good way to introduce has_parent. -->
-		<?php if ($user->isLoggedin()) $selector .= ", has_parent!=2"; ?>
-
 		<!-- Find pages that match the selector -->
 		<?php $matches = $pages->find($selector); ?>
 		
@@ -37,44 +32,41 @@
 			<hr>
 			
 			<?php $paginator = new Paginator($input->pageNum, $matches->count, $page->fullURL->getUrl(), $page->name); ?>
-			<?= $paginator->generate_showonpage(); ?>
+			
 			
 			<!-- PRODUCTS -->
-			<div class="row">
-			<?php $count = 0; ?>
-			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template == 'product-page' || ($match->template == 'family-page' && !empty($match->longdesc))) : ?>
-					<?php $count++; ?>
-					<?php if ($count == 1) : ?>
-						<div class="col-md-12">
-							<h3>Products</h3>
-							<hr>
-						</div>
-					<?php endif; ?>
-						<?php $matchimage = $match->product_image->url; ?>
-						<div class='col-md-3'>
-							<a href='<?= $match->url; ?>'>
-								<img class='img-responsive' src='<?= $matchimage; ?>' >
-							</a>
-							<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
-							<p>Model: <?= $match->itemid; ?></p>
-							<a href='<?= $match->url; ?>' class='btn btn-info btn-block'>See more</a>
-						</br>
-						</div>
-				<?php endif; ?>
-			<?php endforeach; ?>
-			</div>
+			<?php $matches = $pages->find($selector.', template=product-page|kit-page'); ?>
+			<?php if ($matches->count) : ?>
+				<?php $ajaxdata = "data-focus='#product-results' data-loadinto='#product-results'"; ?>
+				<?php $paginator = new Paginator($input->pageNum, $matches->count, $page->fullURL->getUrl().' #product-results', $page->name, $ajaxdata); ?>
+				<?= $paginator->generate_showonpage(); ?>
+				<div id="product-results">
+					<h3>Products</h3>
+					<hr>
+					<div class="row">
+						<?php foreach ($matches as $match) : ?>
+							<div class='col-md-3 form-group'>
+								<a href='<?= $match->url; ?>'>
+									<img class='img-responsive' src='<?= $match->product_image->url; ?>' >
+								</a>
+								<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
+								<p>Model: <?= $match->itemid; ?></p>
+								<a href='<?= $match->url; ?>' class='btn btn-info btn-block'>See more</a>
+							</br>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+				<?= $paginator; ?>
+			<?php endif; ?>
 			
 			<!-- BLOG -->
-			<?php $count = 0; ?>
-			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template == 'blog-post') : ?>
-					<?php $count++; ?>
-					<?php if ($count == 1) : ?>
-						<h3>Blog</h3>
-						<hr>
-					<?php endif; ?>
-					<?php $matchimage = $match->blog_image->url; ?>
+			<?php $matches = $pages->find($selector.', template=blog-post'); ?>
+			<?php if ($matches->count) : ?>
+				<?php $paginator = new Paginator($input->pageNum, $matches->count, $page->fullURL->getUrl(), $page->name); ?>
+				<h3>Blog</h3>
+				<hr>
+				<?php foreach ($matches as $match) : ?>
 					<div class='row'>
 						<div class='col-md-12'>
 							<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
@@ -84,7 +76,7 @@
 					<div class='row'>
 						<div class='col-md-4'>
 							<a href='<?= $match->url; ?>'>
-								<img class='img-responsive' src='<?= $matchimage; ?>' >
+								<img class='img-responsive' src='<?= $match->blog_image->url; ?>' >
 							</a>
 						</div>
 						<div class='col-md-8'>
@@ -97,21 +89,19 @@
 		                    <p><?php echo $match->body; ?></p>
 						</div>
 					</div>
-				</br>
+					</br>
 					<hr>
-				<?php endif; ?>
-			<?php endforeach; ?>
+				<?php endforeach; ?>
+				<?= $paginator; ?>
+			<?php endif; ?>
 			
 			<!-- EVENTS -->
-			<?php $count = 0; ?>
-			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template == 'event') : ?>
-					<?php $count++; ?>
-					<?php if ($count == 1) : ?>
-						<h3>Events</h3>
-						<hr>
-					<?php endif; ?>
-					<?php $matchimage = $match->images->url; ?>
+			<?php $matches = $pages->find($selector.', template=event'); ?>
+			<?php if ($matches->count) : ?>
+				<?php $paginator = new Paginator($input->pageNum, $matches->count, $page->fullURL->getUrl(), $page->name); ?>
+				<h3>Events</h3>
+				<hr>
+				<?php foreach ($matches as $match) : ?>
 					<div class='row'>
 						<div class='col-md-12'>
 							<h3><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h3>
@@ -121,7 +111,7 @@
 					<div class='row'>
 						<div class='col-md-2'>
 							<a href='<?= $match->url; ?>'>
-								<img class='img-responsive' src='<?= $matchimage; ?>' >
+								<img class='img-responsive' src='<?= $match->images->url; ?>' >
 							</a>
 						</div>
 						<div class='col-md-10'>
@@ -133,41 +123,31 @@
 		                    <p><?php echo $match->body; ?></p>
 						</div>
 					</div>
-				</br>
+					</br>
 					<hr>
-				<?php endif; ?>
-			<?php endforeach; ?>
+				<?php endforeach; ?>
+				<?= $paginator; ?>
+			<?php endif; ?>
 			
 			<!-- CATEGORIES -->
-			<?php $count = 0; ?>
-			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template == 'all-products-page' || $match->template == 'category-page' || ($match->template == 'family-page' && empty($match->longdesc))) : ?>
-					<?php $count++; ?>
-					<?php if ($count == 1) : ?>
-						<h3>Categories</h3>
-						<hr>
-					<?php endif; ?>
-					<div class='row'>
-						<div class='col-md-12'>
-							<ul class='nav'>	
-								<li><h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4></li>
-								<li><p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p></li>
-							</ul>
-							<hr>
-						</div>
-					</div>
-				<?php endif; ?>
-			<?php endforeach; ?>
-					
+			<?php $matches = $pages->find($selector.', template=category-page|family-page'); ?>
+			<?php if ($matches->count) : ?>
+				<?php $paginator = new Paginator($input->pageNum, $matches->count, $page->fullURL->getUrl(), $page->name); ?>
+				<h3>Categories</h3>
+				<hr>
+				<?php foreach ($matches as $match) : ?>
+					<h4><a href='<?= $match->url; ?>'><?= $match->title; ?></a></h4>
+					<p class='small'><a href='<?= $match->url; ?>' class='text-muted'><?= $match->url; ?></a></p>
+				<?php endforeach; ?>
+				<?= $paginator; ?>
+			<?php endif; ?>
+			
 			<!-- MISCELLANEOUS -->
-			<?php $count = 0; ?>
-			<?php foreach ($matches as $match) : ?>
-				<?php if ($match->template != 'blog-post' && $match->template != 'product-page' && $match->template != 'category-page' && $match->template != 'family-page' && $match->template != 'event' && $match->template != 'comingsoon') : ?>
-					<?php $count++; ?>
-					<?php if ($count == 1) : ?>
-						<h3>Miscellaneous</h3>
-						<hr>
-					<?php endif; ?>
+			<?php $matches = $pages->find($selector.', template=about|contact|basic-page'); ?>
+			<?php if ($matches->count) : ?>
+				<h3>Miscellaneous</h3>
+				<hr>
+				<?php foreach ($matches as $match) : ?>
 					<div class='row'>
 						<div class='col-md-12'>
 							<ul class='nav'>
@@ -197,17 +177,9 @@
 							<hr>
 						</div>
 					</div>
-				<?php endif; ?>
-			<?php endforeach; ?>
-			
-			<!-- TIP: you could replace everything from the <ul class='nav'> above
-			all the way to here, with just this: renderNav($matches);  -->
+				<?php endforeach; ?>
+			<?php endif; ?>
 
-			<?= $paginator; ?>
-
-		<?php else : ?>
-			<!-- we didn't find any -->
-			<h3>Sorry, no results were found.</h3>
 		<?php endif; ?>
 
 	<?php else : ?>

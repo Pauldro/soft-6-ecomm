@@ -11,7 +11,7 @@
 		 * @param int  $pagenbr     [description]
 		 * @param int  $count       Number of items used to determine the number of pages needed
 		 * @param string  $pageurl     pageurl to manipulate
-		 * @param string  $insertafter if there isn't a urlsegmnet with page(1,3) in it then
+		 * @param string  $insertafter if there isn't a urlsegment with page(1,3) in it then
 		 * @param string or false $ajaxdata    String with ajaxdata needed like data-focus='#ajax'
 		 */
 		public function __construct($pagenbr, $count, $pageurl, $insertafter, $ajaxdata = false) {
@@ -61,7 +61,7 @@
 		public function generate_showonpage() {
 			$url = new \Purl\Url($this->pageurl);
 			$url->query->remove('display');
-			$href = $url->getUrl();
+			$href = $this->paginate(1);
 			$ajaxdata = $this->generate_ajaxdataforcontento();
 			$bootstrap = new Contento();
 			
@@ -155,7 +155,9 @@
  			} else {
  				if (!wire('session')->display) {
  					wire('session')->display = wire('config')->showonpage;
- 				}
+ 				} else {
+					wire('session')->display = wire('config')->showonpage;
+				}
  			}
  		}
 	}
