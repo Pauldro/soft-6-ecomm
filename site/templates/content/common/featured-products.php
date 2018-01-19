@@ -8,7 +8,9 @@
 	<?php $randoms = $pages->find("template=product-page, sort=random, limit=4"); ?>
 	<?php  foreach ($randoms as $random) : ?>
 		<div class="col-xs-12 col-sm-4 col-md-3 form-group">
-			<img class="img-responsive" src="<?= $random->product_image->url; ?>" alt="">
+			<a href="<?= $random->url; ?>">
+				<img class="img-responsive" src="<?= $random->product_image->url; ?>" alt="">
+			</a>
 			<h4>
 				<a href="<?= $random->url; ?>" class="title"><?= $random->title; ?></a>
 			</h4>
