@@ -1,9 +1,7 @@
 <!-- this page contains the product listings, ie. all the reds or all the rollers -->
-<?php 
-	$paginator = new Paginator($input->pageNum, $page->children->count, $page->fullURL->getUrl(), $page->name);
-?>
-<?php include('./_head.php'); ?>
+<?php $paginator = new Paginator($input->pageNum, $page->children->count, $page->fullURL->getUrl(), $page->name); ?>
 
+<?php include('./_head.php'); ?>
 	<div class="container page">
 		<ol class="breadcrumb">
 			<li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
