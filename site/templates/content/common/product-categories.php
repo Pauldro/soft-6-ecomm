@@ -5,7 +5,9 @@
 	<div class="panel-body">
 		<ul class="list-unstyled">
 			<?php foreach($pages->get('/products/')->children as $tag) : //iterate over each tag ?>
-				<li><a href='<?php echo $tag->url; ?>'><?php echo $tag->title; ?></a></li>
+				<?php if ($tag->template != 'results') : ?>
+					<li><a href='<?php echo $tag->url; ?>'><?php echo $tag->title; ?></a></li>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</ul>
 	</div>
