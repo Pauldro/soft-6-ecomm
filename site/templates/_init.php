@@ -15,8 +15,8 @@
 	include_once("./_dbfunc.php"); // include our shared functions
 	include_once("./_dplus.php");
 	include_once($config->paths->vendor.'cptechinc/dplus-content-classes/vendor/autoload.php');
-	include_once($config->paths->templates.'classes/Family.class.php');
-	include_once($config->paths->templates.'classes/Product.class.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/vendor/autoload.php');
+	
 	$session->sessionName = session_name();
 	
 	$page->filename = $_SERVER['REQUEST_URI'];

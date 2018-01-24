@@ -38,6 +38,19 @@ $(document).ready(function() {
 				window.location.href = href;
 			}
 		});
+		
+		$("body").on("click", ".load-link", function(e) {
+			e.preventDefault();
+			var button = $(this);
+			var loadinto = $(this).data('loadinto');
+			var focuson = $(this).data('focus');
+			var href = $(this).attr('href');
+			$(loadinto).loadin(href, function() {
+				if (focuson.length > 0) {
+					$('html, body').animate({scrollTop: $(focuson).offset().top - 60}, 1000);
+				}
+			});
+		});
 });
 
 $.fn.extend({
@@ -45,7 +58,7 @@ $.fn.extend({
 		var element = $(this);
 		var parent = element.parent();
 		console.log('loading ' + element.returnelementdescription() + " from " + href);
-		parent.load(href, function() { init_datepicker(); init_timepicker(); callback(); });
+		parent.load(href, function() { callback(); });
 	},
 	returnelementdescription: function() {
 		var element = $(this);
