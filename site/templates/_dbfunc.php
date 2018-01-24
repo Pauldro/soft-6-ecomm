@@ -1,4 +1,6 @@
 <?php
+
+    use atk4\dsql\Query;
  /* =============================================================
    CART FUNCTIONS
  ============================================================ */
@@ -65,5 +67,20 @@
 		} else {
 			$sql->execute($switching);
 			return $sql->fetch(PDO::FETCH_ASSOC);
+		}
+    }
+
+    /* =============================================================
+      DPLUS FUNCTIONS
+    ============================================================ */ 
+    // SESSIONID is '1' on every item
+    function get_itemsfromim($debug = false) {
+        $sql = wire('database')->prepare("SELECT * FROM im");
+        $switching = $withquotes = array(true);
+		if ($debug) {
+			return returnsqlquery($sql->queryString, $switching, $withquotes);
+		} else {
+			$sql->execute($switching);
+			return $sql->fetchAll(PDO::FETCH_ASSOC);
 		}
     }
