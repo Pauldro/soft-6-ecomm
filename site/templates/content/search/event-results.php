@@ -5,7 +5,7 @@
 <?php $matches = $pages->find($selector.", template=event, limit=$session->display"); ?>
 <?php if ($matches->count) : ?>
     <?php $ajaxdata = "data-focus='#events-results' data-loadinto='#events-results'"; ?>
-    <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=product-page|kit-page")->count, $page->fullURL->getUrl(), $page->name, $page->ajaxdata); ?>
+    <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=event|events")->count, $page->fullURL->getUrl(), $page->name, $page->ajaxdata); ?>
     <div id="events-results">
         <h3>Events</h3>
         <hr>

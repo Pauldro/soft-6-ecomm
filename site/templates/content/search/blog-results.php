@@ -5,7 +5,7 @@
 <?php $matches = $pages->find($selector.", template=blog-post, limit=$session->display"); ?>
 <?php if ($matches->count) : ?>
     <?php $ajaxdata = "data-focus='#blog-results' data-loadinto='#blog-results'"; ?>
-    <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=product-page|kit-page")->count, $page->fullURL->getUrl(), $page->name, $page->ajaxdata); ?>
+    <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=blog-post|blog")->count, $page->fullURL->getUrl(), $page->name, $page->ajaxdata); ?>
     <div id="blog-results">
         <h3>Blog</h3>
         <hr>

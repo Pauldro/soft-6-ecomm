@@ -2,10 +2,10 @@
 <?php $httpurl->path = $section->url; ?>
 
 <!-- MISCELLANEOUS -->
-<?php $matches = $pages->find($selector.", template=about|contact|basic-page, limit=$session->display"); ?>
+<?php $matches = $pages->find($selector.", template=about|contact|basic-page|home, limit=$session->display"); ?>
 <?php if ($matches->count) : ?>
     <?php $ajaxdata = "data-focus='#misc-results' data-loadinto='#misc-results'"; ?>
-    <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=product-page|kit-page")->count, $page->fullURL->getUrl(), $page->name, $page->ajaxdata); ?>
+    <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template!=product-page|kit-page|event|blog-post|family-page|category-page")->count, $page->fullURL->getUrl(), $page->name, $page->ajaxdata); ?>
     <div id="misc-results">
         <h3>Miscellaneous</h3>
         <hr>

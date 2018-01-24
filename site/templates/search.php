@@ -25,7 +25,7 @@
 	<!-- did $q have anything in it? -->
 	<?php if ($q) : ?> 
 		<!-- Find pages that match the selector -->
-		<?php $matches = $pages->find($selector); ?>
+		<?php $matches = $pages->find($selector.", template!=comingsoon"); ?>
 		
 		<!-- did we find any matches? ... -->
 		<?php if ($matches->count) : ?>
