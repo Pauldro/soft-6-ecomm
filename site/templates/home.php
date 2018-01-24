@@ -21,8 +21,25 @@
 				<p><?php echo $page->body_2; ?></p>
 			</div>
 		</div>
+		</br>
 		<?php include $config->paths->content."common/featured-products.php"; ?>
+		</br>
 		<?php include $config->paths->content."common/newsletter.php"; ?>
+		</br>
+		<h2>Upcoming Events</h2>
+	    <div class="row">
+	        <?php $events = $pages->find("template=event, limit=4, sort=startdate") ?>
+	        <?php foreach ($events as $event) : ?>
+	            <div class="col-md-3">
+	                <a href="<?php echo $event->url; ?>">
+	                    <img class="img-responsive" src="<?php echo $event->images->url; ?>" alt="">
+	                </a>
+	                <h4><a href="<?php echo $event->url; ?>"><?php echo $event->title; ?></a></h4>
+	                <h5><?php echo $event->startdate; ?></h5>
+	                <p><?php echo $event->address; ?></p>
+	            </div>
+	        <?php endforeach; ?>
+	    </div>
 	</div>
 
 <?php include('./_foot.php'); // include footer markup ?>
