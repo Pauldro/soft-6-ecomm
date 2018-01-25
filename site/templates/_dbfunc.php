@@ -1,4 +1,6 @@
 <?php
+
+    use atk4\dsql\Query;
  /* =============================================================
    CART FUNCTIONS
  ============================================================ */
@@ -65,5 +67,20 @@
 		} else {
 			$sql->execute($switching);
 			return $sql->fetch(PDO::FETCH_ASSOC);
+		}
+    }
+
+    /* =============================================================
+      DPLUS FUNCTIONS
+    ============================================================ */ 
+    function get_itemsfromim($debug = false) {
+        $q = (new QueryBuilder())->table('im');
+        $q->field('*');
+        $sql = Processwire\wire('database')->prepare($q->render());
+        if ($debug) {
+			return $q->generate_sqlquery($q->params);
+		} else {
+			$sql->execute($q->params);
+			return $sql->fetchAll(PDO::FETCH_ASSOC);
 		}
     }
