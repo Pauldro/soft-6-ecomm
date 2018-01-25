@@ -1,12 +1,14 @@
 <?php include('./_head.php'); ?>
+<?php $paginator = new Paginator($input->pageNum, $pages->find("template=blog-post")->count, $page->fullURL->getUrl(), $page->name); ?>
 
 <div class="container page">
         <h1>Spectrum Blog</h1>
 		<hr>
-        <?php $panels = $pages->find("has_parent=blog"); ?>
-        <?php $panels = $panels->reverse(); ?>
-        <?php foreach($panels as $panel) : ?>
 
+        <?= $paginator->generate_showonpage(); ?>
+        
+        <?php $panels = $pages->find("template=blog-post, limit=$session->display, sort=-blog_date"); ?>
+        <?php foreach ($panels as $panel) : ?>
             <div class="panels row">
                 <div class="col-md-4">
                     <?php if($panel->blog_thumbnail) : ?>
@@ -28,8 +30,8 @@
                 </div>
            </div>
            <hr>
-
         <?php endforeach; ?>
+        <?= $paginator; ?>
 </div>
 
 <?php include('./_foot.php'); // include footer markup ?>

@@ -8,7 +8,6 @@
     <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=product-page|kit-page")->count, $httpurl->getUrl(), $section->name, $ajaxdata); ?>
     <div>
         <div id="product-results">
-            <?= $paginator->generate_showonpage(); ?>
             <h3>Products</h3>
             <hr>
             <div class="row">

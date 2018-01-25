@@ -33,6 +33,9 @@
 			<h5>Found <?= $matches->count; ?> results matching "<?php echo $q; ?>":</h5>
 			<hr>
 			
+			<?php $paginator = new Paginator($input->pageNum, $pages->count, $page->fullURL->getUrl(), $page->name, $page->ajaxdata); ?>
+			<?= $paginator->generate_showonpage(); ?>
+			
 			<?php foreach ($sections as $section) : ?>
  				<?php include($config->paths->content."search/$section->name.php"); ?>
 			<?php endforeach; ?>
