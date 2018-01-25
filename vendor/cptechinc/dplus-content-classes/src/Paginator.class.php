@@ -35,7 +35,7 @@
 		public function paginate($pagenbr) {
 			if (strpos($this->pageurl, 'page') !== false) {
 				$regex = "((page)\d{1,3}/)";
-				$replace = ($pagenbr > 1) ? $replace = "page".$pagenbr : "";
+				$replace = ($pagenbr > 1) ? "page".$pagenbr : "";
 				$newurl = preg_replace($regex, $replace, $this->pageurl);
 			} else {
 				$this->insertafter = str_replace('/', '', $this->insertafter)."/";
