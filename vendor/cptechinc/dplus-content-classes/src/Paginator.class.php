@@ -40,7 +40,7 @@
 			} else {
 				$this->insertafter = str_replace('/', '', $this->insertafter)."/";
 				$regex = "(($this->insertafter))";
-				$replace = ($pagenbr > 1) ? $this->insertafter."page".$pagenbr."/" : $replace = $this->insertafter;
+				$replace = ($pagenbr > 1) ? $this->insertafter."page".$pagenbr."/" : $this->insertafter;
 				$newurl = preg_replace($regex, $replace, $this->pageurl);
 			}
 			return $newurl;
