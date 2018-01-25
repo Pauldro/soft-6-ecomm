@@ -1,9 +1,14 @@
 <?php include('./_head.php'); ?>
+<?php $paginator = new Paginator($input->pageNum, $pages->find("template=event")->count, $page->fullURL->getUrl(), $page->name); ?>
 
 <div class="container page">
     <h1>Spectrum Events</h1>
 	<hr>
-    <?php $events = $pages->find("has_parent=events, sort=startdate"); ?>
+    
+    <?= $paginator->generate_showonpage(); ?>
+    </br>
+    
+    <?php $events = $pages->find("template=event, limit=$session->display, sort=startdate"); ?>
     <?php foreach($events as $event) : ?>
         <div class="row">
             <div class="col-md-2">
@@ -19,6 +24,7 @@
         </div>
         <hr>
     <?php endforeach; ?>
+    <?= $paginator; ?>
 </div>
 
 <?php include('./_foot.php'); ?>
