@@ -73,14 +73,14 @@
     /* =============================================================
       DPLUS FUNCTIONS
     ============================================================ */ 
-    // SESSIONID is '1' on every item
     function get_itemsfromim($debug = false) {
-        $sql = wire('database')->prepare("SELECT * FROM im");
-        $switching = $withquotes = array(true);
-		if ($debug) {
-			return returnsqlquery($sql->queryString, $switching, $withquotes);
+        $q = (new QueryBuilder())->table('im');
+        $q->field('*');
+        $sql = Processwire\wire('database')->prepare($q->render());
+        if ($debug) {
+			return $q->generate_sqlquery($q->params);
 		} else {
-			$sql->execute($switching);
+			$sql->execute($q->params);
 			return $sql->fetchAll(PDO::FETCH_ASSOC);
 		}
     }
