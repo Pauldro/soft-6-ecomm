@@ -1,5 +1,5 @@
-<?php 
-	$sections = $pages->find("template=results");
+<?php
+	$sections = $pages->get('/search/, include=all')->children("template=results");
 	
 	$q = $input->get->text('q');
 	if ($q) {

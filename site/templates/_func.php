@@ -63,9 +63,7 @@ function navigationmenu(PageArray $items) {
 				$innerlist = $bootstrap->li('', $bootstrap->a("href=$item->url|class=sliding-white", $item->title));
 				$innerlist .= $bootstrap->li('role=separator|class=divider');
 				foreach ($item->children() as $child) {
-					if ($child->template != 'results') {
-						$innerlist .= $bootstrap->li('', $bootstrap->a("href=$child->url|class=sliding-white", $child->title));
-					}
+					$innerlist .= $bootstrap->li('', $bootstrap->a("href=$child->url|class=sliding-white", $child->title));
 				}
 				$sublist .= $bootstrap->ul('class=dropdown-menu', $innerlist); 
 				
