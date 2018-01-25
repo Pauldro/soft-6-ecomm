@@ -7,9 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInitad2f366086591edf1c83dfb13eadcbc8
 {
     public static $files = array (
-        'b35b6f26ab7b35ebeed46b9356b97534' => __DIR__ . '/../..' . '/src/ItemCSVExport.class.php',
         '08abc3654b31baa136fc51bb71b27304' => __DIR__ . '/../..' . '/src/Model/Product.class.php',
         'bee9d9bcd84893fe61ec970dcdfe9b42' => __DIR__ . '/../..' . '/src/Model/Family.class.php',
+        'b35b6f26ab7b35ebeed46b9356b97534' => __DIR__ . '/../..' . '/src/ItemCSVExport.class.php',
+        '8799eb3becfb0f21eec9b259e2313527' => __DIR__ . '/../..' . '/src/FamilyCategoryExport.class.php',
+        '8e91bf4fc59223e9a363e1a20174ec1a' => __DIR__ . '/../..' . '/src/DplusItemImporter.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

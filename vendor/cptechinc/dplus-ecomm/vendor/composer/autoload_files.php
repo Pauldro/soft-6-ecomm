@@ -6,7 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'b35b6f26ab7b35ebeed46b9356b97534' => $baseDir . '/src/ItemCSVExport.class.php',
     '08abc3654b31baa136fc51bb71b27304' => $baseDir . '/src/Model/Product.class.php',
     'bee9d9bcd84893fe61ec970dcdfe9b42' => $baseDir . '/src/Model/Family.class.php',
+    'b35b6f26ab7b35ebeed46b9356b97534' => $baseDir . '/src/ItemCSVExport.class.php',
+    '8799eb3becfb0f21eec9b259e2313527' => $baseDir . '/src/FamilyCategoryExport.class.php',
+    '8e91bf4fc59223e9a363e1a20174ec1a' => $baseDir . '/src/DplusItemImporter.class.php',
 );
