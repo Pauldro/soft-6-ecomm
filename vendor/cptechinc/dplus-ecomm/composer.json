@@ -6,9 +6,11 @@
     "homepage": "http://github.com/cptechinc/dplus-ecomm",
 	"autoload": {
 		"files": [
-			"src/ItemCSVExport.class.php",
 			"src/Model/Product.class.php",
-			"src/Model/Family.class.php"
+			"src/Model/Family.class.php",
+			"src/ItemCSVExport.class.php",
+			"src/FamilyCategoryExport.class.php",
+			"src/DplusItemImporter.class.php"
 		]
 	}
 }
