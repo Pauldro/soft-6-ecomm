@@ -50,7 +50,7 @@
 		        <p class="cart-product-model"><?php echo $tag->itemid; ?></p>
 		    </div>
 		    <div class="col-sm-2 col-md-2 product-quantity">
-		        <p class='text-right'>QUANTITY</p>
+		        <p class='text-right'><?php echo $tag->qtyinkit; ?></p>
 		    </div>
 		</div>
 		<hr>
