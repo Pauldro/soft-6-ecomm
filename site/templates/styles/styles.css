@@ -21,10 +21,10 @@ a {
 	color: #6600cc;
 	text-decoration: none;
 }
-	a:hover {
-		text-decoration: none;
-		color: #6600cc;
-	}
+a:hover {
+	text-decoration: none;
+	color: #6600cc;
+}
 	
 .small-text {font-size: .7em;}
 

@@ -3,6 +3,8 @@
 
 <!-- PRODUCTS -->
 <?php $matches = $pages->find($selector.", template=product-page|kit-page, limit=$session->display"); ?>
+<?php $colors = $pages->get('name=paints')->children(); ?>
+
 <?php if ($matches->count) : ?>
     <?php $ajaxdata = "data-focus='#product-results' data-loadinto='#product-results'"; ?>
     <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=product-page|kit-page")->count, $httpurl->getUrl(), $section->name, $ajaxdata); ?>
@@ -10,6 +12,9 @@
         <div id="product-results">
             <h3>Products</h3>
             <hr>
+            
+            <?php include($config->paths->content."search/products-filter-form.php"); ?>
+            
             <div class="row">
                 <?php foreach ($matches as $match) : ?>
                     <div class='col-md-3 form-group'>
