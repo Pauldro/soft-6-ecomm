@@ -1,19 +1,26 @@
-<?php $httpurl = new \Purl\Url($page->fullURL->getUrl()); ?>
-<?php $httpurl->path = $section->url; ?>
+<?php 
+	$productresults = $searchresults->create_searchsection($section);
+	$productresults->generate_filter($input);
+	$productresults->set('ajaxdata', "data-focus='#product-results' data-loadinto='#product-results'");
+	$selector = trim($productresults->generate_processwireselector());
+	$matches = $pages->find("$selector, limit=$session->display"); 
+	
+	$colors = $pages->get('name=paints')->children();
+	$categories = $pages->get('name=paint-tools')->children();
+	
+	echo $selector; 
+	
+
+?>
 
 <!-- PRODUCTS -->
-<?php $matches = $pages->find($selector.", template=product-page|kit-page, limit=$session->display"); ?>
-<?php $colors = $pages->get('name=paints')->children(); ?>
-<?php $categories = $pages->get('name=paint-tools')->children(); ?>
 
 <?php if ($matches->count) : ?>
-    <?php $ajaxdata = "data-focus='#product-results' data-loadinto='#product-results'"; ?>
-    <?php $paginator = new Paginator($input->pageNum, $pages->find($selector.", template=product-page|kit-page")->count, $httpurl->getUrl(), $section->name, $ajaxdata); ?>
+    <?php $paginator = new Paginator($input->pageNum, $pages->find($productresults->generate_processwireselector())->count, $productresults->pageurl->getUrl(), $section->name, $productresults->ajaxdata); ?>
     <div>
         <div id="product-results">
             <h3>Products</h3>
             <hr>
-            
             <h4>Filter by Color:</h4>
             <div class="row">
                 <?php include($config->paths->content."search/products-filter-form.php"); ?>
