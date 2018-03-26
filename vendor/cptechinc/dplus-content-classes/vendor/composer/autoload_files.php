@@ -6,10 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ba57c7567da6720b89dde72faa68ef0f' => $baseDir . '/src/CreateFromObjectArray.trait.php',
-    '316896c36b1889570999a61107998fe8' => $baseDir . '/src/CreateClassArray.trait.php',
     '49306911611107c4083b6b01896fcee8' => $baseDir . '/src/AttributeParser.trait.php',
-    'f16c729e8656c4454be5107ab67c25d3' => $baseDir . '/src/ThrowError.trait.php',
     '397e35926444a36228378ce4114dc89a' => $baseDir . '/src/DplusDateTime.class.php',
     '3a896468f70064436777da27e75b5e52' => $baseDir . '/src/Contento.class.php',
     '76dd8b2d335ad1ed3db79f0ea7d77a5e' => $baseDir . '/src/FormMaker.class.php',

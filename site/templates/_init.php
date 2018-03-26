@@ -14,6 +14,7 @@
 	include_once("./_func.php"); // include our shared functions
 	include_once("./_dbfunc.php"); // include our shared functions
 	include_once("./_dplus.php");
+	include_once($config->paths->vendor.'cptechinc/dplus-helper-classes/vendor/autoload.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-content-classes/vendor/autoload.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/vendor/autoload.php');
 	

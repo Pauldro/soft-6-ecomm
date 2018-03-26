@@ -1,5 +1,5 @@
 <?php 
-	$productresults = $searchresults->create_searchsection($section);
+	$productresults = new ProductSearchResults($page->fullURL, '#ajax-modal', '', true, $q, $section);
 	$productresults->generate_filter($input);
 	$productresults->set('ajaxdata', "data-focus='#product-results' data-loadinto='#product-results'");
 	$selector = trim($productresults->generate_processwireselector());
@@ -7,10 +7,6 @@
 	
 	$colors = $pages->get('name=paints')->children();
 	$categories = $pages->get('name=paint-tools')->children();
-	
-	echo $selector; 
-	
-
 ?>
 
 <!-- PRODUCTS -->
@@ -19,12 +15,9 @@
     <?php $paginator = new Paginator($input->pageNum, $pages->find($productresults->generate_processwireselector())->count, $productresults->pageurl->getUrl(), $section->name, $productresults->ajaxdata); ?>
     <div>
         <div id="product-results">
-            <h3>Products</h3>
+            <h3>Products <?= !empty($input->get->text('q')) ? '('.$pages->find($productresults->generate_processwireselector())->count . " results)" : ''; ?></h3>
             <hr>
-            <h4>Filter by Color:</h4>
-            <div class="row">
-                <?php include($config->paths->content."search/products-filter-form.php"); ?>
-            </div>
+            <?php include($config->paths->content."search/products-filter-form.php"); ?>
             </br>
             
             <div class="row">

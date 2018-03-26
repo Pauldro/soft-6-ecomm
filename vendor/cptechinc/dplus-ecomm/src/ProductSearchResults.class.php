@@ -17,15 +17,20 @@
 				'label' => 'Price'
 			)
 		);
-		public function __construct(\Purl\Url $pageurl, $modal, $loadinto, $ajax, $q, $section = false) {
-			parent::__construct($pageurl, $modal, $loadinto, $ajax, $q);
-			$this->section = $section;
-			$this->pageurl->path = $section->url;
-		}
 		
 		public function set_defaultselector() {
 			parent::set_defaultselector();
-			$this->selector .= ", template=product-page|kit-page";
+			
+			if (DplusWire::wire('config')->sitetype == 'paints') {
+				$categories = array('paints-stains', 'paint-tools');
+				$categorypages = DplusWire::wire('pages')->find("template=category-page,name=".implode('|', $categories));
+				echo var_dump($categorypages);
+				foreach ($category as $category) {
+					echo $category->id . "<br>";
+					$this->selector .= ", parent!=$category->id";
+				}
+			}
+			$this->selector .= ", template=product-page|kit-page|family-page";
 		}
 		
 	}

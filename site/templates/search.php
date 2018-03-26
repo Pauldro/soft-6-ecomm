@@ -2,9 +2,6 @@
 	$sections = $pages->get('/search/, include=all')->children("template=results");
 	
 	$q = $input->get->text('q');
-	
-	$searchresults = new SearchResults($page->fullURL, '#ajax-modal', '', true, $q);
-	
 ?>
 <?php include("./_head.php"); ?>
 
@@ -14,7 +11,7 @@
 	<!-- did $q have anything in it? -->
 	<?php if ($q) : ?> 
 		<!-- Find pages that match the selector -->
-		<?php $matches = $pages->find($searchresults->selector.", template!=comingsoon"); ?>
+		<?php $matches = $pages->find(SearchResults::generate_defaultselector($q).", template!=comingsoon"); ?>
 		
 		<!-- did we find any matches? ... -->
 		<?php if ($matches->count) : ?>

@@ -1,5 +1,5 @@
 <?php 
-    class SearchResults {
+    abstract class SearchResults {
 		use ThrowErrorTrait;
 		use MagicMethodTraits;
 		
@@ -18,7 +18,8 @@
 				'relationship' => 'parent',
 				'querytype' => 'in',
 				'datatype' => 'char',
-				'label' => 'Colors'
+				'label' => 'Colors',
+				'template' => 'family-page'
 			),
             'price' => array(
 				'processwire' => false,
@@ -29,17 +30,13 @@
 			)
 		);
         
-        public function __construct(\Purl\Url $pageurl, $modal, $loadinto, $ajax, $q) {
+        public function __construct(\Purl\Url $pageurl, $modal, $loadinto, $ajax, $q, $section) {
 			$this->pageurl = new \Purl\Url($pageurl->getUrl());
+			$this->pageurl->path = $section->url();
+			$this->modal = $modal;
+			$this->loadinto = $loadinto;
+			$this->ajaxdata = $ajax;
 			$this->set_searchvalue($q);
-		}
-		
-		public function create_searchsection(Processwire\Page $section) {
-			switch ($section->name) {
-				case 'product-results':
-					return new ProductSearchResults($this->pageurl, $this->modal, $this->loadinto, $this->ajaxdata, $this->q, $section);
-					break;
-			}
 		}
         
 		public function set_searchvalue($q) {
@@ -108,20 +105,27 @@
 			}
 		}
 		
-		function generate_processwireselector() {
+		public function generate_processwireselector() {
 			$selector = array();
-			foreach ($this->filters as $filter => $values) {
-				if ($this->filterable[$filter]['processwire']) {
-					switch ($this->filterable[$filter]['relationship']) {
-						case 'parent':
-							$template = $this->filterable[$filter]['template'];
-							$parents = implode('|', $values);
-							$selector[] = "parent=" . implode('|', DplusWire::wire('pages')->findIDS("template=$template,name=$parents"));
-							break;
+			$string = '';
+			if (!empty($this->filters)) {
+				foreach ($this->filters as $filter => $values) {
+					if ($this->filterable[$filter]['processwire']) {
+						switch ($this->filterable[$filter]['relationship']) {
+							case 'parent':
+								$template = $this->filterable[$filter]['template'];
+								$parents = implode('|', $values);
+								$selector[] = "parent=" . implode('|', DplusWire::wire('pages')->findIDS("template=$template,name=$parents"));
+								break;
+						}
 					}
 				}
+				$string = (!empty($selector)) ? ', '.implode(', ', $selector) : '';
 			}
-			$string = (!empty($selector)) ? ', '.implode(', ', $selector) : '';
 			return $this->selector . $string;
+		}
+		
+		public static function generate_defaultselector($q) {
+			return "title|body|headline|longdesc~=".DplusWire::wire('sanitizer')->selectorValue($q);
 		}
     }

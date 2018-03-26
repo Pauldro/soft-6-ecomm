@@ -14,6 +14,5 @@ if ($q) {
     // have this here, but we thought it might be a good way to introduce has_parent.
     if ($user->isLoggedin()) $selector .= ", has_parent!=2";
 }
-	$searchresults = new SearchResults($page->fullURL, '#ajax-modal', '', true, $q);
     $section = $page;
     include($config->paths->content."search/$section->name.php");

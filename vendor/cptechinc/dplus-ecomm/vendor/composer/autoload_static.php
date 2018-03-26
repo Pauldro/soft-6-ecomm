@@ -7,15 +7,13 @@ namespace Composer\Autoload;
 class ComposerStaticInitad2f366086591edf1c83dfb13eadcbc8
 {
     public static $files = array (
-        'db980e04236261e4a9a38c19c888ffe6' => __DIR__ . '/../..' . '/src/MagicMethods.trait.php',
         '08abc3654b31baa136fc51bb71b27304' => __DIR__ . '/../..' . '/src/Model/Product.class.php',
         'bee9d9bcd84893fe61ec970dcdfe9b42' => __DIR__ . '/../..' . '/src/Model/Family.class.php',
         'b35b6f26ab7b35ebeed46b9356b97534' => __DIR__ . '/../..' . '/src/ItemCSVExport.class.php',
         '8799eb3becfb0f21eec9b259e2313527' => __DIR__ . '/../..' . '/src/FamilyCategoryExport.class.php',
         '8e91bf4fc59223e9a363e1a20174ec1a' => __DIR__ . '/../..' . '/src/DplusItemImporter.class.php',
-        '4233a81323ee342f4c7a1fd5e796304e' => __DIR__ . '/../..' . '/src/Search.class.php',
+        '1c2e936a4ce843170a4f98e3d022ea21' => __DIR__ . '/../..' . '/src/SearchResults.class.php',
         '4ffcb98eb81a301cfd4fe56e18a90a01' => __DIR__ . '/../..' . '/src/ProductSearchResults.class.php',
-        'ba4a4a7d9cf0e3438df21f72c213a745' => __DIR__ . '/../..' . '/src/DplusWire.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

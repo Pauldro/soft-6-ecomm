@@ -6,13 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'db980e04236261e4a9a38c19c888ffe6' => $baseDir . '/src/MagicMethods.trait.php',
     '08abc3654b31baa136fc51bb71b27304' => $baseDir . '/src/Model/Product.class.php',
     'bee9d9bcd84893fe61ec970dcdfe9b42' => $baseDir . '/src/Model/Family.class.php',
     'b35b6f26ab7b35ebeed46b9356b97534' => $baseDir . '/src/ItemCSVExport.class.php',
     '8799eb3becfb0f21eec9b259e2313527' => $baseDir . '/src/FamilyCategoryExport.class.php',
     '8e91bf4fc59223e9a363e1a20174ec1a' => $baseDir . '/src/DplusItemImporter.class.php',
-    '4233a81323ee342f4c7a1fd5e796304e' => $baseDir . '/src/Search.class.php',
+    '1c2e936a4ce843170a4f98e3d022ea21' => $baseDir . '/src/SearchResults.class.php',
     '4ffcb98eb81a301cfd4fe56e18a90a01' => $baseDir . '/src/ProductSearchResults.class.php',
-    'ba4a4a7d9cf0e3438df21f72c213a745' => $baseDir . '/src/DplusWire.class.php',
 );
