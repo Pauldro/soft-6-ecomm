@@ -6,7 +6,9 @@
         private static $count = 0;
         private $openform;
         public $bootstrap = false;
-        
+        /* =============================================================
+			CONSTRUCTOR FUNCTIONS 
+		============================================================ */
         public function __construct($attr = '', $openform = true) {
             self::$count++;
             $this->bootstrap = new Contento();
@@ -14,6 +16,9 @@
             $this->openform = $openform;
         }
         
+        /* =============================================================
+			GETTER FUNCTIONS 
+		============================================================ */
         public function __call($name, $args){
             if (in_array($name, $this->bootstrap->closeable)) {
                 if (!$args[1]) {
@@ -29,6 +34,9 @@
             }
         }
         
+        /* =============================================================
+			CLASS FUNCTIONS 
+		============================================================ */
         public function input($attr = '') {
             $this->formstring .= $this->indent() . $this->bootstrap->input($attr);
         }
@@ -50,12 +58,9 @@
         }
         
         public function finish() {
-            if (self::$count < 0) {
-                self::$count--;
-                if ($this->openform) {
-                    $this->formstring .= $this->bootstrap->close('form');
-                }
-            }
+			if ($this->openform) {
+				$this->formstring .= $this->bootstrap->close('form');
+			}
             return $this->formstring;
         }
         

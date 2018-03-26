@@ -11,7 +11,7 @@
 		 * @param int  $pagenbr     [description]
 		 * @param int  $count       Number of items used to determine the number of pages needed
 		 * @param string  $pageurl     pageurl to manipulate
-		 * @param string  $insertafter if there isn't a urlsegment with page(1,3) in it then
+		 * @param string  $insertafter if there isn't a urlsegmnet with page(1,3) in it then
 		 * @param string or false $ajaxdata    String with ajaxdata needed like data-focus='#ajax'
 		 */
 		public function __construct($pagenbr, $count, $pageurl, $insertafter, $ajaxdata = false) {
@@ -25,25 +25,15 @@
 		}
 		
 		/* =============================================================
- 		   CLASS FUNCTIONS 
- 	   ============================================================ */
+			CLASS FUNCTIONS 
+		============================================================ */
 		/**
 		 * This will take the pageurl and append the page number to it or editing the page number in the url
 		 * @param  int $pagenbr 
 		 * @return string         url with page number
 		 */
 		public function paginate($pagenbr) {
-			if (strpos($this->pageurl, 'page') !== false) {
-				$regex = "((page)\d{1,3}/)";
-				$replace = ($pagenbr > 1) ? "page".$pagenbr : "";
-				$newurl = preg_replace($regex, $replace, $this->pageurl);
-			} else {
-				$this->insertafter = str_replace('/', '', $this->insertafter)."/";
-				$regex = "(($this->insertafter))";
-				$replace = ($pagenbr > 1) ? $this->insertafter."page".$pagenbr."/" : $this->insertafter;
-				$newurl = preg_replace($regex, $replace, $this->pageurl);
-			}
-			return $newurl;
+			return self::paginateurl($this->pageurl, $pagenbr, $this->insertafter);
 		}
 		
 		/** 
@@ -61,7 +51,7 @@
 		public function generate_showonpage() {
 			$url = new \Purl\Url($this->pageurl);
 			$url->query->remove('display');
-			$href = $this->paginate(1);
+			$href = $url->getUrl();
 			$ajaxdata = $this->generate_ajaxdataforcontento();
 			$bootstrap = new Contento();
 			
@@ -69,8 +59,8 @@
 			$form .= $bootstrap->label('', 'Results Per Page') . '&nbsp; &nbsp;';
 			$form .= $bootstrap->open('select', 'class=form-control input-sm results-per-page|name=results-per-page');
 			
-			foreach (wire('config')->showonpageoptions as $val) {
-				if ($val == wire('session')->display) {
+			foreach (Processwire\wire('config')->showonpageoptions as $val) {
+				if ($val == Processwire\wire('session')->display) {
 					$form .= $bootstrap->openandclose('option',"value=$val|selected", $val);
 				} else {
 					$form .= $bootstrap->openandclose('option',"value=$val", $val);
@@ -90,7 +80,7 @@
 		public function __toString() {
 			$bootstrap = new Contento();
 			$list = '';
-			$totalpages = ceil($this->count / wire('session')->display); 
+			$totalpages = ceil($this->count / Processwire\wire('session')->display); 
 			if ($this->pagenbr == 1) {
 				$link = $bootstrap->openandclose('a', 'href=#|aria-label=Previous', '<span aria-hidden="true">&laquo;</span>');
 				$list .= $bootstrap->openandclose('li', 'class=disabled', $link);
@@ -131,33 +121,45 @@
 		}
 		
 		/* =============================================================
- 		   STATIC FUNCTIONS 
- 	   ============================================================ */
+		   STATIC FUNCTIONS 
+	   ============================================================ */
 	   /**
-	    * Find what page number the $url is on
-	    * @param  PurlUrl $url 
-	    * @return int      page number
-	    */
+		* Find what page number the $url is on
+		* @param  PurlUrl $url 
+		* @return int     Page Number
+		*/
 		public static function generate_pagenbr(\Purl\Url $url) {
-	        if (preg_match("((page)\d{1,3})", $url->path, $matches)) {
-	            return str_replace('page', '', $matches[0]);
-	        } else {
-	            return 1;
-	        }
-	    }
+			if (preg_match("((page)\d{1,3})", $url->path, $matches)) {
+				return str_replace('page', '', $matches[0]);
+			} else {
+				return 1;
+			}
+		}
+		
+		public static function paginateurl($url, $pagenbr, $insertafter) {
+			if (strpos($url, 'page') !== false) {
+				$regex = "((page)\d{1,3})";
+				$replace = ($pagenbr > 1) ? $replace = "page".$pagenbr : "";
+				$newurl = preg_replace($regex, $replace, $url);
+			} else {
+				$insertafter = str_replace('/', '', $insertafter)."/";
+				$regex = "(($insertafter))";
+				$replace = ($pagenbr > 1) ? $insertafter."page".$pagenbr."/" : $replace = $insertafter;
+				$newurl = preg_replace($regex, $replace, $url);
+			}
+			return $newurl;
+		 }
 		
 		/**
- 	    * Initializes the wire('session')->display value;
- 	    */
- 		public static function setup_displayonpage() {
- 			if (wire('input')->get->display) {
- 				wire('session')->display = wire('input')->get->text('display');
- 			} else {
- 				if (!wire('session')->display) {
- 					wire('session')->display = wire('config')->showonpage;
- 				} else {
-					wire('session')->display = wire('config')->showonpage;
+		* Initializes the Processwire\wire('session')->display value;
+		*/
+		public static function setup_displayonpage() {
+			if (Processwire\wire('input')->get->display) {
+				Processwire\wire('session')->display = Processwire\wire('input')->get->text('display');
+			} else {
+				if (!Processwire\wire('session')->display) {
+					Processwire\wire('session')->display = Processwire\wire('config')->showonpage;
 				}
- 			}
- 		}
+			}
+		}
 	}

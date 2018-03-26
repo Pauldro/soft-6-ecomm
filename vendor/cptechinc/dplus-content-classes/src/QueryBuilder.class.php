@@ -1,5 +1,8 @@
 <?php
     class QueryBuilder extends atk4\dsql\Query {
+        /**
+         * $sqlkeywords is a list of SQL keywords that will be shown in uppercase when we debug the query
+         */
         protected $sqlkeywords = array(
             'select',
             'from',
@@ -19,7 +22,8 @@
             'values',
             'into',
             'set',
-            'is'
+            'is', 
+			'in'
         );
         
         /**
@@ -61,6 +65,31 @@
                 $this->order($this->generate_orderby($orderby));
             }
     	}
+        
+        public function generate_filters($filters, $filtertypes) {
+            foreach ($filters as $filter => $filtervalue) {
+                switch ($filtertypes[$filter]['querytype']) {
+                    case 'between':
+						$filtervalue = array_values(array_filter($filtervalue, 'strlen'));
+						
+						if (sizeof($filtervalue) == 1) {
+                            $this->where($filter, $filtervalue[0]);
+                        } else {
+                            if ($filtertypes[$filter]['datatype'] == 'date') {
+                                $this->where($this->expr("STR_TO_DATE($filter, '%m/%d/%Y') between STR_TO_DATE([], '%m/%d/%Y') and STR_TO_DATE([], '%m/%d/%Y')", $filtervalue));
+                            } else if ($filtertypes[$filter]['datatype'] == 'numeric') {
+                                $this->where($this->expr("$filter between CAST([] as UNSIGNED) and CAST([] as UNSIGNED)", $filtervalue));
+                            } else {    
+                                $this->where($this->expr("$filter between [] and []", $filtervalue));
+                            }
+                        }
+                        break;
+                    case 'in':
+                        $this->where($filter, $filtervalue);
+                        break;
+                }
+            }
+        }
         
         /**
          * Parses $value to determine the type of column conditional to use 
@@ -142,6 +171,7 @@
                 return '';
             }
         }
+        
         /**
          * Parses the Paramterized query provided by $this->render()
          * Returns it in a Easy to read format with SQL keywords in CAPS and spaces after commas
@@ -150,7 +180,8 @@
         public function generate_sqlquery() {
             $sql = $this->render();
             $sql = str_replace(',', ', ', $sql);
-            $sql = str_replace('=', ' = ', $sql);
+			$sql = str_replace('!=', ' != ', $sql);
+            $sql = str_replace('`=``', '` = `', $sql);
        		foreach ($this->params as $param => $value) {
        			$sql = str_replace($param, "'".$value."'", $sql);
        		}
@@ -160,4 +191,21 @@
             }
        		return $sql;
        	}
+		
+		public static function generate_filterdescription($key, $val, $filtertypes) {
+			switch ($filtertypes[$key]['querytype']) {
+				case 'between':
+					$val = array_values(array_filter($val, 'strlen'));
+					if (sizeof($val) == 1) {
+						return " ".$filtertypes[$key]['label'] ." = " . $val[0];
+					} else {
+						return " ".$filtertypes[$key]['label'] . " between " . $val[0] . " and " . $val[1];
+					}
+					break;
+				case 'in':
+					$values = implode(', ', $val);
+					return " ".$filtertypes[$key]['label'] ." IN ($values)";
+					break;
+			}
+		}
     }
