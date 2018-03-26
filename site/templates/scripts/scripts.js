@@ -51,6 +51,16 @@ $(document).ready(function() {
 				}
 			});
 		});
+		
+		$("body").on("submit", ".products-filter-form", function(e)  {
+			e.preventDefault();
+			var form = $(this);
+			var loadinto = form.data('loadinto');
+			var focuson = form.data('focus');
+			var action = URI(form.attr('action'));
+			
+			
+		});
 });
 
 $.fn.extend({

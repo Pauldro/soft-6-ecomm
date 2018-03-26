@@ -4,6 +4,7 @@
 <!-- PRODUCTS -->
 <?php $matches = $pages->find($selector.", template=product-page|kit-page, limit=$session->display"); ?>
 <?php $colors = $pages->get('name=paints')->children(); ?>
+<?php $categories = $pages->get('name=paint-tools')->children(); ?>
 
 <?php if ($matches->count) : ?>
     <?php $ajaxdata = "data-focus='#product-results' data-loadinto='#product-results'"; ?>
@@ -13,7 +14,11 @@
             <h3>Products</h3>
             <hr>
             
-            <?php include($config->paths->content."search/products-filter-form.php"); ?>
+            <h4>Filter by Color:</h4>
+            <div class="row">
+                <?php include($config->paths->content."search/products-filter-form.php"); ?>
+            </div>
+            </br>
             
             <div class="row">
                 <?php foreach ($matches as $match) : ?>
