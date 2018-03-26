@@ -75,7 +75,6 @@
     ============================================================ */ 
     function get_itemsfromim($debug = false) {
         $q = (new QueryBuilder())->table('im');
-        $q->field('*');
         $sql = Processwire\wire('database')->prepare($q->render());
         if ($debug) {
 			return $q->generate_sqlquery($q->params);

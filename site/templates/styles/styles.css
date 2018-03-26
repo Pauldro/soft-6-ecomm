@@ -21,10 +21,10 @@ a {
 	color: #6600cc;
 	text-decoration: none;
 }
-	a:hover {
-		text-decoration: none;
-		color: #6600cc;
-	}
+a:hover {
+	text-decoration: none;
+	color: #6600cc;
+}
 	
 .small-text {font-size: .7em;}
 
@@ -219,35 +219,44 @@ form#register-form button {margin-top: 20px;}
 /*==============================================================
 	 PAINT CATEGORY STYLES
 =============================================================*/
-.paint-category-title {
-	padding-top: 40px;
-	height: 150px;
-	width: 150px;
-	text-align: center;
-	-webkit-transition: border .25s ease-in;
-    -moz-transition: border .25s ease-in;
-    -ms-transition: border .25s ease-in;
-    -o-transition: border .25s ease-in;
-	border: 20px solid;
-}
-.paint-category-title:hover {
-	-webkit-transition: border .25s ease-out;
-    -moz-transition: border .25s ease-out;
-    -ms-transition: border .25s ease-out;
-    -o-transition: border .25s ease-out;
-     border: 35px solid;
-	 padding-top: 30px;
-	 font-style: normal;
-}
-
 .space {margin-top: 30px;}
 
-@media only screen and (max-width: 991px) {
-	.paint-category-title {
-		width: 100%;
-	}
+.paint-color-image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
 
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.color {position: relative;}
+
+.color:hover .paint-color-image {opacity: 0.5;}
+
+.color:hover .middle {opacity: 1;}
+
+.text {
+  background-color: #6600cc;
+  color: white;
+  padding: 16px 32px;
+}
+
+@media and screen only (max-width: 991px) {
+	.middle {opacity: 1;}
+	.paint-color-image {opacity: 0.5;}
+}
 
 /*==============================================================
 	 PRODUCT CONTAINER STYLES

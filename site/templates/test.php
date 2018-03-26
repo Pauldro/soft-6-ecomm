@@ -9,6 +9,7 @@
 				<li><?php echo "$paint->name : $paint->name-paints"; ?></li>
 			<?php endforeach; ?>
 		</ul>
-		
+		<?php $pages = $pages->find('id=1054|1055'); ?>
+		<?php echo var_dump($pages); ?>
 	</div>
 <?php include('./_foot.php'); // include footer markup ?>

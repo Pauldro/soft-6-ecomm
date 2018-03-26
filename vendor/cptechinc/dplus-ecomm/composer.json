@@ -6,11 +6,15 @@
     "homepage": "http://github.com/cptechinc/dplus-ecomm",
 	"autoload": {
 		"files": [
+			"src/MagicMethods.trait.php",
 			"src/Model/Product.class.php",
 			"src/Model/Family.class.php",
 			"src/ItemCSVExport.class.php",
 			"src/FamilyCategoryExport.class.php",
-			"src/DplusItemImporter.class.php"
+			"src/DplusItemImporter.class.php",
+			"src/Search.class.php",
+			"src/ProductSearchResults.class.php",
+			"src/DplusWire.class.php"
 		]
 	}
 }

@@ -3,9 +3,12 @@
 <?php $children = $page->children; ?>
 <div class="row space">
 	<?php foreach ($children as $child) : ?>
-		<div class="col-xs-12 col-sm-3 col-md-2">
+		<div class="col-md-3 col-sm-6 color form-group">
 			<a href="<?php echo $child->url; ?>">
-				<h4 class="paint-category-title" style="border-color: <?php echo $child->title; ?>;"><?php echo $child->title; ?></h4>
+				<img src="<?= $child->product_image->url; ?>" alt="<?= $child->title; ?>" class="img-responsive paint-color-image">
+				<div class="middle">
+				    <h4 class="sliding-white text"><?= $child->title; ?></h4>
+				</div>
 			</a>
 		</div>
 	<?php endforeach; ?>
