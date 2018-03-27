@@ -1,5 +1,6 @@
 <?php 
 	class ProductSearchResults extends SearchResults {
+		
 		protected $filterable = array(
 			'color' => array(
 				'processwire' => true,
@@ -24,9 +25,7 @@
 			if (DplusWire::wire('config')->sitetype == 'paints') {
 				$categories = array('paints-stains', 'paint-tools');
 				$categorypages = DplusWire::wire('pages')->find("template=category-page,name=".implode('|', $categories));
-				echo var_dump($categorypages);
 				foreach ($category as $category) {
-					echo $category->id . "<br>";
 					$this->selector .= ", parent!=$category->id";
 				}
 			}
