@@ -7,6 +7,8 @@
 	
 	$colors = $pages->get('name=paints')->children();
 	$categories = $pages->get('name=paint-tools')->children();
+	$categories->add($pages->get('name=paints'));
+	$categories->add($pages->get('name=stains'));
 ?>
 
 <!-- PRODUCTS -->

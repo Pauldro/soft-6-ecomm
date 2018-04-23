@@ -1,27 +1,31 @@
+<?php 
+	$product = ProductPage::create_fromobject($page);
+?>
+
 <?php include('./_head.php'); ?>
 	<div class="container page">
 		<ol class="breadcrumb">
-			<li><a href="<?= $page->parent->parent->parent->url; ?>"><?= $page->parent->parent->parent->title; ?></a></li>
-			<li><a href="<?= $page->parent->parent->url; ?>"><?= $page->parent->parent->title; ?></a></li>
-			<li><a href="<?= $page->parent->url; ?>"><?= $page->parent->title; ?></a></li>
-			<li>Spectrum - <?= $page->title ?></li>
+			<?php foreach ($product->generate_breadcrumbs() as $crumb) : ?>
+				<li><a href="<?= $crumb->url; ?>"><?= $crumb->title; ?></a></li>
+			<?php endforeach; ?>
+			<li>Spectrum - <?= $product->title ?></li>
 		</ol>
 		
 		<div class="product-container">
-			<h1>Spectrum - <?= $page->title ?></h1>
+			<h1>Spectrum - <?= $product->title ?></h1>
 			<div class="row">
 				<div class="col-sm-5">
-					<img class="product-img img-responsive" src="<?= $page->product_image->height(434)->url; ?>" alt="">
-					<h4>Model: <?php echo $page->itemid; ?></h4>
+					<img class="product-img img-responsive" src="<?= $product->product_image->height(434)->url; ?>" alt="<?= $product->title ?>">
+					<h4>Model: <?php echo $product->itemid; ?></h4>
 					<form class="form-inline" action="<?php echo $pages->get('/cart/redir/')->url; ?>" method="post">
 						<input type="hidden" name="action" value="add-to-cart">
-						<input type="hidden" name="itemID" value="<?= $page->itemid; ?>">
-						<input type="hidden" name="page" value="<?= $page->url; ?>">
+						<input type="hidden" name="itemID" value="<?= $product->itemid; ?>">
+						<input type="hidden" name="page" value="<?= $product->url; ?>">
 						<div class="quantity-group">
 							<label for="quantity">Quantity:</label>
 							<input class="form-control input-sm qty" type="text" name="qty" size="3">
 						</div>
-						<h3 class="price">$<?php echo $page->price; ?></h3>
+						<h3 class="price">$<?php echo $product->price; ?></h3>
 						<button class="btn btn-info btn-block add_to_cart" type="submit" name="add_to_cart">Add to Cart</button>
 					</form>
 
@@ -29,15 +33,15 @@
 				<div class="col-sm-7">
 
 					<!-- displays room with paint sample if category is paints -->
-					<?php if ($page->parent->parent->name == 'paints') : ?>
-						<div class="bedroom-color img-responsive" style="background-color: <?= '#'.$page->itemid; ?>;">
+					<?php if ($product->parent->parent->name == 'paints') : ?>
+						<div class="bedroom-color img-responsive" style="background-color: <?= '#'.$product->itemid; ?>;">
 							<img class="bedroom img-responsive" src="<?php echo $config->urls->assets.'files/images/bedroom.png'; ?>">
 						</div>
 					<?php endif; ?>
 
 					<div class="description">
 						<h4>Product Description</h4>
-						<p><?php echo $page->longdesc; ?></p>
+						<p><?php echo $product->longdesc; ?></p>
 					</div>
 				</div>
 			</div>
@@ -48,7 +52,7 @@
 	<div class="related-products">
 		<h3>Related Products</h3>
 		<div class="row">
-			<?php foreach ($page->siblings('limit=4', false) as $relate) : ?>
+			<?php foreach ($product->get_relatedproducts(4) as $relate) : ?>
 				<div class="col-xs-6 col-sm-4 col-md-3 form-group">
 					<a href="<?= $relate->url; ?>">
 						<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">

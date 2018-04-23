@@ -1,12 +1,16 @@
 <!-- this page contains the product listings, ie. all the reds or all the rollers -->
-<?php $paginator = new Paginator($input->pageNum, $page->children->count, $page->fullURL->getUrl(), $page->name); ?>
+<?php 
+	$family = FamilyPage::create_fromobject($page);
+	$paginator = new Paginator($input->pageNum, $page->children->count, $page->fullURL->getUrl(), $page->name); 
+?>
 
 <?php include('./_head.php'); ?>
 	<div class="container page">
 		<ol class="breadcrumb">
-			<li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
-		  	<li><a href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a></li>
-		  	<li><?php echo $page->title; ?></li>
+			<?php foreach ($family->generate_breadcrumbs() as $crumb) : ?>
+				<li><a href="<?= $crumb->url; ?>"><?= $crumb->title; ?></a></li>
+			<?php endforeach; ?>
+		  	<li><?php echo $family->title; ?></li>
 		</ol>
 		
 		<?= $paginator->generate_showonpage(); ?>

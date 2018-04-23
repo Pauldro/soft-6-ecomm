@@ -17,6 +17,11 @@
 	include_once($config->paths->vendor.'cptechinc/dplus-helper-classes/vendor/autoload.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-content-classes/vendor/autoload.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/vendor/autoload.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Traits/CreatePageTraits.trait.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Page/ProductPage.class.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Page/FamilyPage.class.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Page/CategoryPage.class.php');
+	
 	
 	$session->sessionName = session_name();
 	
