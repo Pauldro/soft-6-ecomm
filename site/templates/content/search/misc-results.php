@@ -1,5 +1,10 @@
-<?php $httpurl = new \Purl\Url($page->fullURL->getUrl()); ?>
-<?php $httpurl->path = $section->url; ?>
+<?php 
+    $miscresults = new MiscSearchResults($page->fullURL, '#ajax-modal', '', true, $q, $section);
+    $miscresults->generate_filter($input);
+    $miscresults->set('ajaxdata', "data-focus='#misc-results' data-loadinto='#misc-results'");
+    $selector = trim($miscresults->generate_processwireselector());
+    $matches = $pages->find("$selector, limit=$session->display");
+?>
 
 <!-- MISCELLANEOUS -->
 <?php $matches = $pages->find($selector.", template=about|contact|basic-page|home, limit=$session->display"); ?>

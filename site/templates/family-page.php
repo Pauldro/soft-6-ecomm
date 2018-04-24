@@ -14,9 +14,6 @@
 		</ol>
 		
 		<?= $paginator->generate_showonpage(); ?>
-		<?php // $children = $page->children("limit=$session->display", array('findIDs' => true)); ?>
-
-		<?php // foreach (array_chunk($children, 4, true) as $array) : ?>
 			<div class="row space">
 			<?php foreach ($family->get_familylinks($limit) as $child) : ?>
 				<?php $product = $pages->get($child['id']); ?>
@@ -30,7 +27,6 @@
 				</div>
 			<?php endforeach; ?>
 			</div>
-		<?php // endforeach; ?>
 		<?= $paginator; ?>
 	</div>
 <?php include('./_foot.php'); // include footer markup ?>

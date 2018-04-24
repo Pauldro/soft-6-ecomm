@@ -1,5 +1,10 @@
-<?php $httpurl = new \Purl\Url($page->fullURL->getUrl()); ?>
-<?php $httpurl->path = $section->url; ?>
+<?php 
+    $catresults = new CatSearchResults($page->fullURL, '#ajax-modal', '', true, $q, $section);
+    $catresults->generate_filter($input);
+    $catresults->set('ajaxdata', "data-focus='#cat-results' data-loadinto='#cat-results'");
+    $selector = trim($catresults->generate_processwireselector());
+    $matches = $pages->find("$selector, limit=$session->display");
+?>
 
 <!-- CATEGORIES -->
 <?php $matches = $pages->find($selector.", template=category-page|family-page, limit=$session->display"); ?>

@@ -1,5 +1,6 @@
 <?php 
 	$product = ProductPage::create_fromobject($page);
+	
 ?>
 
 <?php include('./_head.php'); ?>
@@ -55,7 +56,7 @@
 			<?php foreach ($product->get_relatedproducts(4) as $relate) : ?>
 				<div class="col-xs-6 col-sm-4 col-md-3 form-group">
 					<a href="<?= $relate->url; ?>">
-						<img class="img-responsive" src="<?php echo $relate->product_image->height(400)->url ?>" alt="">
+						<img class="img-responsive" src="<?php echo $relate->product_image->height(300)->url ?>" alt="">
 					</a>
 					<h4><a href="<?php echo $relate->url; ?>"><?php echo $relate->title; ?></a></h4>
 					<p>Model: <?php echo $relate->itemid; ?></p>

@@ -1,5 +1,10 @@
-<?php $httpurl = new \Purl\Url($page->fullURL->getUrl()); ?>
-<?php $httpurl->path = $section->url; ?>
+<?php 
+    $blogresults = new BlogSearchResults($page->fullURL, '#ajax-modal', '', true, $q, $section);
+    $blogresults->generate_filter($input);
+    $blogresults->set('ajaxdata', "data-focus='#blog-results' data-loadinto='#blog-results'");
+    $selector = trim($blogresults->generate_processwireselector());
+    $matches = $pages->find("$selector, limit=$session->display");
+?>
 
 <!-- BLOG -->
 <?php $matches = $pages->find($selector.", template=blog-post, limit=$session->display"); ?>

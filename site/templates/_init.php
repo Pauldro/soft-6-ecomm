@@ -21,6 +21,10 @@
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Page/ProductPage.class.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Page/FamilyPage.class.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Page/CategoryPage.class.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/BlogSearchResults.class.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/EventSearchResults.class.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/MiscSearchResults.class.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/CatSearchResults.class.php');
 	
 	
 	$session->sessionName = session_name();
