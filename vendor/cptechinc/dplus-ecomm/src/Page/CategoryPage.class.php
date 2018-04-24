@@ -5,5 +5,7 @@
 		use CreateClassArrayTraits;
         use CreatePageTraits;
         
-        
+        function get_categorylinks() {
+            return $this->children();
+        }
     }

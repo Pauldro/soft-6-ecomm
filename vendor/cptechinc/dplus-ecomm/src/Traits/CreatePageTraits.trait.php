@@ -7,6 +7,6 @@
 		}
         
         public function get_relatedproducts($limit = 4) {
-			return $this->siblings("limit=$limit", false);
+			return $this->siblings("limit=$limit, sort=random", false);
 		}
     }

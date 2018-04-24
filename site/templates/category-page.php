@@ -1,4 +1,4 @@
-<!-- this page contains "paints" and "stains" links -->
+<!-- this page is a router for "paints" and "stains" page and the listing of category paints page -->
 <?php 
 	$category = CategoryPage::create_fromobject($page);
 ?>

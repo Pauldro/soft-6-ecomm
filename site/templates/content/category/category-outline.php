@@ -1,8 +1,6 @@
 <!-- paint and stains links -->
-
-<?php $children = $page->children(); ?>
 <div class="row">
-	<?php foreach ($children as $child) : ?>
+	<?php foreach ($category->get_categorylinks() as $child) : ?>
 		<div class="col-sm-4">
 			<h2><a href="<?= $child->url; ?>" class="sliding-middle-out"><?= $child->title; ?></a></h2>
 			<a href="<?= $child->url; ?>">

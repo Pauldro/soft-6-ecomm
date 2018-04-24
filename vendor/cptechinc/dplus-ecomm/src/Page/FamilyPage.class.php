@@ -5,4 +5,7 @@
 		use CreateClassArrayTraits;
         use CreatePageTraits;
         
+        function get_familylinks($limit) {
+            return $this->children("limit=$limit");
+        }
     }

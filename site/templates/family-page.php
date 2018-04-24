@@ -2,8 +2,8 @@
 <?php 
 	$family = FamilyPage::create_fromobject($page);
 	$paginator = new Paginator($input->pageNum, $page->children->count, $page->fullURL->getUrl(), $page->name); 
+	$limit = $session->display;
 ?>
-
 <?php include('./_head.php'); ?>
 	<div class="container page">
 		<ol class="breadcrumb">
@@ -14,11 +14,11 @@
 		</ol>
 		
 		<?= $paginator->generate_showonpage(); ?>
-		<?php $children = $page->children("limit=$session->display", array('findIDs' => true)); ?>
+		<?php // $children = $page->children("limit=$session->display", array('findIDs' => true)); ?>
 
-		<?php foreach (array_chunk($children, 4, true) as $array) : ?>
+		<?php // foreach (array_chunk($children, 4, true) as $array) : ?>
 			<div class="row space">
-			<?php foreach ($array as $child) : ?>
+			<?php foreach ($family->get_familylinks($limit) as $child) : ?>
 				<?php $product = $pages->get($child['id']); ?>
 				<div class="col-xs-6 col-md-3 form-group">
 					<a href="<?php echo $product->url; ?>">
@@ -30,7 +30,7 @@
 				</div>
 			<?php endforeach; ?>
 			</div>
-		<?php endforeach; ?>
+		<?php // endforeach; ?>
 		<?= $paginator; ?>
 	</div>
 <?php include('./_foot.php'); // include footer markup ?>
