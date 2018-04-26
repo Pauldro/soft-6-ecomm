@@ -1,13 +1,15 @@
 <!-- this page contains the product listings, ie. all the reds or all the rollers -->
 <?php 
+	$kit = KitPage::create_fromobject($page);
 	$paginator = new Paginator($input->pageNum, $page->children->count, $page->fullURL->getUrl(), $page->name);
 ?>
 <?php include('./_head.php'); ?>
 
 	<div class="container page">
 		<ol class="breadcrumb">
-			<li><a href="<?php echo $page->parent->parent->url; ?>"><?php echo $page->parent->parent->title; ?></a></li>
-		  	<li><a href="<?php echo $page->parent->url; ?>"><?php echo $page->parent->title; ?></a></li>
+			<?php foreach ($kit->generate_breadcrumbs() as $crumb) : ?>
+				<li><a href="<?= $crumb->url; ?>"><?= $crumb->title; ?></a></li>
+			<?php endforeach; ?>
 		  	<li><?php echo $page->title; ?></li>
 		</ol>
         
@@ -34,27 +36,23 @@
 		    <label class="col-md-2 text-right">Qty Included</label>
 		</div>
 		<hr class="label-divider">
-
-		<?php $thisTag = $page->itemid; ?>
-		<?php $tags = $pages->find("kit_tag=$thisTag"); ?>
-		<?php foreach ($tags as $tag) : ?>
-
-		<div class="product row">
-		    <img class="col-sm-2 col-md-2 img-responsive" src="<?php echo $tag->product_image->height(300)->url; ?>" alt="">
-		    <div class="col-sm-4 col-md-5 product-info">
-		        <h4 class="cart-product-title">
-					<a href="<?php echo $tag->url; ?>"><?php echo $tag->title; ?></a>
-		        </h4>
-		    </div>
-		    <div class="col-sm-2 col-md-3 product-price">
-		        <p class="cart-product-model"><?php echo $tag->itemid; ?></p>
-		    </div>
-		    <div class="col-sm-2 col-md-2 product-quantity">
-		        <p class='text-right'><?php echo $tag->qtyinkit; ?></p>
-		    </div>
-		</div>
-		<hr>
-			
+		
+		<?php foreach ($kit->get_kitcomponents($page->itemid) as $tag) : ?>
+			<div class="product row">
+			    <img class="col-sm-2 col-md-2 img-responsive" src="<?php echo $tag->product_image->height(300)->url; ?>" alt="">
+			    <div class="col-sm-4 col-md-5 product-info">
+			        <h4 class="cart-product-title">
+						<a href="<?php echo $tag->url; ?>"><?php echo $tag->title; ?></a>
+			        </h4>
+			    </div>
+			    <div class="col-sm-2 col-md-3 product-price">
+			        <p class="cart-product-model"><?php echo $tag->itemid; ?></p>
+			    </div>
+			    <div class="col-sm-2 col-md-2 product-quantity">
+			        <p class='text-right'><?php echo $tag->qtyinkit; ?></p>
+			    </div>
+			</div>
+			<hr>
 		<?php endforeach; ?>
 
 		<div class="row">
@@ -70,7 +68,6 @@
 		            <h3 class="price text-right">$<?php echo $page->price; ?></h3>
 		            <button class="btn btn-info btn-block add_to_cart" type="submit" name="add_to_cart">Add to Cart</button>
 		        </form>
-
 		    </div>
 		</div>
 	</div>

@@ -1,6 +1,5 @@
 <?php 
     $blogresults = new BlogSearchResults($page->fullURL, '#ajax-modal', '', true, $q, $section);
-    $blogresults->generate_filter($input);
     $blogresults->set('ajaxdata', "data-focus='#blog-results' data-loadinto='#blog-results'");
     $selector = trim($blogresults->generate_processwireselector());
     $matches = $pages->find("$selector, limit=$session->display");

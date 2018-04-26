@@ -1,6 +1,5 @@
 <?php 
     $eventresults = new EventSearchResults($page->fullURL, '#ajax-modal', '', true, $q, $section);
-    $eventresults->generate_filter($input);
     $eventresults->set('ajaxdata', "data-focus='#event-results' data-loadinto='#event-results'");
     $selector = trim($eventresults->generate_processwireselector());
     $matches = $pages->find("$selector, limit=$session->display");

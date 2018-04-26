@@ -55,13 +55,20 @@
 		 * @var array
 		 */
         protected $filterable = array(
-			'color' => array(
+            'color' => array(
 				'processwire' => true,
 				'relationship' => 'parent',
 				'querytype' => 'in',
 				'datatype' => 'char',
 				'label' => 'Colors',
 				'template' => 'family-page'
+			),
+            'category' => array(
+				'processwire' => true,
+				'relationship' => 'parent',
+				'querytype' => 'in',
+				'datatype' => 'char',
+				'label' => 'Category'
 			),
             'price' => array(
 				'processwire' => false,
