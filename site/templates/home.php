@@ -1,8 +1,6 @@
+<?php $events = EventPage::create_fromobject($pages->get("template=events")); ?>
 <?php include('./_head.php'); ?>
 	<div class="jumbotron page-banner" style="background: url('<?= $page->pagebanner->height(900)->url; ?>'); background-size: cover;">
-		<!-- <div class="container tsp-background">
-			<h1 class="white-text"><?php echo $page->get('pagetitle|headline|title') ; ?></h1>
-		</div> -->
 	</div>
 	<div class="container page">
 		<?php if ($user->logged_in) : ?>
@@ -28,8 +26,7 @@
 		</br>
 		<h2>Upcoming Events</h2>
 	    <div class="row">
-	        <?php $events = $pages->find("template=event, limit=4, sort=startdate") ?>
-	        <?php foreach ($events as $event) : ?>
+	        <?php foreach ($events->get_events($limit=4) as $event) : ?>
 	            <div class="col-md-3">
 	                <a href="<?php echo $event->url; ?>">
 	                    <img class="img-responsive" src="<?php echo $event->images->url; ?>" alt="">

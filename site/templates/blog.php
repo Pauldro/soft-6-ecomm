@@ -1,13 +1,17 @@
-<?php include('./_head.php'); ?>
-<?php $paginator = new Paginator($input->pageNum, $pages->find("template=blog-post")->count, $page->fullURL->getUrl(), $page->name); ?>
+<?php 
+	$blog = BlogPage::create_fromobject($page);
+	$paginator = new Paginator($input->pageNum, $pages->find("template=blog-post")->count, $page->fullURL->getUrl(), $page->name);
+	$limit = $session->display;
+?>
 
+<?php include('./_head.php'); ?>
 <div class="container page">
         <h1>Spectrum Blog</h1>
 		<hr>
 
         <?= $paginator->generate_showonpage(); ?>
         
-        <?php $panels = $pages->find("template=blog-post, limit=$session->display, sort=-blog_date"); ?>
+        <?php $panels = $blog->get_blogposts($limit); ?>
         <?php foreach ($panels as $panel) : ?>
             <div class="panels row">
                 <div class="col-md-4">

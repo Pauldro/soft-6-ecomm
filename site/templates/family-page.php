@@ -23,6 +23,7 @@
 					</a>
 					<h4><a href="<?php echo $product->url; ?>"><?php echo $product->title; ?></a></h4>
 					<p>Model: <?php echo $product->itemid; ?></p>
+					<p class="text-right"><span class="price">$<?php echo $product->price; ?></span></p>
 					<a href="<?php echo $product->url; ?>" class="btn btn-info btn-block">See more</a>
 				</div>
 			<?php endforeach; ?>
