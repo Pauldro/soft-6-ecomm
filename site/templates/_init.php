@@ -14,8 +14,9 @@
 	include_once("./_func.php"); // include our shared functions
 	include_once("./_dbfunc.php"); // include our shared functions
 	include_once("./_dplus.php");
-	include_once($config->paths->vendor.'cptechinc/dplus-helper-classes/vendor/autoload.php');
-	include_once($config->paths->vendor.'cptechinc/dplus-content-classes/vendor/autoload.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-processwire/vendor/autoload.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-base/vendor/autoload.php');
+	include_once($config->paths->vendor.'cptechinc/dplus-content/vendor/autoload.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/vendor/autoload.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Traits/CreatePageTraits.trait.php');
 	include_once($config->paths->vendor.'cptechinc/dplus-ecomm/src/Page/ProductPage.class.php');
@@ -41,7 +42,7 @@
 		$page->fullURL->join($page->filename);
 	}
 	
-	$page->bootstrap = new Contento();
+	$page->bootstrap = new HTMLWriter();
 	$page->stringerbell = new StringerBell();
 	Paginator::setup_displayonpage();
 
@@ -53,5 +54,5 @@
 	$config->scripts->append($config->urls->templates.'scripts/scripts.js');
 
 	$site = $pages->get('/config/');
-	$user->loggedin = is_loggedin(session_id(), false);
+	//$user->loggedin = is_loggedin(session_id(), false);
 	

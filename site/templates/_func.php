@@ -52,13 +52,13 @@ function renderNav(PageArray $items) {
 
 function navigationmenu(PageArray $items) {
 	if (!$items->count()) return;
-	$bootstrap = new Contento();
+	$bootstrap = new HTMLWriter();
 	$list = '';
 	foreach ($items as $item) {
 		if ($item->showinnavigation) {
 			if ($item->hasChildren() && $item->id != wire('pages')->get('/')->id && $item->template != 'blog' && $item->template != 'about' && $item->template != 'events') {
 				
-				$sublist= $bootstrap->a('href=#|class=dropdown-toggle|data-toggle=dropdown|role=button|aria-haspopup=true|aria-expanded=false', $item->title.$bootstrap->createicon('caret'));
+				$sublist= $bootstrap->a('href=#|class=dropdown-toggle|data-toggle=dropdown|role=button|aria-haspopup=true|aria-expanded=false', $item->title.$bootstrap->icon('caret'));
 				
 				$innerlist = $bootstrap->li('', $bootstrap->a("href=$item->url|class=sliding-white", $item->title));
 				$innerlist .= $bootstrap->li('role=separator|class=divider');

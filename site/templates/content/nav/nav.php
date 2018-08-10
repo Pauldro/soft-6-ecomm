@@ -19,12 +19,6 @@
 		$session->remove('loginerror');
 	   // $session->redirect("/store/"); 
 	}
-	  
-    $cartdetails = get_cart(session_id(), false);
-    $cartqty = 0;
-    foreach ($cartdetails as $cartdetail) {
-		$cartqty += $cartdetail['qty'];
-	}
 	
 ?>
 <div class="container">
@@ -86,7 +80,7 @@
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active">
-					<a href="<?php echo $pages->get("template=cart")->url; ?>" class="sliding-white">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i> ( <?php echo $cartqty; ?> ) </a>
+					<a href="<?php echo $pages->get("template=cart")->url; ?>" class="sliding-white">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i> (  ) </a>
 				</li>
 			</ul>
 		</div><!--/.nav-collapse -->
